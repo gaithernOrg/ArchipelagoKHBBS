@@ -766,7 +766,7 @@ item_table: Dict[str, FFXIITMItemData] = {
     "Exodus"                   :          FFXIITMItemData("Mist",               code = 44_49180, classification = ItemClassification.useful,      max_quantity = 1, weight = 1),
     "Ultima"                   :          FFXIITMItemData("Mist",               code = 44_49181, classification = ItemClassification.useful,      max_quantity = 1, weight = 1),
     "Zodiark"                  :          FFXIITMItemData("Mist",               code = 44_49182, classification = ItemClassification.useful,      max_quantity = 1, weight = 1),
-    "Second Job"               :          FFXIITMItemData("Mist",               code = 44_49183, classification = ItemClassification.progression, max_quantity = 1, weight = 1),
+    "Second Job"               :          FFXIITMItemData("Required",           code = 44_49183, classification = ItemClassification.progression, max_quantity = 1, weight = 1),
 }
 event_item_table: Dict[str, FFXIITMItemData] = {
 }
