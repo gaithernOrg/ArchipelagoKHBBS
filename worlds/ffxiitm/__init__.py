@@ -63,6 +63,7 @@ class FFXIITMWorld(World):
         victory_location_name = random.sample(list(get_locations_by_category("Trial " + str(self.get_setting("trial_victory")).rjust(3, "0")).keys()),1)[0]
         self.multiworld.get_location(victory_location_name, self.player).place_locked_item(self.create_item("Victory"))
         item_pool: List[FFXIITMItem] = []
+        prog_item_pool: List[FFXIITMItem] = []
         total_locations = len(self.multiworld.get_unfilled_locations(self.player))
 
         equipment = list(self.item_name_groups["Equipment"])
@@ -75,14 +76,16 @@ class FFXIITMWorld(World):
         self.random.shuffle(technick)
         self.random.shuffle(mist)
 
-        make_progressive = []
+        make_progression = []
 
         for _ in range(0, self.get_setting("trial_victory") // 10):
-            make_progressive.append(equipment.pop())
-            make_progressive.append(magick.pop())
-            make_progressive.append(technick.pop())
-            make_progressive.append(mist.pop())
-
+            make_progression.append(equipment.pop())
+            make_progression.append(magick.pop())
+            make_progression.append(technick.pop())
+            make_progression.append(mist.pop())
+        
+        item_pool += [self.create_item("Second Job")]
+        
         for name, data in item_table.items():
             quantity = data.max_quantity
 
@@ -90,22 +93,37 @@ class FFXIITMWorld(World):
             if data.category not in ["Mist", "Technick", "Magick", "Equipment"]:
                 continue
             items = [self.create_item(name) for _ in range(0, quantity)]
-            if name in make_progressive:
+            if name in make_progression:
                 for item in items:
                     item.classification = ItemClassification.progression
-            item_pool += items
+                prog_item_pool += items
+        
+        item_pool += prog_item_pool
 
         # Fill any empty locations with filler items.
+        item_names = []
+        attempts = 0 #If we ever try to add items 200 times, and all the items are used up, lets clear the item_names array, we probably don't have enough items
         while len(item_pool) < total_locations:
             item_name = self.get_filler_item_name()
-            item_pool.append(self.create_item(item_name))
+            if item_name not in item_names:
+                item_names.append(item_name)
+                item_pool.append(self.create_item(item_name))
+                attempts = 0
+            elif attempts >= 200:
+                item_names = []
+                attempts = 0
+            else:
+                attempts = attempts + 1
 
         self.multiworld.itempool += item_pool
 
     def get_filler_item_name(self) -> str:
         fillers = {}
         disclude = []
-        fillers.update(get_items_by_category("Item", disclude))
+        fillers.update(get_items_by_category("Mist", disclude))
+        fillers.update(get_items_by_category("Technick", disclude))
+        fillers.update(get_items_by_category("Magick", disclude))
+        fillers.update(get_items_by_category("Equipment", disclude))
         weights = [data.weight for data in fillers.values()]
         return self.multiworld.random.choices([filler for filler in fillers.keys()], weights, k=1)[0]
 
