@@ -351,6 +351,8 @@ item_table: Dict[str, KHBBSItemData] = {
     "Disney Town":            KHBBSItemData("World",              code = 227_0050011, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
    #"Keyblade Graveyard":     KHBBSItemData("World",              code = 227_0050012, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
    #"Mirage Arena":           KHBBSItemData("World",              code = 227_0050013, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
+    "HP Increase":            KHBBSItemData("Data",               code = 227_0060000, classification = ItemClassification.useful,      characters = "TVA", max_quantity = 8),
+    "Deck Capacity Increase": KHBBSItemData("Data",               code = 227_0060001, classification = ItemClassification.useful,      characters = "TVA", max_quantity = 5),
 }
 
 event_item_table: Dict[str, KHBBSItemData] = {}
