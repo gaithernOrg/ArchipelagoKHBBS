@@ -17,12 +17,17 @@ class KHBBSItemData(NamedTuple):
     characters: str = "TVA"
 
 
-def get_items_by_category(category: str, disclude: list) -> Dict[str, KHBBSItemData]:
+def get_items_by_category(category: str, exclude: list, characters: list) -> Dict[str, KHBBSItemData]:
+    
     item_dict: Dict[str, KHBBSItemData] = {}
     for name, data in item_table.items():
-        if data.category == category and all(x not in name for x in disclude):
-            item_dict.setdefault(name, data)
-
+        add = False
+        if data.category == category and all(x not in name for x in exclude):
+            for character in characters:
+                if character in data.characters:
+                    add = True
+            if add:
+                item_dict.setdefault(name, data)
     return item_dict
 
 item_table: Dict[str, KHBBSItemData] = {
@@ -333,18 +338,18 @@ item_table: Dict[str, KHBBSItemData] = {
     "Wayfinder Ventus":       KHBBSItemData("Key Item",           code = 227_0047964, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
     "Wayfinder Aqua":         KHBBSItemData("Key Item",           code = 227_0047966, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
     "Wayfinder Terra":        KHBBSItemData("Key Item",           code = 227_0047967, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
-    "Land of Departure":      KHBBSItemData("World",              code = 227_0050000, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
+   #"Land of Departure":      KHBBSItemData("World",              code = 227_0050000, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
     "Dwarf Woodlands":        KHBBSItemData("World",              code = 227_0050001, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
     "Castle of Dreams":       KHBBSItemData("World",              code = 227_0050002, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
     "Enchanted Dominion":     KHBBSItemData("World",              code = 227_0050003, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
     "The Mysterious Tower":   KHBBSItemData("World",              code = 227_0050004, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
     "Radiant Garden":         KHBBSItemData("World",              code = 227_0050005, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
-    "Olympus Coliseum":       KHBBSItemData("World",              code = 227_0050006, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
-    "Deep Space":             KHBBSItemData("World",              code = 227_0050007, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
-    "Destiny Islands":        KHBBSItemData("World",              code = 227_0050008, classification = ItemClassification.progression, characters = "  A", max_quantity = 1),
-    "Neverland":              KHBBSItemData("World",              code = 227_0050009, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
-    "Disney Town":            KHBBSItemData("World",              code = 227_0050010, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
-   #"Keyblade Graveyard":     KHBBSItemData("World",              code = 227_0050011, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
+    "Olympus Coliseum":       KHBBSItemData("World",              code = 227_0050007, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
+    "Deep Space":             KHBBSItemData("World",              code = 227_0050008, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
+    "Destiny Islands":        KHBBSItemData("World",              code = 227_0050009, classification = ItemClassification.progression, characters = "  A", max_quantity = 1),
+    "Neverland":              KHBBSItemData("World",              code = 227_0050010, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
+    "Disney Town":            KHBBSItemData("World",              code = 227_0050011, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
+   #"Keyblade Graveyard":     KHBBSItemData("World",              code = 227_0050012, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
    #"Mirage Arena":           KHBBSItemData("World",              code = 227_0050013, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
 }
 

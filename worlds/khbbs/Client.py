@@ -19,7 +19,7 @@ item_num = 1
 logger = logging.getLogger("Client")
 
 if __name__ == "__main__":
-    Utils.init_logging("KH1Client", exception_logger="Client")
+    Utils.init_logging("KHBBSClient", exception_logger="Client")
 
 from NetUtils import NetworkItem, ClientStatus
 from CommonClient import gui_enabled, logger, get_base_parser, ClientCommandProcessor, \
@@ -30,7 +30,7 @@ def check_stdin() -> None:
     if Utils.is_windows and sys.stdin:
         print("WARNING: Console input is not routed reliably on Windows, use the GUI instead.")
 
-class KH1ClientCommandProcessor(ClientCommandProcessor):
+class KHBBSClientCommandProcessor(ClientCommandProcessor):
     def _cmd_deathlink(self):
         """Toggles Deathlink"""
         global death_link
@@ -41,21 +41,21 @@ class KH1ClientCommandProcessor(ClientCommandProcessor):
             death_link = True
             self.output(f"Death Link turned on")
 
-class KH1Context(CommonContext):
-    command_processor: int = KH1ClientCommandProcessor
-    game = "Kingdom Hearts"
+class KHBBSContext(CommonContext):
+    command_processor: int = KHBBSClientCommandProcessor
+    game = "Kingdom Hearts Birth by Sleep"
     items_handling = 0b111  # full remote
 
     def __init__(self, server_address, password):
-        super(KH1Context, self).__init__(server_address, password)
+        super(KHBBSContext, self).__init__(server_address, password)
         self.send_index: int = 0
         self.syncing = False
         self.awaiting_bridge = False
         # self.game_communication_path: files go in this path to pass data between us and the actual game
         if "localappdata" in os.environ:
-            self.game_communication_path = os.path.expandvars(r"%localappdata%/KH1FM")
+            self.game_communication_path = os.path.expandvars(r"%localappdata%/KHBBSFMAP")
         else:
-            self.game_communication_path = os.path.expandvars(r"$HOME/KH1FM")
+            self.game_communication_path = os.path.expandvars(r"$HOME/KHBBSFMAP")
         if not os.path.exists(self.game_communication_path):
             os.makedirs(self.game_communication_path)
         for root, dirs, files in os.walk(self.game_communication_path):
@@ -65,12 +65,12 @@ class KH1Context(CommonContext):
 
     async def server_auth(self, password_requested: bool = False):
         if password_requested and not self.password:
-            await super(KH1Context, self).server_auth(password_requested)
+            await super(KHBBSContext, self).server_auth(password_requested)
         await self.get_username()
         await self.send_connect()
 
     async def connection_closed(self):
-        await super(KH1Context, self).connection_closed()
+        await super(KHBBSContext, self).connection_closed()
         for root, dirs, files in os.walk(self.game_communication_path):
             for file in files:
                 if file.find("obtain") <= -1:
@@ -86,7 +86,7 @@ class KH1Context(CommonContext):
             return []
 
     async def shutdown(self):
-        await super(KH1Context, self).shutdown()
+        await super(KHBBSContext, self).shutdown()
         for root, dirs, files in os.walk(self.game_communication_path):
             for file in files:
                 if file.find("obtain") <= -1:
@@ -108,14 +108,6 @@ class KH1Context(CommonContext):
                 with open(os.path.join(self.game_communication_path, key + ".cfg"), 'w') as f:
                     f.write(str(args['slot_data'][key]))
                     f.close()
-                    
-            ###Support Legacy Games
-            if "Required Reports" in list(args['slot_data'].keys()) and "required_reports_eotw" not in list(args['slot_data'].keys()):
-                reports_required = args['slot_data']["Required Reports"]
-                with open(os.path.join(self.game_communication_path, "required_reports.cfg"), 'w') as f:
-                    f.write(str(reports_required))
-                    f.close()
-            ###End Support Legacy Games
             
             #End Handle Slot Data
 
@@ -177,17 +169,17 @@ class KH1Context(CommonContext):
         """Import kivy UI system and start running it as self.ui_task."""
         from kvui import GameManager
 
-        class KH1Manager(GameManager):
+        class KHBBSManager(GameManager):
             logging_pairs = [
                 ("Client", "Archipelago")
             ]
-            base_title = "Archipelago KH1 Client"
+            base_title = "Archipelago KHBBS Client"
 
-        self.ui = KH1Manager(self)
+        self.ui = KHBBSManager(self)
         self.ui_task = asyncio.create_task(self.ui.async_run(), name="UI")
 
 
-async def game_watcher(ctx: KH1Context):
+async def game_watcher(ctx: KHBBSContext):
     from .Locations import lookup_id_to_name
     while not ctx.exit_event.is_set():
         global death_link
@@ -233,13 +225,13 @@ async def game_watcher(ctx: KH1Context):
 
 def launch():
     async def main(args):
-        ctx = KH1Context(args.connect, args.password)
+        ctx = KHBBSContext(args.connect, args.password)
         ctx.server_task = asyncio.create_task(server_loop(ctx), name="server loop")
         if gui_enabled:
             ctx.run_gui()
         ctx.run_cli()
         progression_watcher = asyncio.create_task(
-            game_watcher(ctx), name="KH1ProgressionWatcher")
+            game_watcher(ctx), name="KHBBSProgressionWatcher")
 
         await ctx.exit_event.wait()
         ctx.server_address = None
@@ -250,7 +242,7 @@ def launch():
 
     import colorama
 
-    parser = get_base_parser(description="KH1 Client, for text interfacing.")
+    parser = get_base_parser(description="KHBBS Client, for text interfacing.")
 
     args, rest = parser.parse_known_args()
     colorama.init()

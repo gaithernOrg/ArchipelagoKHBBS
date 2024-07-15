@@ -1,545 +1,246 @@
 from typing import Dict, List, NamedTuple, Optional
 
 from BaseClasses import MultiWorld, Region, Entrance
-from .Locations import KH1Location, location_table
+from .Locations import KHBBSLocation, location_table
 
 
-class KH1RegionData(NamedTuple):
+class KHBBSRegionData(NamedTuple):
     locations: Optional[List[str]]
     region_exits: Optional[List[str]]
 
 
 def create_regions(multiworld: MultiWorld, player: int, options):
-    regions: Dict[str, KH1RegionData] = {
-        "Menu":             KH1RegionData(None, ["Awakening", "Levels"]),
-        "Awakening":        KH1RegionData([],   ["Destiny Islands"]),
-        "Destiny Islands":  KH1RegionData([],   ["Traverse Town"]),
-        "Traverse Town":    KH1RegionData([],   ["World Map"]),
-        "Wonderland":       KH1RegionData([],   []),
-        "Olympus Coliseum": KH1RegionData([],   []),
-        "Deep Jungle":      KH1RegionData([],   []),
-        "Agrabah":          KH1RegionData([],   []),
-        "Monstro":          KH1RegionData([],   []),
-        "Atlantica":        KH1RegionData([],   []),
-        "Halloween Town":   KH1RegionData([],   []),
-        "Neverland":        KH1RegionData([],   []),
-        "Hollow Bastion":   KH1RegionData([],   []),
-        "End of the World": KH1RegionData([],   []),
-        "100 Acre Wood":    KH1RegionData([],   []),
-        "Levels":           KH1RegionData([],   []),
-        "World Map":        KH1RegionData([],   ["Wonderland", "Olympus Coliseum", "Deep Jungle",
-                                         "Agrabah", "Monstro", "Atlantica",
-                                         "Halloween Town", "Neverland", "Hollow Bastion",
-                                         "End of the World", "100 Acre Wood"])
+    regions: Dict[str, KHBBSRegionData] = {
+        "Menu":               KHBBSRegionData(None, ["Land of Departure"]),
+        "Land of Departure":  KHBBSRegionData([],   ["World Map"]),
+        "Dwarf Woodlands":    KHBBSRegionData([],   []),
+        "Castle of Dreams":   KHBBSRegionData([],   []),
+        "Enchanted Dominion": KHBBSRegionData([],   []),
+        "Mysterious Tower":   KHBBSRegionData([],   []),
+        "Radiant Garden":     KHBBSRegionData([],   []),
+        "Olympus Coliseum":   KHBBSRegionData([],   []),
+        "Deep Space":         KHBBSRegionData([],   []),
+        "Destiny Islands":    KHBBSRegionData([],   []),
+        "Neverland":          KHBBSRegionData([],   []),
+        "Disney Town":        KHBBSRegionData([],   []),
+        "Keyblade Graveyard": KHBBSRegionData([],   []),
+        "World Map":          KHBBSRegionData([],   ["Dwarf Woodlands", "Castle of Dreams", "Enchanted Dominion", "Mysterious Tower",
+                                                    "Radiant Garden", "Olympus Coliseum", "Deep Space", "Destiny Islands",
+                                                    "Neverland", "Disney Town", "Keyblade Graveyard"]),
     }
 
     # Set up locations
-   #regions["Destiny Islands"].locations.append("Destiny Islands Chest"), missable
-    regions["Traverse Town"].locations.append("Traverse Town 1st District Candle Puzzle Chest"),
-    regions["Traverse Town"].locations.append("Traverse Town 1st District Accessory Shop Roof Chest"),
-    regions["Traverse Town"].locations.append("Traverse Town 2nd District Boots and Shoes Awning Chest"),
-    regions["Traverse Town"].locations.append("Traverse Town 2nd District Rooftop Chest"),
-    regions["Traverse Town"].locations.append("Traverse Town 2nd District Gizmo Shop Facade Chest"),
-    regions["Traverse Town"].locations.append("Traverse Town Alleyway Balcony Chest"),
-    regions["Traverse Town"].locations.append("Traverse Town Alleyway Blue Room Awning Chest"),
-    regions["Traverse Town"].locations.append("Traverse Town Alleyway Corner Chest"),
-    regions["Traverse Town"].locations.append("Traverse Town Green Room Clock Puzzle Chest"),
-    regions["Traverse Town"].locations.append("Traverse Town Green Room Table Chest"),
-    regions["Traverse Town"].locations.append("Traverse Town Red Room Chest"),
-    regions["Traverse Town"].locations.append("Traverse Town Mystical House Yellow Trinity Chest"),
-    regions["Traverse Town"].locations.append("Traverse Town Accessory Shop Chest"),
-    regions["Traverse Town"].locations.append("Traverse Town Secret Waterway White Trinity Chest"),
-    regions["Traverse Town"].locations.append("Traverse Town Geppetto's House Chest"),
-    regions["Traverse Town"].locations.append("Traverse Town Item Workshop Right Chest"),
-    regions["Traverse Town"].locations.append("Traverse Town 1st District Blue Trinity Balcony Chest"),
-    regions["Traverse Town"].locations.append("Traverse Town Mystical House Glide Chest"),
-    regions["Traverse Town"].locations.append("Traverse Town Alleyway Behind Crates Chest"),
-    regions["Traverse Town"].locations.append("Traverse Town Item Workshop Left Chest"),
-    regions["Traverse Town"].locations.append("Traverse Town Secret Waterway Near Stairs Chest"),
-    regions["Wonderland"].locations.append("Wonderland Rabbit Hole Green Trinity Chest"),
-    regions["Wonderland"].locations.append("Wonderland Rabbit Hole Defeat Heartless 1 Chest"),
-    regions["Wonderland"].locations.append("Wonderland Rabbit Hole Defeat Heartless 2 Chest"),
-    regions["Wonderland"].locations.append("Wonderland Rabbit Hole Defeat Heartless 3 Chest"),
-    regions["Wonderland"].locations.append("Wonderland Bizarre Room Green Trinity Chest"),
-    regions["Wonderland"].locations.append("Wonderland Queen's Castle Hedge Left Red Chest"),
-    regions["Wonderland"].locations.append("Wonderland Queen's Castle Hedge Right Blue Chest"),
-    regions["Wonderland"].locations.append("Wonderland Queen's Castle Hedge Right Red Chest"),
-    regions["Wonderland"].locations.append("Wonderland Lotus Forest Thunder Plant Chest"),
-    regions["Wonderland"].locations.append("Wonderland Lotus Forest Through the Painting Thunder Plant Chest"),
-    regions["Wonderland"].locations.append("Wonderland Lotus Forest Glide Chest"),
-    regions["Wonderland"].locations.append("Wonderland Lotus Forest Nut Chest"),
-    regions["Wonderland"].locations.append("Wonderland Lotus Forest Corner Chest"),
-    regions["Wonderland"].locations.append("Wonderland Bizarre Room Lamp Chest"),
-    regions["Wonderland"].locations.append("Wonderland Tea Party Garden Above Lotus Forest Entrance 2nd Chest"),
-    regions["Wonderland"].locations.append("Wonderland Tea Party Garden Above Lotus Forest Entrance 1st Chest"),
-    regions["Wonderland"].locations.append("Wonderland Tea Party Garden Bear and Clock Puzzle Chest"),
-    regions["Wonderland"].locations.append("Wonderland Tea Party Garden Across From Bizarre Room Entrance Chest"),
-    regions["Wonderland"].locations.append("Wonderland Lotus Forest Through the Painting White Trinity Chest"),
-    regions["Deep Jungle"].locations.append("Deep Jungle Tree House Beneath Tree House Chest"),
-    regions["Deep Jungle"].locations.append("Deep Jungle Tree House Rooftop Chest"),
-    regions["Deep Jungle"].locations.append("Deep Jungle Hippo's Lagoon Center Chest"),
-    regions["Deep Jungle"].locations.append("Deep Jungle Hippo's Lagoon Left Chest"),
-    regions["Deep Jungle"].locations.append("Deep Jungle Hippo's Lagoon Right Chest"),
-    regions["Deep Jungle"].locations.append("Deep Jungle Vines Chest"),
-    regions["Deep Jungle"].locations.append("Deep Jungle Vines 2 Chest"),
-    regions["Deep Jungle"].locations.append("Deep Jungle Climbing Trees Blue Trinity Chest"),
-    regions["Deep Jungle"].locations.append("Deep Jungle Tunnel Chest"),
-    regions["Deep Jungle"].locations.append("Deep Jungle Cavern of Hearts White Trinity Chest"),
-    regions["Deep Jungle"].locations.append("Deep Jungle Camp Blue Trinity Chest"),
-    regions["Deep Jungle"].locations.append("Deep Jungle Tent Chest"),
-    regions["Deep Jungle"].locations.append("Deep Jungle Waterfall Cavern Low Chest"),
-    regions["Deep Jungle"].locations.append("Deep Jungle Waterfall Cavern Middle Chest"),
-    regions["Deep Jungle"].locations.append("Deep Jungle Waterfall Cavern High Wall Chest"),
-    regions["Deep Jungle"].locations.append("Deep Jungle Waterfall Cavern High Middle Chest"),
-    regions["Deep Jungle"].locations.append("Deep Jungle Cliff Right Cliff Left Chest"),
-    regions["Deep Jungle"].locations.append("Deep Jungle Cliff Right Cliff Right Chest"),
-    regions["Deep Jungle"].locations.append("Deep Jungle Tree House Suspended Boat Chest"),
-    if options.hundred_acre_wood:
-        regions["100 Acre Wood"].locations.append("100 Acre Wood Meadow Inside Log Chest"),
-        regions["100 Acre Wood"].locations.append("100 Acre Wood Bouncing Spot Left Cliff Chest"),
-        regions["100 Acre Wood"].locations.append("100 Acre Wood Bouncing Spot Right Tree Alcove Chest"),
-        regions["100 Acre Wood"].locations.append("100 Acre Wood Bouncing Spot Under Giant Pot Chest"),
-    regions["Agrabah"].locations.append("Agrabah Plaza By Storage Chest"),
-    regions["Agrabah"].locations.append("Agrabah Plaza Raised Terrace Chest"),
-    regions["Agrabah"].locations.append("Agrabah Plaza Top Corner Chest"),
-    regions["Agrabah"].locations.append("Agrabah Alley Chest"),
-    regions["Agrabah"].locations.append("Agrabah Bazaar Across Windows Chest"),
-    regions["Agrabah"].locations.append("Agrabah Bazaar High Corner Chest"),
-    regions["Agrabah"].locations.append("Agrabah Main Street Right Palace Entrance Chest"),
-    regions["Agrabah"].locations.append("Agrabah Main Street High Above Alley Entrance Chest"),
-    regions["Agrabah"].locations.append("Agrabah Main Street High Above Palace Gates Entrance Chest"),
-    regions["Agrabah"].locations.append("Agrabah Palace Gates Low Chest"),
-    regions["Agrabah"].locations.append("Agrabah Palace Gates High Opposite Palace Chest"),
-    regions["Agrabah"].locations.append("Agrabah Palace Gates High Close to Palace Chest"),
-    regions["Agrabah"].locations.append("Agrabah Storage Green Trinity Chest"),
-    regions["Agrabah"].locations.append("Agrabah Storage Behind Barrel Chest"),
-    regions["Agrabah"].locations.append("Agrabah Cave of Wonders Entrance Left Chest"),
-    regions["Agrabah"].locations.append("Agrabah Cave of Wonders Entrance Tall Tower Chest"),
-    regions["Agrabah"].locations.append("Agrabah Cave of Wonders Hall High Left Chest"),
-    regions["Agrabah"].locations.append("Agrabah Cave of Wonders Hall Near Bottomless Hall Chest"),
-    regions["Agrabah"].locations.append("Agrabah Cave of Wonders Bottomless Hall Raised Platform Chest"),
-    regions["Agrabah"].locations.append("Agrabah Cave of Wonders Bottomless Hall Pillar Chest"),
-    regions["Agrabah"].locations.append("Agrabah Cave of Wonders Bottomless Hall Across Chasm Chest"),
-    regions["Agrabah"].locations.append("Agrabah Cave of Wonders Treasure Room Across Platforms Chest"),
-    regions["Agrabah"].locations.append("Agrabah Cave of Wonders Treasure Room Small Treasure Pile Chest"),
-    regions["Agrabah"].locations.append("Agrabah Cave of Wonders Treasure Room Large Treasure Pile Chest"),
-    regions["Agrabah"].locations.append("Agrabah Cave of Wonders Treasure Room Above Fire Chest"),
-    regions["Agrabah"].locations.append("Agrabah Cave of Wonders Relic Chamber Jump from Stairs Chest"),
-    regions["Agrabah"].locations.append("Agrabah Cave of Wonders Relic Chamber Stairs Chest"),
-    regions["Agrabah"].locations.append("Agrabah Cave of Wonders Dark Chamber Abu Gem Chest"),
-    regions["Agrabah"].locations.append("Agrabah Cave of Wonders Dark Chamber Across from Relic Chamber Entrance Chest"),
-    regions["Agrabah"].locations.append("Agrabah Cave of Wonders Dark Chamber Bridge Chest"),
-    regions["Agrabah"].locations.append("Agrabah Cave of Wonders Dark Chamber Near Save Chest"),
-    regions["Agrabah"].locations.append("Agrabah Cave of Wonders Silent Chamber Blue Trinity Chest"),
-    regions["Agrabah"].locations.append("Agrabah Cave of Wonders Hidden Room Right Chest"),
-    regions["Agrabah"].locations.append("Agrabah Cave of Wonders Hidden Room Left Chest"),
-    regions["Agrabah"].locations.append("Agrabah Aladdin's House Main Street Entrance Chest"),
-    regions["Agrabah"].locations.append("Agrabah Aladdin's House Plaza Entrance Chest"),
-    regions["Agrabah"].locations.append("Agrabah Cave of Wonders Entrance White Trinity Chest"),
-    regions["Monstro"].locations.append("Monstro Chamber 6 Other Platform Chest"),
-    regions["Monstro"].locations.append("Monstro Chamber 6 Platform Near Chamber 5 Entrance Chest"),
-    regions["Monstro"].locations.append("Monstro Chamber 6 Raised Area Near Chamber 1 Entrance Chest"),
-    regions["Monstro"].locations.append("Monstro Chamber 6 Low Chest"),
-    if options.atlantica:
-        regions["Atlantica"].locations.append("Atlantica Sunken Ship In Flipped Boat Chest"),
-        regions["Atlantica"].locations.append("Atlantica Sunken Ship Seabed Chest"),
-        regions["Atlantica"].locations.append("Atlantica Sunken Ship Inside Ship Chest"),
-        regions["Atlantica"].locations.append("Atlantica Ariel's Grotto High Chest"),
-        regions["Atlantica"].locations.append("Atlantica Ariel's Grotto Middle Chest"),
-        regions["Atlantica"].locations.append("Atlantica Ariel's Grotto Low Chest"),
-        regions["Atlantica"].locations.append("Atlantica Ursula's Lair Use Fire on Urchin Chest"),
-        regions["Atlantica"].locations.append("Atlantica Undersea Gorge Jammed by Ariel's Grotto Chest"),
-        regions["Atlantica"].locations.append("Atlantica Triton's Palace White Trinity Chest"),
-    regions["Halloween Town"].locations.append("Halloween Town Moonlight Hill White Trinity Chest"),
-    regions["Halloween Town"].locations.append("Halloween Town Bridge Under Bridge"),
-    regions["Halloween Town"].locations.append("Halloween Town Boneyard Tombstone Puzzle Chest"),
-    regions["Halloween Town"].locations.append("Halloween Town Bridge Right of Gate Chest"),
-    regions["Halloween Town"].locations.append("Halloween Town Cemetary Behind Grave Chest"),
-    regions["Halloween Town"].locations.append("Halloween Town Cemetary By Cat Shape Chest"),
-    regions["Halloween Town"].locations.append("Halloween Town Cemetary Between Graves Chest"),
-    regions["Halloween Town"].locations.append("Halloween Town Oogie's Manor Lower Iron Cage Chest"),
-    regions["Halloween Town"].locations.append("Halloween Town Oogie's Manor Upper Iron Cage Chest"),
-    regions["Halloween Town"].locations.append("Halloween Town Oogie's Manor Hollow Chest"),
-    regions["Halloween Town"].locations.append("Halloween Town Oogie's Manor Grounds Red Trinity Chest"),
-    regions["Halloween Town"].locations.append("Halloween Town Guillotine Square High Tower Chest"),
-    regions["Halloween Town"].locations.append("Halloween Town Guillotine Square Pumpkin Structure Left Chest"),
-    regions["Halloween Town"].locations.append("Halloween Town Oogie's Manor Entrance Steps Chest"),
-    regions["Halloween Town"].locations.append("Halloween Town Oogie's Manor Inside Entrance Chest"),
-    regions["Halloween Town"].locations.append("Halloween Town Bridge Left of Gate Chest"),
-    regions["Halloween Town"].locations.append("Halloween Town Cemetary By Striped Grave Chest"),
-    regions["Halloween Town"].locations.append("Halloween Town Guillotine Square Under Jack's House Stairs Chest"),
-    regions["Halloween Town"].locations.append("Halloween Town Guillotine Square Pumpkin Structure Right Chest"),
-    regions["Olympus Coliseum"].locations.append("Olympus Coliseum Coliseum Gates Left Behind Columns Chest"),
-    regions["Olympus Coliseum"].locations.append("Olympus Coliseum Coliseum Gates Right Blue Trinity Chest"),
-    regions["Olympus Coliseum"].locations.append("Olympus Coliseum Coliseum Gates Left Blue Trinity Chest"),
-    regions["Olympus Coliseum"].locations.append("Olympus Coliseum Coliseum Gates White Trinity Chest"),
-    regions["Olympus Coliseum"].locations.append("Olympus Coliseum Coliseum Gates Blizzara Chest"),
-    regions["Olympus Coliseum"].locations.append("Olympus Coliseum Coliseum Gates Blizzaga Chest"),
-    regions["Monstro"].locations.append("Monstro Mouth Boat Deck Chest"),
-    regions["Monstro"].locations.append("Monstro Mouth High Platform Boat Side Chest"),
-    regions["Monstro"].locations.append("Monstro Mouth High Platform Across from Boat Chest"),
-    regions["Monstro"].locations.append("Monstro Mouth Near Ship Chest"),
-    regions["Monstro"].locations.append("Monstro Mouth Green Trinity Top of Boat Chest"),
-    regions["Monstro"].locations.append("Monstro Chamber 2 Ground Chest"),
-    regions["Monstro"].locations.append("Monstro Chamber 2 Platform Chest"),
-    regions["Monstro"].locations.append("Monstro Chamber 5 Platform Chest"),
-    regions["Monstro"].locations.append("Monstro Chamber 3 Ground Chest"),
-    regions["Monstro"].locations.append("Monstro Chamber 3 Platform Above Chamber 2 Entrance Chest"),
-    regions["Monstro"].locations.append("Monstro Chamber 3 Near Chamber 6 Entrance Chest"),
-    regions["Monstro"].locations.append("Monstro Chamber 3 Platform Near Chamber 6 Entrance Chest"),
-    regions["Monstro"].locations.append("Monstro Mouth High Platform Near Teeth Chest"),
-    regions["Monstro"].locations.append("Monstro Chamber 5 Atop Barrel Chest"),
-    regions["Monstro"].locations.append("Monstro Chamber 5 Low 2nd Chest"),
-    regions["Monstro"].locations.append("Monstro Chamber 5 Low 1st Chest"),
-    regions["Neverland"].locations.append("Neverland Pirate Ship Deck White Trinity Chest"),
-    regions["Neverland"].locations.append("Neverland Pirate Ship Crows Nest Chest"),
-    regions["Neverland"].locations.append("Neverland Hold Yellow Trinity Right Blue Chest"),
-    regions["Neverland"].locations.append("Neverland Hold Yellow Trinity Left Blue Chest"),
-    regions["Neverland"].locations.append("Neverland Galley Chest"),
-    regions["Neverland"].locations.append("Neverland Cabin Chest"),
-    regions["Neverland"].locations.append("Neverland Hold Flight 1st Chest "),
-    regions["Neverland"].locations.append("Neverland Clock Tower Chest"),
-    regions["Neverland"].locations.append("Neverland Hold Flight 2nd Chest"),
-    regions["Neverland"].locations.append("Neverland Hold Yellow Trinity Green Chest"),
-    regions["Neverland"].locations.append("Neverland Captain's Cabin Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Rising Falls Water's Surface Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Rising Falls Under Water 1st Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Rising Falls Under Water 2nd Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Rising Falls Floating Platform Near Save Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Rising Falls Floating Platform Near Bubble Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Rising Falls High Platform Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Castle Gates Gravity Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Castle Gates Freestanding Pillar Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Castle Gates High Pillar Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Great Crest Lower Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Great Crest After Battle Platform Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion High Tower 2nd Gravity Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion High Tower 1st Gravity Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion High Tower Above Sliding Blocks Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Library Top of Bookshelf Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Library 1st Floor Turn the Carousel Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Library Top of Bookshelf Turn the Carousel Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Library 2nd Floor Turn the Carousel 1st Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Library 2nd Floor Turn the Carousel 2nd Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Lift Stop Library Node After High Tower Switch Gravity Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Lift Stop Library Node Gravity Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Lift Stop Under High Tower Sliding Blocks Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Lift Stop Outside Library Gravity Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Lift Stop Heartless Sigil Door Gravity Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Base Level Bubble Under the Wall Platform Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Base Level Platform Near Entrance Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Base Level Near Crystal Switch Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Waterway Near Save Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Waterway Blizzard on Bubble Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Waterway Unlock Passage from Base Level Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Dungeon By Candles Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Dungeon Corner Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Grand Hall Steps Right Side Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Grand Hall Oblivion Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Grand Hall Left of Gate Chest"),
-   #regions["Hollow Bastion"].locations.append("Hollow Bastion Entrance Hall Push the Statue Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Entrance Hall Left of Emblem Door Chest"),
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Rising Falls White Trinity Chest"),
-    regions["End of the World"].locations.append("End of the World Final Dimension 1st Chest"),
-    regions["End of the World"].locations.append("End of the World Final Dimension 2nd Chest"),
-    regions["End of the World"].locations.append("End of the World Final Dimension 3rd Chest"),
-    regions["End of the World"].locations.append("End of the World Final Dimension 4th Chest"),
-    regions["End of the World"].locations.append("End of the World Final Dimension 5th Chest"),
-    regions["End of the World"].locations.append("End of the World Final Dimension 6th Chest"),
-    regions["End of the World"].locations.append("End of the World Final Dimension 10th Chest"),
-    regions["End of the World"].locations.append("End of the World Final Dimension 9th Chest"),
-    regions["End of the World"].locations.append("End of the World Final Dimension 8th Chest"),
-    regions["End of the World"].locations.append("End of the World Final Dimension 7th Chest"),
-    regions["End of the World"].locations.append("End of the World Giant Crevasse 3rd Chest"),
-    regions["End of the World"].locations.append("End of the World Giant Crevasse 5th Chest"),
-    regions["End of the World"].locations.append("End of the World Giant Crevasse 1st Chest"),
-    regions["End of the World"].locations.append("End of the World Giant Crevasse 4th Chest"),
-    regions["End of the World"].locations.append("End of the World Giant Crevasse 2nd Chest"),
-    regions["End of the World"].locations.append("End of the World World Terminus Traverse Town Chest"),
-    regions["End of the World"].locations.append("End of the World World Terminus Wonderland Chest"),
-    regions["End of the World"].locations.append("End of the World World Terminus Olympus Coliseum Chest"),
-    regions["End of the World"].locations.append("End of the World World Terminus Deep Jungle Chest"),
-    regions["End of the World"].locations.append("End of the World World Terminus Agrabah Chest"),
-    regions["End of the World"].locations.append("End of the World World Terminus Atlantica Chest"),
-    regions["End of the World"].locations.append("End of the World World Terminus Halloween Town Chest"),
-    regions["End of the World"].locations.append("End of the World World Terminus Neverland Chest"),
-    regions["End of the World"].locations.append("End of the World World Terminus 100 Acre Wood Chest"),
-    regions["End of the World"].locations.append("End of the World World Terminus Hollow Bastion Chest"),
-    regions["End of the World"].locations.append("End of the World Final Rest Chest"),
-    regions["Monstro"].locations.append("Monstro Chamber 6 White Trinity Chest"),
-   #regions["Awakening"].locations.append("Awakening Chest"), missable
-   
-    regions["Traverse Town"].locations.append("Traverse Town Defeat Guard Armor Dodge Roll Event"),
-    regions["Traverse Town"].locations.append("Traverse Town Defeat Guard Armor Fire Event"),
-    regions["Traverse Town"].locations.append("Traverse Town Defeat Guard Armor Blue Trinity Event"),
-    regions["Traverse Town"].locations.append("Traverse Town Leon Secret Waterway Earthshine Event"),
-    regions["Traverse Town"].locations.append("Traverse Town Kairi Secret Waterway Oathkeeper Event"),
-    regions["Traverse Town"].locations.append("Traverse Town Defeat Guard Armor Brave Warrior Event"),
-    regions["Deep Jungle"].locations.append("Deep Jungle Defeat Sabor White Fang Event"),
-    regions["Deep Jungle"].locations.append("Deep Jungle Defeat Clayton Cure Event"),
-    regions["Deep Jungle"].locations.append("Deep Jungle Seal Keyhole Jungle King Event"),
-    regions["Deep Jungle"].locations.append("Deep Jungle Seal Keyhole Red Trinity Event"),
-    regions["Olympus Coliseum"].locations.append("Olympus Coliseum Clear Phil's Training Thunder Event"),
-    regions["Olympus Coliseum"].locations.append("Olympus Coliseum Defeat Cerberus Inferno Band Event"),
-    regions["Olympus Coliseum"].locations.append("Olympus Coliseum Cloud Sonic Blade Event"),
-    regions["Wonderland"].locations.append("Wonderland Defeat Trickmaster Blizzard Event"),
-    regions["Wonderland"].locations.append("Wonderland Defeat Trickmaster Ifrit's Horn Event"),
-    regions["Agrabah"].locations.append("Agrabah Defeat Pot Centipede Ray of Light Event"),
-    regions["Agrabah"].locations.append("Agrabah Defeat Jafar Blizzard Event"),
-    regions["Agrabah"].locations.append("Agrabah Defeat Jafar Genie Fire Event"),
-    regions["Agrabah"].locations.append("Agrabah Seal Keyhole Genie Event"),
-    regions["Agrabah"].locations.append("Agrabah Seal Keyhole Three Wishes Event"),
-    regions["Agrabah"].locations.append("Agrabah Seal Keyhole Green Trinity Event"),
-    regions["Monstro"].locations.append("Monstro Defeat Parasite Cage I Goofy Cheer Event"),
-    regions["Monstro"].locations.append("Monstro Defeat Parasite Cage II Stop Event"),
-    if options.atlantica:
-        regions["Atlantica"].locations.append("Atlantica Defeat Ursula I Mermaid Kick Event")
-        regions["Atlantica"].locations.append("Atlantica Defeat Ursula II Thunder Event")
-        regions["Atlantica"].locations.append("Atlantica Seal Keyhole Crabclaw Event")
-    regions["Halloween Town"].locations.append("Halloween Town Defeat Oogie Boogie Holy Circlet Event")
-    regions["Halloween Town"].locations.append("Halloween Town Defeat Oogie's Manor Gravity Event")
-    regions["Halloween Town"].locations.append("Halloween Town Seal Keyhole Pumpkinhead Event")
-    regions["Neverland"].locations.append("Neverland Defeat Anti Sora Raven's Claw Event")
-    regions["Neverland"].locations.append("Neverland Encounter Hook Cure Event")
-    regions["Neverland"].locations.append("Neverland Seal Keyhole Fairy Harp Event")
-    regions["Neverland"].locations.append("Neverland Seal Keyhole Tinker Bell Event")
-    regions["Neverland"].locations.append("Neverland Seal Keyhole Glide Event")
-    if options.super_bosses:
-        regions["Neverland"].locations.append("Neverland Defeat Phantom Stop Event")
-    regions["Neverland"].locations.append("Neverland Defeat Captain Hook Ars Arcanum Event")
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Defeat Riku I White Trinity Event")
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Defeat Maleficent Donald Cheer Event")
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Defeat Dragon Maleficent Fireglow Event")
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Defeat Riku II Ragnarok Event")
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Defeat Behemoth Omega Arts Event")
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Speak to Princesses Fire Event")
-    regions["End of the World"].locations.append("End of the World Defeat Chernabog Superglide Event")
-    
-    regions["Traverse Town"].locations.append("Traverse Town Mail Postcard 01 Event")
-    regions["Traverse Town"].locations.append("Traverse Town Mail Postcard 02 Event")
-    regions["Traverse Town"].locations.append("Traverse Town Mail Postcard 03 Event")
-    regions["Traverse Town"].locations.append("Traverse Town Mail Postcard 04 Event")
-    regions["Traverse Town"].locations.append("Traverse Town Mail Postcard 05 Event")
-    regions["Traverse Town"].locations.append("Traverse Town Mail Postcard 06 Event")
-    regions["Traverse Town"].locations.append("Traverse Town Mail Postcard 07 Event")
-    regions["Traverse Town"].locations.append("Traverse Town Mail Postcard 08 Event")
-    regions["Traverse Town"].locations.append("Traverse Town Mail Postcard 09 Event")
-    regions["Traverse Town"].locations.append("Traverse Town Mail Postcard 10 Event")
-    
-    regions["Traverse Town"].locations.append("Traverse Town Defeat Opposite Armor Aero Event")
-    
-    if options.atlantica:
-        regions["Atlantica"].locations.append("Atlantica Undersea Gorge Blizzard Clam")
-        regions["Atlantica"].locations.append("Atlantica Undersea Gorge Ocean Floor Clam")
-        regions["Atlantica"].locations.append("Atlantica Undersea Valley Higher Cave Clam")
-        regions["Atlantica"].locations.append("Atlantica Undersea Valley Lower Cave Clam")
-        regions["Atlantica"].locations.append("Atlantica Undersea Valley Fire Clam")
-        regions["Atlantica"].locations.append("Atlantica Undersea Valley Wall Clam")
-        regions["Atlantica"].locations.append("Atlantica Undersea Valley Pillar Clam")
-        regions["Atlantica"].locations.append("Atlantica Undersea Valley Ocean Floor Clam")
-        regions["Atlantica"].locations.append("Atlantica Triton's Palace Thunder Clam")
-        regions["Atlantica"].locations.append("Atlantica Triton's Palace Wall Right Clam")
-        regions["Atlantica"].locations.append("Atlantica Triton's Palace Near Path Clam")
-        regions["Atlantica"].locations.append("Atlantica Triton's Palace Wall Left Clam")
-        regions["Atlantica"].locations.append("Atlantica Cavern Nook Clam")
-        regions["Atlantica"].locations.append("Atlantica Below Deck Clam")
-        regions["Atlantica"].locations.append("Atlantica Undersea Garden Clam")
-        regions["Atlantica"].locations.append("Atlantica Undersea Cave Clam")
-    
-    regions["Agrabah"].locations.append("Agrabah Defeat Jafar Genie Ansem's Report 1")
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Speak with Aerith Ansem's Report 2")
-    if options.atlantica:
-        regions["Atlantica"].locations.append("Atlantica Defeat Ursula II Ansem's Report 3")
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Speak with Aerith Ansem's Report 4")
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Defeat Maleficent Ansem's Report 5")
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Speak with Aerith Ansem's Report 6")
-    regions["Halloween Town"].locations.append("Halloween Town Defeat Oogie Boogie Ansem's Report 7")
-    if options.cups:
-        regions["Olympus Coliseum"].locations.append("Olympus Coliseum Defeat Hades Ansem's Report 8")
-    regions["Neverland"].locations.append("Neverland Defeat Hook Ansem's Report 9")
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Speak with Aerith Ansem's Report 10")
-    if options.super_bosses:
-        regions["Agrabah"].locations.append("Agrabah Defeat Kurt Zisa Ansem's Report 11")
-    if options.super_bosses or options.goal.current_key == "sephiroth":
-        regions["Olympus Coliseum"].locations.append("Olympus Coliseum Defeat Sephiroth Ansem's Report 12")
-    if options.super_bosses or options.goal.current_key == "unknown":
-        regions["Hollow Bastion"].locations.append("Hollow Bastion Defeat Unknown Ansem's Report 13")
-   
-    for i in range(options.level_checks):
-        regions["Levels"].locations.append("Level " + str(i+1).rjust(3,'0'))
-
-    if options.cups:
-        regions["Olympus Coliseum"].locations.append("Complete Phil Cup")
-        regions["Olympus Coliseum"].locations.append("Complete Phil Cup Solo")
-        regions["Olympus Coliseum"].locations.append("Complete Phil Cup Time Trial")
-        regions["Olympus Coliseum"].locations.append("Complete Pegasus Cup")
-        regions["Olympus Coliseum"].locations.append("Complete Pegasus Cup Solo")
-        regions["Olympus Coliseum"].locations.append("Complete Pegasus Cup Time Trial")
-        regions["Olympus Coliseum"].locations.append("Complete Hercules Cup")
-        regions["Olympus Coliseum"].locations.append("Complete Hercules Cup Solo")
-        regions["Olympus Coliseum"].locations.append("Complete Hercules Cup Time Trial")
-        regions["Olympus Coliseum"].locations.append("Complete Hades Cup")
-        regions["Olympus Coliseum"].locations.append("Complete Hades Cup Solo")
-        regions["Olympus Coliseum"].locations.append("Complete Hades Cup Time Trial")
-        regions["Olympus Coliseum"].locations.append("Hades Cup Defeat Cloud and Leon Event")
-        regions["Olympus Coliseum"].locations.append("Hades Cup Defeat Yuffie Event")
-        regions["Olympus Coliseum"].locations.append("Hades Cup Defeat Cerberus Event")
-        regions["Olympus Coliseum"].locations.append("Hades Cup Defeat Behemoth Event")
-        regions["Olympus Coliseum"].locations.append("Hades Cup Defeat Hades Event")
-        regions["Olympus Coliseum"].locations.append("Hercules Cup Defeat Cloud Event")
-        regions["Olympus Coliseum"].locations.append("Hercules Cup Yellow Trinity Event")
-    
-   #regions["Traverse Town"].locations.append("Traverse Town Magician's Study Turn in Naturespark")
-   #regions["Traverse Town"].locations.append("Traverse Town Magician's Study Turn in Watergleam")
-   #regions["Traverse Town"].locations.append("Traverse Town Magician's Study Turn in Fireglow")
-   #regions["Traverse Town"].locations.append("Traverse Town Magician's Study Turn in all Summon Gems")
-    regions["Traverse Town"].locations.append("Traverse Town Geppetto's House Geppetto Reward 1")
-    regions["Traverse Town"].locations.append("Traverse Town Geppetto's House Geppetto Reward 2")
-    regions["Traverse Town"].locations.append("Traverse Town Geppetto's House Geppetto Reward 3")
-    regions["Traverse Town"].locations.append("Traverse Town Geppetto's House Geppetto Reward 4")
-    regions["Traverse Town"].locations.append("Traverse Town Geppetto's House Geppetto Reward 5")
-    regions["Traverse Town"].locations.append("Traverse Town Geppetto's House Geppetto All Summons Reward")
-    regions["Traverse Town"].locations.append("Traverse Town Geppetto's House Talk to Pinocchio")
-    regions["Traverse Town"].locations.append("Traverse Town Magician's Study Obtained All Arts Items")
-    regions["Traverse Town"].locations.append("Traverse Town Magician's Study Obtained All LV1 Magic")
-    regions["Traverse Town"].locations.append("Traverse Town Magician's Study Obtained All LV3 Magic")
-    regions["Traverse Town"].locations.append("Traverse Town Piano Room Return 10 Puppies")
-    regions["Traverse Town"].locations.append("Traverse Town Piano Room Return 20 Puppies")
-    regions["Traverse Town"].locations.append("Traverse Town Piano Room Return 30 Puppies")
-    regions["Traverse Town"].locations.append("Traverse Town Piano Room Return 40 Puppies")
-    regions["Traverse Town"].locations.append("Traverse Town Piano Room Return 50 Puppies Reward 1")
-    regions["Traverse Town"].locations.append("Traverse Town Piano Room Return 50 Puppies Reward 2")
-    regions["Traverse Town"].locations.append("Traverse Town Piano Room Return 60 Puppies")
-    regions["Traverse Town"].locations.append("Traverse Town Piano Room Return 70 Puppies")
-    regions["Traverse Town"].locations.append("Traverse Town Piano Room Return 80 Puppies")
-    regions["Traverse Town"].locations.append("Traverse Town Piano Room Return 90 Puppies")
-    regions["Traverse Town"].locations.append("Traverse Town Piano Room Return 99 Puppies Reward 1")
-    regions["Traverse Town"].locations.append("Traverse Town Piano Room Return 99 Puppies Reward 2")
-    if options.super_bosses or options.goal.current_key == "sephiroth":
-        regions["Olympus Coliseum"].locations.append("Olympus Coliseum Defeat Sephiroth One-Winged Angel Event")
-    if options.cups:
-        regions["Olympus Coliseum"].locations.append("Olympus Coliseum Defeat Ice Titan Diamond Dust Event")
-    if options.cups:
-        regions["Olympus Coliseum"].locations.append("Olympus Coliseum Gates Purple Jar After Defeating Hades")
-    regions["Halloween Town"].locations.append("Halloween Town Guillotine Square Ring Jack's Doorbell 3 Times")
-    regions["Neverland"].locations.append("Neverland Clock Tower 01:00 Door")
-    regions["Neverland"].locations.append("Neverland Clock Tower 02:00 Door")
-    regions["Neverland"].locations.append("Neverland Clock Tower 03:00 Door")
-    regions["Neverland"].locations.append("Neverland Clock Tower 04:00 Door")
-    regions["Neverland"].locations.append("Neverland Clock Tower 05:00 Door")
-    regions["Neverland"].locations.append("Neverland Clock Tower 06:00 Door")
-    regions["Neverland"].locations.append("Neverland Clock Tower 07:00 Door")
-    regions["Neverland"].locations.append("Neverland Clock Tower 08:00 Door")
-    regions["Neverland"].locations.append("Neverland Clock Tower 09:00 Door")
-    regions["Neverland"].locations.append("Neverland Clock Tower 10:00 Door")
-    regions["Neverland"].locations.append("Neverland Clock Tower 11:00 Door")
-    regions["Neverland"].locations.append("Neverland Clock Tower 12:00 Door")
-    regions["Neverland"].locations.append("Neverland Hold Aero Chest")
-    if options.hundred_acre_wood:
-        regions["100 Acre Wood"].locations.append("100 Acre Wood Bouncing Spot Turn in Rare Nut 1")
-        regions["100 Acre Wood"].locations.append("100 Acre Wood Bouncing Spot Turn in Rare Nut 2")
-        regions["100 Acre Wood"].locations.append("100 Acre Wood Bouncing Spot Turn in Rare Nut 3")
-        regions["100 Acre Wood"].locations.append("100 Acre Wood Bouncing Spot Turn in Rare Nut 4")
-        regions["100 Acre Wood"].locations.append("100 Acre Wood Bouncing Spot Turn in Rare Nut 5")
-        regions["100 Acre Wood"].locations.append("100 Acre Wood Pooh's House Owl Cheer")
-        regions["100 Acre Wood"].locations.append("100 Acre Wood Convert Torn Page 1")
-        regions["100 Acre Wood"].locations.append("100 Acre Wood Convert Torn Page 2")
-        regions["100 Acre Wood"].locations.append("100 Acre Wood Convert Torn Page 3")
-        regions["100 Acre Wood"].locations.append("100 Acre Wood Convert Torn Page 4")
-        regions["100 Acre Wood"].locations.append("100 Acre Wood Convert Torn Page 5")
-        regions["100 Acre Wood"].locations.append("100 Acre Wood Pooh's House Start Fire")
-        regions["100 Acre Wood"].locations.append("100 Acre Wood Pooh's Room Cabinet")
-        regions["100 Acre Wood"].locations.append("100 Acre Wood Pooh's Room Chimney")
-        regions["100 Acre Wood"].locations.append("100 Acre Wood Bouncing Spot Break Log")
-        regions["100 Acre Wood"].locations.append("100 Acre Wood Bouncing Spot Fall Through Top of Tree Next to Pooh")
-    regions["Deep Jungle"].locations.append("Deep Jungle Camp Hi-Potion Experiment")
-    regions["Deep Jungle"].locations.append("Deep Jungle Camp Ether Experiment")
-    regions["Deep Jungle"].locations.append("Deep Jungle Camp Replication Experiment")
-    regions["Deep Jungle"].locations.append("Deep Jungle Cliff Save Gorillas")
-    regions["Deep Jungle"].locations.append("Deep Jungle Tree House Save Gorillas")
-    regions["Deep Jungle"].locations.append("Deep Jungle Camp Save Gorillas")
-    regions["Deep Jungle"].locations.append("Deep Jungle Bamboo Thicket Save Gorillas")
-    regions["Deep Jungle"].locations.append("Deep Jungle Climbing Trees Save Gorillas")
-    if options.cups:
-        regions["Olympus Coliseum"].locations.append("Olympus Coliseum Olympia Chest")
-    regions["Deep Jungle"].locations.append("Deep Jungle Jungle Slider 10 Fruits")
-    regions["Deep Jungle"].locations.append("Deep Jungle Jungle Slider 20 Fruits")
-    regions["Deep Jungle"].locations.append("Deep Jungle Jungle Slider 30 Fruits")
-    regions["Deep Jungle"].locations.append("Deep Jungle Jungle Slider 40 Fruits")
-    regions["Deep Jungle"].locations.append("Deep Jungle Jungle Slider 50 Fruits")
-    regions["Traverse Town"].locations.append("Traverse Town 1st District Speak with Cid Event")
-    regions["Wonderland"].locations.append("Wonderland Bizarre Room Read Book")
-    regions["Olympus Coliseum"].locations.append("Olympus Coliseum Coliseum Gates Green Trinity")
-    if options.super_bosses:
-        regions["Agrabah"].locations.append("Agrabah Defeat Kurt Zisa Zantetsuken Event")
-    if options.super_bosses or options.goal.current_key == "unknown":
-        regions["Hollow Bastion"].locations.append("Hollow Bastion Defeat Unknown EXP Necklace Event")
-    regions["Olympus Coliseum"].locations.append("Olympus Coliseum Coliseum Gates Hero's License Event")
-    if options.atlantica:
-        regions["Atlantica"].locations.append("Atlantica Sunken Ship Crystal Trident Event")
-    regions["Halloween Town"].locations.append("Halloween Town Graveyard Forget-Me-Not Event")
-    regions["Deep Jungle"].locations.append("Deep Jungle Tent Protect-G Event")
-    regions["Deep Jungle"].locations.append("Deep Jungle Cavern of Hearts Navi-G Piece Event")
-    regions["Wonderland"].locations.append("Wonderland Bizarre Room Navi-G Piece Event")
-    regions["Olympus Coliseum"].locations.append("Olympus Coliseum Coliseum Gates Entry Pass Event")
-    
-    regions["Traverse Town"].locations.append("Traverse Town Synth Log")
-    regions["Traverse Town"].locations.append("Traverse Town Synth Cloth")
-    regions["Traverse Town"].locations.append("Traverse Town Synth Rope")
-    regions["Traverse Town"].locations.append("Traverse Town Synth Seagull Egg")
-    regions["Traverse Town"].locations.append("Traverse Town Synth Fish")
-    regions["Traverse Town"].locations.append("Traverse Town Synth Mushroom")
-    
-    regions["Traverse Town"].locations.append("Traverse Town Item Shop Postcard")
-    regions["Traverse Town"].locations.append("Traverse Town 1st District Safe Postcard")
-    regions["Traverse Town"].locations.append("Traverse Town Gizmo Shop Postcard 1")
-    regions["Traverse Town"].locations.append("Traverse Town Gizmo Shop Postcard 2")
-    regions["Traverse Town"].locations.append("Traverse Town Item Workshop Postcard")
-    regions["Traverse Town"].locations.append("Traverse Town 3rd District Balcony Postcard")
-    regions["Traverse Town"].locations.append("Traverse Town Geppetto's House Postcard")
-    regions["Halloween Town"].locations.append("Halloween Town Lab Torn Page")
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Entrance Hall Emblem Piece (Flame)")
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Entrance Hall Emblem Piece (Chest)")
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Entrance Hall Emblem Piece (Statue)")
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Entrance Hall Emblem Piece (Fountain)")
-    regions["Traverse Town"].locations.append("Traverse Town 1st District Leon Gift")
-    regions["Traverse Town"].locations.append("Traverse Town 1st District Aerith Gift")
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Library Speak to Belle Divine Rose")
-    regions["Hollow Bastion"].locations.append("Hollow Bastion Library Speak to Aerith Cure")
-    
-    if options.goal.current_key == "final_ansem":
-        regions["End of the World"].locations.append("Final Ansem")
-    
-    
-
+    regions["Dwarf Woodlands"].locations.append("(T) Dwarf Woodlands Vault Balloon Letter Chest")
+    regions["Dwarf Woodlands"].locations.append("(T) Dwarf Woodlands Vault Ether Chest")
+    regions["Dwarf Woodlands"].locations.append("(T) Dwarf Woodlands Vault Potion Chest")
+    regions["Dwarf Woodlands"].locations.append("(T) Dwarf Woodlands Vault Flame Salvo Chest")
+    regions["Dwarf Woodlands"].locations.append("(T) Dwarf Woodlands Underground Waterway Potion Chest")
+    regions["Dwarf Woodlands"].locations.append("(T) Dwarf Woodlands Underground Waterway Block Recipe Chest")
+    regions["Dwarf Woodlands"].locations.append("(T) Dwarf Woodlands Underground Waterway Poison Edge Chest")
+    regions["Dwarf Woodlands"].locations.append("(T) Dwarf Woodlands Courtyard Fission Firaga Chest")
+    regions["Dwarf Woodlands"].locations.append("(T) Dwarf Woodlands Courtyard Potion Chest")
+    regions["Dwarf Woodlands"].locations.append("(T) Dwarf Woodlands Flower Glade Hungry Crystal Chest")
+    regions["Dwarf Woodlands"].locations.append("(T) Dwarf Woodlands Courtyard Map Chest")
+    regions["Dwarf Woodlands"].locations.append("(T) Dwarf Woodlands Underground Waterway Fire Chest")
+    regions["Castle of Dreams"].locations.append("(T) Castle of Dreams Palace Courtyard Pulsing Crystal Chest")
+    regions["Castle of Dreams"].locations.append("(T) Castle of Dreams Palace Courtyard Wellspring Crystal Chest")
+    regions["Castle of Dreams"].locations.append("(T) Castle of Dreams Palace Courtyard Slow Chest")
+    regions["Castle of Dreams"].locations.append("(T) Castle of Dreams Ballroom Fleeting Crystal Chest")
+    regions["Castle of Dreams"].locations.append("(T) Castle of Dreams Foyer Strike Raid Chest")
+    regions["Castle of Dreams"].locations.append("(T) Castle of Dreams Foyer Potion Chest")
+    regions["Castle of Dreams"].locations.append("(T) Castle of Dreams Foyer Hi-Potion Chest")
+    regions["Castle of Dreams"].locations.append("(T) Castle of Dreams Foyer Soothing Crystal Chest")
+    regions["Castle of Dreams"].locations.append("(T) Castle of Dreams Antechamber Thunder Chest")
+    regions["Castle of Dreams"].locations.append("(T) Castle of Dreams Palace Courtyard Map Chest")
+    regions["Castle of Dreams"].locations.append("(T) Castle of Dreams Chateau Thunderstorm Chest")
+    regions["Enchanted Dominion"].locations.append("(T) Enchanted Dominion Waterside Potion Chest")
+    regions["Enchanted Dominion"].locations.append("(T) Enchanted Dominion Forest Clearing Blizzard Chest")
+    regions["Enchanted Dominion"].locations.append("(T) Enchanted Dominion Audience Chamber Zero Gravity Chest")
+    regions["Enchanted Dominion"].locations.append("(T) Enchanted Dominion Audience Chamber Ether Chest")
+    regions["Enchanted Dominion"].locations.append("(T) Enchanted Dominion Audience Chamber Potion Chest")
+    regions["Enchanted Dominion"].locations.append("(T) Enchanted Dominion Hallway Ether Chest")
+    regions["Enchanted Dominion"].locations.append("(T) Enchanted Dominion Aurora's Chamber Map Chest")
+    regions["Enchanted Dominion"].locations.append("(T) Enchanted Dominion Tower Room Sleep Chest")
+    regions["Enchanted Dominion"].locations.append("(T) Enchanted Dominion Waterside Pulsing Crystal Chest")
+    regions["Enchanted Dominion"].locations.append("(T) Enchanted Dominion Tower Room Attack Recipe Chest")
+    regions["Mysterious Tower"].locations.append("(T) Mysterious Tower Mysterious Tower Pulsing Crystal Chest")
+    regions["Mysterious Tower"].locations.append("(T) Mysterious Tower Mysterious Tower Balloon Letter Chest")
+    regions["Mysterious Tower"].locations.append("(T) Mysterious Tower Mysterious Tower Cure Chest")
+    regions["Mysterious Tower"].locations.append("(T) Mysterious Tower Tower Entrance Magic Recipe Chest")
+    regions["Radiant Garden"].locations.append("(T) Radiant Garden Aqueduct Esuna Chest")
+    regions["Radiant Garden"].locations.append("(T) Radiant Garden Aqueduct Blackout Chest")
+    regions["Radiant Garden"].locations.append("(T) Radiant Garden Aqueduct Hi-Potion Chest")
+    regions["Radiant Garden"].locations.append("(T) Radiant Garden Outer Gardens Fira Chest")
+    regions["Radiant Garden"].locations.append("(T) Radiant Garden Outer Gardens Pulsing Crystal Chest")
+    regions["Radiant Garden"].locations.append("(T) Radiant Garden Central Square Potion Chest")
+    regions["Radiant Garden"].locations.append("(T) Radiant Garden Central Square Hi-Potion Chest")
+    regions["Radiant Garden"].locations.append("(T) Radiant Garden Purification Facility Mega-Potion Chest")
+    regions["Radiant Garden"].locations.append("(T) Radiant Garden Purification Facility Chaos Crystal Chest")
+    regions["Radiant Garden"].locations.append("(T) Radiant Garden Castle Town Map Chest")
+    regions["Radiant Garden"].locations.append("(T) Radiant Garden Fountain Court Thunder Surge Chest")
+    regions["Radiant Garden"].locations.append("(T) Radiant Garden Fountain Court Fleeting Crystal Chest")
+    regions["Radiant Garden"].locations.append("(T) Radiant Garden Fountain Court Panacea Chest")
+    regions["Radiant Garden"].locations.append("(T) Radiant Garden Merlin's House Shimmering Crystal Chest")
+    regions["Olympus Coliseum"].locations.append("(T) Olympus Coliseum Coliseum Gates Fire Strike Chest")
+    regions["Olympus Coliseum"].locations.append("(T) Olympus Coliseum Coliseum Gates Mega Attack Recipe Chest")
+    regions["Olympus Coliseum"].locations.append("(T) Olympus Coliseum Coliseum Gates Mega-Potion Recipe Chest")
+    regions["Olympus Coliseum"].locations.append("(T) Olympus Coliseum Vestibule Map Chest")
+    regions["Deep Space"].locations.append("(T) Deep Space Turo Prison Block High Jump Chest")
+    regions["Deep Space"].locations.append("(T) Deep Space Durgon Transporter Hi-Potion Chest")
+    regions["Deep Space"].locations.append("(T) Deep Space Ship Corridor Ether Chest")
+    regions["Deep Space"].locations.append("(T) Deep Space Ship Corridor Hi-Potion Chest")
+    regions["Deep Space"].locations.append("(T) Deep Space Ship Corridor Pulsing Crystal Chest")
+    regions["Deep Space"].locations.append("(T) Deep Space Ship Corridor Warp Chest")
+    regions["Deep Space"].locations.append("(T) Deep Space Control Room Hi-Potion Chest")
+    regions["Deep Space"].locations.append("(T) Deep Space Turo Prison Block Brutal Blast Chest")
+    regions["Deep Space"].locations.append("(T) Deep Space Turo Prison Block Pulsing Crystal Chest")
+    regions["Deep Space"].locations.append("(T) Deep Space Turo Prison Block Mega-Ether Chest")
+    regions["Deep Space"].locations.append("(T) Deep Space Ship Hub Hungry Crystal Chest")
+    regions["Deep Space"].locations.append("(T) Deep Space Machinery Bay Access Mine Square Chest")
+    regions["Deep Space"].locations.append("(T) Deep Space Turo Prison Block Mega-Potion Chest")
+    regions["Deep Space"].locations.append("(T) Deep Space Launch Deck Thundara Chest")
+    regions["Deep Space"].locations.append("(T) Deep Space Turo Transporter Map Chest")
+    regions["Deep Space"].locations.append("(T) Deep Space Launch Deck Abounding Crystal Chest")
+    regions["Deep Space"].locations.append("(T) Deep Space Launch Deck Wellspring Crystal Chest")
+    regions["Deep Space"].locations.append("(T) Deep Space Ship Hub Mega-Potion Chest")
+    regions["Deep Space"].locations.append("(T) Deep Space Ship Hub Fleeting Crystal Chest")
+    regions["Neverland"].locations.append("(T) Neverland Gully Map Chest")
+    regions["Neverland"].locations.append("(T) Neverland Gully Hi-Potion Chest")
+    regions["Neverland"].locations.append("(T) Neverland Cove Ether Chest")
+    regions["Neverland"].locations.append("(T) Neverland Cliff Path Hi-Potion Chest")
+    regions["Neverland"].locations.append("(T) Neverland Cliff Path Mega-Potion Chest")
+    regions["Neverland"].locations.append("(T) Neverland Cliff Path Firaga Chest")
+    regions["Neverland"].locations.append("(T) Neverland Mermaid Lagoon Dark Haze Chest")
+    regions["Neverland"].locations.append("(T) Neverland Mermaid Lagoon Geo Impact Chest")
+    regions["Neverland"].locations.append("(T) Neverland Mermaid Lagoon Elixir Chest")
+    regions["Neverland"].locations.append("(T) Neverland Peter's Hideout Shimmering Crystal Chest")
+    regions["Neverland"].locations.append("(T) Neverland Peter's Hideout Mega Magic Recipe Chest")
+    regions["Neverland"].locations.append("(T) Neverland Jungle Clearing Hi-Potion Chest")
+    regions["Neverland"].locations.append("(T) Neverland Rainbow Falls: Crest Abounding Crystal Chest")
+    regions["Neverland"].locations.append("(T) Neverland Skull Rock: Entrance Panacea Chest")
+    regions["Neverland"].locations.append("(T) Neverland Skull Rock: Cavern Megalixir Chest")
+    regions["Neverland"].locations.append("(T) Neverland Skull Rock: Cavern Ars Solum Chest")
+    regions["Neverland"].locations.append("(T) Neverland Skull Rock: Cavern Chaos Crystal Chest")
+    regions["Neverland"].locations.append("(T) Neverland Rainbow Falls: Base Megalixir Chest")
+    regions["Neverland"].locations.append("(T) Neverland Rainbow Falls: Base Zero Graviga Chest")
+    regions["Neverland"].locations.append("(T) Neverland Cove Hi-Potion Chest")
+    regions["Disney Town"].locations.append("(T) Disney Town Main Plaza Map Chest")
+    regions["Disney Town"].locations.append("(T) Disney Town Main Plaza Potion Chest")
+    regions["Disney Town"].locations.append("(T) Disney Town Raceway Abounding Crystal Chest")
+    regions["Disney Town"].locations.append("(T) Disney Town Raceway Payback Fang Chest")
+    regions["Disney Town"].locations.append("(T) Disney Town Raceway Slot Edge Chest")
+    regions["Disney Town"].locations.append("(T) Disney Town Gizmo Gallery Panacea Chest")
+    regions["Disney Town"].locations.append("(T) Disney Town Gizmo Gallery Action Recipe Chest")
+    regions["Disney Town"].locations.append("(T) Disney Town Gizmo Gallery Chaos Crystal Chest")
+    regions["Disney Town"].locations.append("(T) Disney Town Gizmo Gallery Thunder Chest 1")
+    regions["Disney Town"].locations.append("(T) Disney Town Gizmo Gallery Thunder Chest 2")
+    regions["Disney Town"].locations.append("(T) Disney Town Pete's Rec Room Zero Graviga Chest")
+    regions["Disney Town"].locations.append("(T) Disney Town Pete's Rec Room Aerial Slam Chest")
+    regions["Disney Town"].locations.append("(T) Disney Town Gizmo Gallery Absolute Zero Chest")
+    regions["Disney Town"].locations.append("(T) Disney Town Pete's Rec Room Break Time Chest")
+    regions["Disney Town"].locations.append("(T) Disney Town Pete's Rec Room Chaos Crystal Chest")
+    regions["Disney Town"].locations.append("(T) Disney Town Gizmo Gallery Mega-Potion Chest")
+    regions["Keyblade Graveyard"].locations.append("(T) Keyblade Graveyard Twister Trench Windcutter Chest")
+    regions["Keyblade Graveyard"].locations.append("(T) Keyblade Graveyard Twister Trench Mega-Potion Chest")
+    regions["Keyblade Graveyard"].locations.append("(T) Keyblade Graveyard Twister Trench Mega-Ether Chest")
+    regions["Keyblade Graveyard"].locations.append("(T) Keyblade Graveyard Twister Trench Megalixir Chest")
+    regions["Keyblade Graveyard"].locations.append("(T) Keyblade Graveyard Seat of War Elixir Chest")
+    regions["Keyblade Graveyard"].locations.append("(T) Keyblade Graveyard Seat of War Mega-Potion Chest")
+    regions["Keyblade Graveyard"].locations.append("(T) Keyblade Graveyard Seat of War Map Chest")
+    regions["Enchanted Dominion"].locations.append("(T) Enchanted Dominion Forest Clearing Balloon Sticker")
+    regions["Enchanted Dominion"].locations.append("(T) Enchanted Dominion Audience Chamber Huey Sticker")
+    regions["Enchanted Dominion"].locations.append("(T) Enchanted Dominion Tower Room Flying Balloon Sticker")
+    regions["Castle of Dreams"].locations.append("(T) Castle of Dreams Chateau Traffic Cone Sticker")
+    regions["Castle of Dreams"].locations.append("(T) Castle of Dreams Passage Flying Balloon Sticker")
+    regions["Dwarf Woodlands"].locations.append("(T) Dwarf Woodlands Underground Waterway Louie Sticker")
+    regions["Dwarf Woodlands"].locations.append("(T) Dwarf Woodlands Flower Glade Balloon Sticker")
+    regions["Mysterious Tower"].locations.append("(T) Mysterious Tower Sorcerer's Chamber Balloon Sticker")
+    regions["Radiant Garden"].locations.append("(T) Radiant Garden Outer Gardens Airplane Sticker")
+    regions["Radiant Garden"].locations.append("(T) Radiant Garden Central Square Flying Balloon Sticker")
+    regions["Radiant Garden"].locations.append("(T) Radiant Fountain Court Dale Sticker")
+    regions["Olympus Coliseum"].locations.append("(T) Olympus Coliseum Coliseum Gates Balloon Sticker")
+    regions["Deep Space"].locations.append("(T) Deep Space Turo Prison Block Flying Balloon Sticker")
+    regions["Deep Space"].locations.append("(T) Deep Space Ship Corridor UFO Sticker")
+    regions["Neverland"].locations.append("(T) Neverland Peter's Hideout Dewey Sticker")
+    regions["Neverland"].locations.append("(T) Neverland Rainbow Falls: Base Rainbow Sticker")
+    regions["Neverland"].locations.append("(T) Neverland Skull Rock: Entrance Chip Sticker")
+    regions["Disney Town"].locations.append("(T) Disney Town Gizmo Gallery Pete Sticker")
+    regions["Disney Town"].locations.append("(T) Disney Town Raceway Traffic Cone Sticker")
+    regions["Keyblade Graveyard"].locations.append("(T) Keyblade Graveyard Twister Trench Traffic Cone Sticker")
+    regions["Land of Departure"].locations.append("(T) Land of Departure Orbs Defeated Max HP Increase")
+    regions["Land of Departure"].locations.append("(T) Land of Departure Orbs Defeated Ventus D-Link")
+    regions["Land of Departure"].locations.append("(T) Land of Departure Orbs Defeated Aqua D-Link")
+    regions["Land of Departure"].locations.append("(T) Land of Departure Eraqus Defeated Max HP Increase")
+    regions["Land of Departure"].locations.append("(T) Land of Departure Eraqus Defeated Chaos Ripper")
+    regions["Land of Departure"].locations.append("(T) Land of Departure Eraqus Defeated Xehanort's Report 8")
+    regions["Dwarf Woodlands"].locations.append("(T) Dwarf Woodlands Unversed Group Defeated Air Slide")
+    regions["Dwarf Woodlands"].locations.append("(T) Dwarf Woodlands Spirit of the Magic Mirror Defeated Air Slide")
+    regions["Dwarf Woodlands"].locations.append("(T) Dwarf Woodlands Spirit of the Magic Mirror Defeated Max HP Increase")
+    regions["Dwarf Woodlands"].locations.append("(T) Dwarf Woodlands Spirit of the Magic Mirror Defeated Firestorm")
+    regions["Dwarf Woodlands"].locations.append("(T) Dwarf Woodlands Spirit of the Magic Mirror Defeated Treasure Trove")
+    regions["Castle of Dreams"].locations.append("(T) Castle of Dreams Cinderella Escorted Counter Hammer")
+    regions["Castle of Dreams"].locations.append("(T) Castle of Dreams Symphony Master Defeated Max HP Increase")
+    regions["Castle of Dreams"].locations.append("(T) Castle of Dreams Symphony Master Defeated Deck Capacity Increase")
+    regions["Castle of Dreams"].locations.append("(T) Castle of Dreams Symphony Master Defeated Cinderella D-Link")
+    regions["Castle of Dreams"].locations.append("(T) Castle of Dreams Symphony Master Defeated Stroke of Midnight")
+    regions["Castle of Dreams"].locations.append("(T) Castle of Dreams Symphony Master Defeated Royal Board")
+    regions["Enchanted Dominion"].locations.append("(T) Enchanted Dominion Unlock Aurora's Heart Maleficent D-Link")
+    regions["Enchanted Dominion"].locations.append("(T) Enchanted Dominion Wheel Master Defeated Deck Capacity Increase")
+    regions["Enchanted Dominion"].locations.append("(T) Enchanted Dominion Wheel Master Defeated Diamond Dust")
+    regions["Enchanted Dominion"].locations.append("(T) Enchanted Dominion Wheel Master Defeated Fairy Stars")
+    regions["Radiant Garden"].locations.append("(T) Radiant Garden Examine Pooh's Story Book Honey Pot Board")
+    regions["Radiant Garden"].locations.append("(T) Radiant Garden Defeat Trinity Armor Max HP Increase")
+    regions["Radiant Garden"].locations.append("(T) Radiant Garden Defeat Trinity Armor Rockbreaker")
+    regions["Radiant Garden"].locations.append("(T) Radiant Garden Defeat Trinity Armor Disney Town Pass")
+    regions["Radiant Garden"].locations.append("(T) Radiant Garden Defeat Braig Deck Capacity Increase")
+    regions["Radiant Garden"].locations.append("(T) Radiant Garden Defeat Braig Dark Volley")
+    regions["Radiant Garden"].locations.append("(T) Radiant Garden Defeat Braig Xehanort's Report 2")
+    regions["Olympus Coliseum"].locations.append("(T) Olympus Coliseum Tournament Complete Max HP Increase")
+    regions["Olympus Coliseum"].locations.append("(T) Olympus Coliseum Tournament Complete Sonic Impact")
+    regions["Olympus Coliseum"].locations.append("(T) Olympus Coliseum Defeat Zack Deck Capacity Increase")
+    regions["Olympus Coliseum"].locations.append("(T) Olympus Coliseum Defeat Zack Zack D-Link")
+    regions["Olympus Coliseum"].locations.append("(T) Olympus Coliseum Defeat Zack Mark of a Hero")
+    regions["Deep Space"].locations.append("(T) Deep Space Defeat Unversed in Space Max HP Increase")
+    regions["Deep Space"].locations.append("(T) Deep Space Defeat Experiment 221 Thunderbolt")
+    regions["Deep Space"].locations.append("(T) Deep Space Defeat Experiment 221 Experiment 626 D-Link")
+    regions["Deep Space"].locations.append("(T) Deep Space Defeat Experiment 221 Hyperdrive")
+    regions["Deep Space"].locations.append("(T) Deep Space Defeat Experiment 221 Spaceship Board")
+    regions["Destiny Islands"].locations.append("(T) Destiny Islands Scene Ends of the Earth")
+    regions["Neverland"].locations.append("(T) Neverland Defeat Peter Pan Bladecharge")
+    regions["Neverland"].locations.append("(T) Neverland Defeat Peter Pan Peter Pan D-Link")
+    regions["Neverland"].locations.append("(T) Neverland Defeat Countless Unversed Deck Capacity Increase")
+    regions["Neverland"].locations.append("(T) Neverland Defeat Countless Unversed Pixie Petal")
+    regions["Neverland"].locations.append("(T) Neverland Defeat Countless Unversed Skull Board")
+    regions["Disney Town"].locations.append("(T) Disney Town Complete Rumble Racing Hi-Potion")
+    regions["Disney Town"].locations.append("(T) Disney Town Complete Rumble Racing Toon Board")
+    regions["Keyblade Graveyard"].locations.append("(T) Keyblade Graveyard Meet With Xehanort Dark Impulse")
+    regions["Keyblade Graveyard"].locations.append("(T) Keyblade Graveyard Xehanort Defeated Max HP Increase")
+    regions["Keyblade Graveyard"].locations.append("(T) Keyblade Graveyard Defeat Terranort")
 
     # Set up the regions correctly.
     for name, data in regions.items():
         multiworld.regions.append(create_region(multiworld, player, name, data))
 
-    multiworld.get_entrance("Awakening", player).connect(multiworld.get_region("Awakening", player))
-    multiworld.get_entrance("Destiny Islands", player).connect(multiworld.get_region("Destiny Islands", player))
-    multiworld.get_entrance("Traverse Town", player).connect(multiworld.get_region("Traverse Town", player))
-    multiworld.get_entrance("Wonderland", player).connect(multiworld.get_region("Wonderland", player))
-    multiworld.get_entrance("Olympus Coliseum", player).connect(multiworld.get_region("Olympus Coliseum", player))
-    multiworld.get_entrance("Deep Jungle", player).connect(multiworld.get_region("Deep Jungle", player))
-    multiworld.get_entrance("Agrabah", player).connect(multiworld.get_region("Agrabah", player))
-    multiworld.get_entrance("Monstro", player).connect(multiworld.get_region("Monstro", player))
-    multiworld.get_entrance("Atlantica", player).connect(multiworld.get_region("Atlantica", player))
-    multiworld.get_entrance("Halloween Town", player).connect(multiworld.get_region("Halloween Town", player))
-    multiworld.get_entrance("Neverland", player).connect(multiworld.get_region("Neverland", player))
-    multiworld.get_entrance("Hollow Bastion", player).connect(multiworld.get_region("Hollow Bastion", player))
-    multiworld.get_entrance("End of the World", player).connect(multiworld.get_region("End of the World", player))
-    multiworld.get_entrance("100 Acre Wood", player).connect(multiworld.get_region("100 Acre Wood", player))
-    multiworld.get_entrance("World Map", player).connect(multiworld.get_region("World Map", player))
-    multiworld.get_entrance("Levels", player).connect(multiworld.get_region("Levels", player))
+    multiworld.get_entrance("Land of Departure",  player).connect(multiworld.get_region("Land of Departure",  player))
+    multiworld.get_entrance("Dwarf Woodlands",    player).connect(multiworld.get_region("Dwarf Woodlands",    player))
+    multiworld.get_entrance("Castle of Dreams",   player).connect(multiworld.get_region("Castle of Dreams",   player))
+    multiworld.get_entrance("Enchanted Dominion", player).connect(multiworld.get_region("Enchanted Dominion", player))
+    multiworld.get_entrance("Mysterious Tower",   player).connect(multiworld.get_region("Mysterious Tower",   player))
+    multiworld.get_entrance("Radiant Garden",     player).connect(multiworld.get_region("Radiant Garden",     player))
+    multiworld.get_entrance("Olympus Coliseum",   player).connect(multiworld.get_region("Olympus Coliseum",   player))
+    multiworld.get_entrance("Deep Space",         player).connect(multiworld.get_region("Deep Space",         player))
+    multiworld.get_entrance("Destiny Islands",    player).connect(multiworld.get_region("Destiny Islands",    player))
+    multiworld.get_entrance("Neverland",          player).connect(multiworld.get_region("Neverland",          player))
+    multiworld.get_entrance("Disney Town",        player).connect(multiworld.get_region("Disney Town",        player))
+    multiworld.get_entrance("Keyblade Graveyard", player).connect(multiworld.get_region("Keyblade Graveyard", player))
+    multiworld.get_entrance("World Map",          player).connect(multiworld.get_region("World Map",          player))
 
-def create_region(multiworld: MultiWorld, player: int, name: str, data: KH1RegionData):
+def create_region(multiworld: MultiWorld, player: int, name: str, data: KHBBSRegionData):
     region = Region(name, player, multiworld)
     if data.locations:
         for loc_name in data.locations:
             loc_data = location_table.get(loc_name)
-            location = KH1Location(player, loc_name, loc_data.code if loc_data else None, region)
+            location = KHBBSLocation(player, loc_name, loc_data.code if loc_data else None, region)
             region.locations.append(location)
 
     if data.region_exits:
