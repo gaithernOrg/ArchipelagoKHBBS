@@ -66,7 +66,7 @@ class KHBBSWorld(World):
         total_locations = len(self.multiworld.get_unfilled_locations(self.player)) - 1
         
         non_filler_item_categories = ["Movement Command", "Defense Command", "Reprisal Command", 
-            "Shotlock Command", "Command Style", "Ability", "Key Item", "World"]
+            "Shotlock Command", "Command Style", "Ability", "Key Item", "World", "Stat Up", "D-Link"]
         for name, data in item_table.items():
             quantity = data.max_quantity
             if data.category not in non_filler_item_categories:
@@ -137,7 +137,7 @@ class KHBBSWorld(World):
             location_data = location_table[location.name]
             item_data = item_table[location.item.name]
             if location_data.type == "Chest":
-                if item_data.category in ["Attack Command", "Magic Command", "Item Command", "Friendship Command", "Movement Command", "Defense Command", "Reprisal Command", "Shotlock Command", "Key Item"]:
+                if item_data.category in ["Attack Command", "Magic Command", "Item Command", "Friendship Command", "Movement Command", "Defense Command", "Reprisal Command", "Shotlock Command", "Key Item"] and not location_data.forced_remote:
                     non_remote_location_ids.append(location_data.code)
             if location_data.type == "Sticker":
                 if item_data.category in ["Key Item"]:

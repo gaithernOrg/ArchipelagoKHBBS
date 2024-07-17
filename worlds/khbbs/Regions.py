@@ -30,6 +30,10 @@ def create_regions(multiworld: MultiWorld, player: int, options):
     }
 
     # Set up locations
+    regions["Land of Departure"].locations.append("(T) Land of Departure Mountain Path Pulsing Crystal Chest")
+    regions["Land of Departure"].locations.append("(T) Land of Departure Mountain Path Hi-Potion Chest")
+    regions["Land of Departure"].locations.append("(T) Land of Departure Mountain Path Stop Chest")
+    regions["Land of Departure"].locations.append("(T) Land of Departure Summit Soothing Crystal Chest")
     regions["Dwarf Woodlands"].locations.append("(T) Dwarf Woodlands Vault Balloon Letter Chest")
     regions["Dwarf Woodlands"].locations.append("(T) Dwarf Woodlands Vault Ether Chest")
     regions["Dwarf Woodlands"].locations.append("(T) Dwarf Woodlands Vault Potion Chest")
@@ -105,7 +109,7 @@ def create_regions(multiworld: MultiWorld, player: int, options):
     regions["Deep Space"].locations.append("(T) Deep Space Ship Hub Mega-Potion Chest")
     regions["Deep Space"].locations.append("(T) Deep Space Ship Hub Fleeting Crystal Chest")
     regions["Neverland"].locations.append("(T) Neverland Gully Map Chest")
-    regions["Neverland"].locations.append("(T) Neverland Gully Hi-Potion Chest")
+    regions["Neverland"].locations.append("(T) Neverland Cove Hi-Potion Chest")
     regions["Neverland"].locations.append("(T) Neverland Cove Ether Chest")
     regions["Neverland"].locations.append("(T) Neverland Cliff Path Hi-Potion Chest")
     regions["Neverland"].locations.append("(T) Neverland Cliff Path Mega-Potion Chest")
@@ -123,7 +127,7 @@ def create_regions(multiworld: MultiWorld, player: int, options):
     regions["Neverland"].locations.append("(T) Neverland Skull Rock: Cavern Chaos Crystal Chest")
     regions["Neverland"].locations.append("(T) Neverland Rainbow Falls: Base Megalixir Chest")
     regions["Neverland"].locations.append("(T) Neverland Rainbow Falls: Base Zero Graviga Chest")
-    regions["Neverland"].locations.append("(T) Neverland Cove Hi-Potion Chest")
+    regions["Neverland"].locations.append("(T) Neverland Gully Hi-Potion Chest")
     regions["Disney Town"].locations.append("(T) Disney Town Main Plaza Map Chest")
     regions["Disney Town"].locations.append("(T) Disney Town Main Plaza Potion Chest")
     regions["Disney Town"].locations.append("(T) Disney Town Raceway Abounding Crystal Chest")
@@ -171,6 +175,7 @@ def create_regions(multiworld: MultiWorld, player: int, options):
     regions["Land of Departure"].locations.append("(T) Land of Departure Orbs Defeated Critical Impact")
     regions["Land of Departure"].locations.append("(T) Land of Departure Orbs Defeated Ventus D-Link")
     regions["Land of Departure"].locations.append("(T) Land of Departure Orbs Defeated Aqua D-Link")
+    regions["Land of Departure"].locations.append("(T) Land of Departure Orbs Defeated Keyblade Board")
     regions["Land of Departure"].locations.append("(T) Land of Departure Eraqus Defeated Max HP Increase")
     regions["Land of Departure"].locations.append("(T) Land of Departure Eraqus Defeated Chaos Ripper")
     regions["Land of Departure"].locations.append("(T) Land of Departure Eraqus Defeated Xehanort's Report 8")
@@ -213,7 +218,7 @@ def create_regions(multiworld: MultiWorld, player: int, options):
     regions["Neverland"].locations.append("(T) Neverland Defeat Countless Unversed Skull Board")
     regions["Disney Town"].locations.append("(T) Disney Town Complete Rumble Racing Hi-Potion")
     regions["Disney Town"].locations.append("(T) Disney Town Complete Rumble Racing Toon Board")
-    regions["Keyblade Graveyard"].locations.append("(T) Keyblade Graveyard Meet With Xehanort Dark Impulse")
+   #regions["Keyblade Graveyard"].locations.append("(T) Keyblade Graveyard Meet With Xehanort Dark Impulse")
     regions["Keyblade Graveyard"].locations.append("(T) Keyblade Graveyard Xehanort Defeated Max HP Increase")
     regions["Keyblade Graveyard"].locations.append("(T) Keyblade Graveyard Defeat Terranort")
 

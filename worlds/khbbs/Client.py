@@ -15,6 +15,7 @@ ModuleUpdate.update()
 import Utils
 death_link = False
 non_remote_location_ids = []
+player_id = -1
 item_num = 1
 
 logger = logging.getLogger("Client")
@@ -112,7 +113,6 @@ class KHBBSContext(CommonContext):
                 if key == "non_remote_location_ids":
                     global non_remote_location_ids
                     non_remote_location_ids = args['slot_data'][key]
-            
             #End Handle Slot Data
 
         if cmd in {"ReceivedItems"}:
@@ -126,7 +126,7 @@ class KHBBSContext(CommonContext):
                         if filename == item_filename:
                             found = True
                     if not found:
-                        if NetworkItem(*item).location not in non_remote_location_ids:
+                        if (NetworkItem(*item).player == self.slot and NetworkItem(*item).location not in non_remote_location_ids) or NetworkItem(*item).player != self.slot:
                             with open(os.path.join(self.game_communication_path, item_filename), 'w') as f:
                                 f.write(str(NetworkItem(*item).item) + "\n" + str(NetworkItem(*item).location) + "\n" + str(NetworkItem(*item).player))
                                 f.close()
