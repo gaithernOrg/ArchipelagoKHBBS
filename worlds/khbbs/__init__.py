@@ -7,6 +7,7 @@ from .Locations import KHBBSLocation, location_table, get_locations_by_category,
 from .Options import KHBBSOptions
 from .Regions import create_regions
 from .Rules import set_rules
+from .OpenKH import patch_khbbs
 from worlds.LauncherComponents import Component, components, Type, launch_subprocess
 
 
@@ -106,7 +107,8 @@ class KHBBSWorld(World):
         return self.random.choices([filler for filler in fillers.keys()], weights, k=1)[0]
 
     def fill_slot_data(self) -> dict:
-        slot_data = {"xpmult": int(self.options.exp_multiplier)/16}
+        slot_data = {"xpmult":                  int(self.options.exp_multiplier)/16,
+                     "non_remote_location_ids": self.get_non_remote_location_ids()}
         return slot_data
     
     def create_item(self, name: str) -> KHBBSItem:
@@ -122,3 +124,22 @@ class KHBBSWorld(World):
 
     def create_regions(self):
         create_regions(self.multiworld, self.player, self.options)
+
+    def generate_output(self, output_directory: str):
+        """
+        Generates the .zip for OpenKH (The KH Mod Manager)
+        """
+        patch_khbbs(self, output_directory)
+    
+    def get_non_remote_location_ids(self):
+        non_remote_location_ids = []
+        for location in self.multiworld.get_filled_locations(self.player):
+            location_data = location_table[location.name]
+            item_data = item_table[location.item.name]
+            if location_data.type == "Chest":
+                if item_data.category in ["Attack Command", "Magic Command", "Item Command", "Friendship Command", "Movement Command", "Defense Command", "Reprisal Command", "Shotlock Command", "Key Item"]:
+                    non_remote_location_ids.append(location_data.code)
+            if location_data.type == "Sticker":
+                if item_data.category in ["Key Item"]:
+                    non_remote_location_ids.append(location_data.code)
+        return non_remote_location_ids

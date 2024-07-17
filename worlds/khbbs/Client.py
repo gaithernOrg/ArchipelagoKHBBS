@@ -14,6 +14,7 @@ ModuleUpdate.update()
 
 import Utils
 death_link = False
+non_remote_location_ids = []
 item_num = 1
 
 logger = logging.getLogger("Client")
@@ -108,6 +109,9 @@ class KHBBSContext(CommonContext):
                 with open(os.path.join(self.game_communication_path, key + ".cfg"), 'w') as f:
                     f.write(str(args['slot_data'][key]))
                     f.close()
+                if key == "non_remote_location_ids":
+                    global non_remote_location_ids
+                    non_remote_location_ids = args['slot_data'][key]
             
             #End Handle Slot Data
 
@@ -122,10 +126,11 @@ class KHBBSContext(CommonContext):
                         if filename == item_filename:
                             found = True
                     if not found:
-                        with open(os.path.join(self.game_communication_path, item_filename), 'w') as f:
-                            f.write(str(NetworkItem(*item).item) + "\n" + str(NetworkItem(*item).location) + "\n" + str(NetworkItem(*item).player))
-                            f.close()
-                            item_num = item_num + 1
+                        if NetworkItem(*item).location not in non_remote_location_ids:
+                            with open(os.path.join(self.game_communication_path, item_filename), 'w') as f:
+                                f.write(str(NetworkItem(*item).item) + "\n" + str(NetworkItem(*item).location) + "\n" + str(NetworkItem(*item).player))
+                                f.close()
+                                item_num = item_num + 1
 
         if cmd in {"RoomUpdate"}:
             if "checked_locations" in args:

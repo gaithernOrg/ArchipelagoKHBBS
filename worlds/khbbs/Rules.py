@@ -12,6 +12,7 @@ def set_rules(khbbsworld):
     multiworld.get_entrance("Dwarf Woodlands"                                           , player).access_rule = lambda state: state.has("Dwarf Woodlands",    player)
     multiworld.get_entrance("Castle of Dreams"                                          , player).access_rule = lambda state: state.has("Castle of Dreams",   player)
     multiworld.get_entrance("Enchanted Dominion"                                        , player).access_rule = lambda state: state.has("Enchanted Dominion", player)
+    multiworld.get_entrance("Mysterious Tower"                                          , player).access_rule = lambda state: state.has("Mysterious Tower",   player)
     multiworld.get_entrance("Radiant Garden"                                            , player).access_rule = lambda state: state.has("Radiant Garden",     player)
     multiworld.get_entrance("Olympus Coliseum"                                          , player).access_rule = lambda state: state.has("Olympus Coliseum",   player)
     multiworld.get_entrance("Deep Space"                                                , player).access_rule = lambda state: state.has("Deep Space",         player)
