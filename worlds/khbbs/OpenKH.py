@@ -130,7 +130,7 @@ def get_chest_replace(self):
             if item_data.category in ["Attack Command", "Magic Command", "Item Command", "Friendship Command", "Movement Command", "Defense Command", "Reprisal Command", "Shotlock Command"] and not location_data.forced_remote:
                 item_prefix = "01"
                 write_value = get_world_offset(location_data.category) + item_prefix + item_data.khbbsid
-            elif item_data.category in ["Key Item"]:
+            elif item_data.category in ["Key Item"] and not location_data.forced_remote:
                 item_prefix = "00"
                 write_value = get_world_offset(location_data.category) + item_prefix + item_data.khbbsid
             else:
