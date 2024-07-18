@@ -117,7 +117,7 @@ def get_sticker_replace(self):
         location_data = location_table[location.name]
         item_data = item_table[location.item.name]
         if location_data.type == "Sticker":
-            replace_stickers_str = replace_stickers_str + ("    " * 6) + "WriteInt(field_item_address_pointer + 0x" + str(location_data.offset) + ", 0x"
+            replace_stickers_str = replace_stickers_str + ("    " * 6) + "WriteInt(field_item_address_pointer + (" + str(location_data.offset) + "), 0x"
             if item_data.category == "Key Item":
                 write_value = get_world_offset(location_data.category) + item_data.khbbsid
             else:
@@ -131,7 +131,7 @@ def get_chest_replace(self):
         location_data = location_table[location.name]
         item_data = item_table[location.item.name]
         if location_data.type == "Chest":
-            replace_chests_str = replace_chests_str + ("    " * 6) + "WriteInt(field_item_address_pointer + 0x" + str(location_data.offset) + ", 0x"
+            replace_chests_str = replace_chests_str + ("    " * 6) + "WriteInt(field_item_address_pointer + (" + str(location_data.offset) + "), 0x"
             if item_data.category in ["Attack Command", "Magic Command", "Item Command", "Friendship Command", "Movement Command", "Defense Command", "Reprisal Command", "Shotlock Command"] and not location_data.forced_remote:
                 item_prefix = "01"
                 write_value = get_world_offset(location_data.category) + item_prefix + item_data.khbbsid
