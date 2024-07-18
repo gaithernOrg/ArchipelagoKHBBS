@@ -3,10 +3,12 @@ from BaseClasses import CollectionState, MultiWorld
 def set_rules(khbbsworld):
     multiworld = khbbsworld.multiworld
     player     = khbbsworld.player
+    options    = khbbsworld.options
     # Location Rules
-    multiworld.get_location("(T) Land of Departure Eraqus Defeated Max HP Increase"     , player).access_rule = lambda state: state.has_any({"Wayfinder Ventus", "Wayfinder Aqua", "Wayfinder Terra"}, player)
-    multiworld.get_location("(T) Land of Departure Eraqus Defeated Chaos Ripper"        , player).access_rule = lambda state: state.has_any({"Wayfinder Ventus", "Wayfinder Aqua", "Wayfinder Terra"}, player)
-    multiworld.get_location("(T) Land of Departure Eraqus Defeated Xehanort's Report 8" , player).access_rule = lambda state: state.has_any({"Wayfinder Ventus", "Wayfinder Aqua", "Wayfinder Terra"}, player)
+    if options.character == 2:
+        multiworld.get_location("(T) Land of Departure Eraqus Defeated Max HP Increase"     , player).access_rule = lambda state: state.has_all({"Wayfinder Ventus", "Wayfinder Aqua", "Wayfinder Terra"}, player)
+        multiworld.get_location("(T) Land of Departure Eraqus Defeated Chaos Ripper"        , player).access_rule = lambda state: state.has_all({"Wayfinder Ventus", "Wayfinder Aqua", "Wayfinder Terra"}, player)
+        multiworld.get_location("(T) Land of Departure Eraqus Defeated Xehanort's Report 8" , player).access_rule = lambda state: state.has_all({"Wayfinder Ventus", "Wayfinder Aqua", "Wayfinder Terra"}, player)
     
     # Region rules.
     multiworld.get_entrance("Dwarf Woodlands"                                           , player).access_rule = lambda state: state.has("Dwarf Woodlands",    player)

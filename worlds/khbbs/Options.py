@@ -30,7 +30,26 @@ class EXPMultiplier(NamedRange):
         "10x":   default * 10,
     }
 
+class Character(NamedRange):
+    """
+    Determines the expected player character.
+    0: Ventus
+    1: Aqua
+    2: Terra
+    """
+    display_name = "Character"
+    default = 2
+    range_start = 0
+    range_end = 2
+    special_range_names = {
+        "ventus": 0,
+        "aqua":   1,
+        "terra":  2,
+    }
+    
+
 @dataclass
 class KHBBSOptions(PerGameCommonOptions):
+    character:       Character
     starting_worlds: StartingWorlds
-    exp_multiplier: EXPMultiplier
+    exp_multiplier:  EXPMultiplier

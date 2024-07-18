@@ -93,16 +93,17 @@ class KHBBSWorld(World):
         self.multiworld.itempool += item_pool
 
     def pre_fill(self) -> None:
-        self.multiworld.get_location("(T) Keyblade Graveyard Defeat Terranort", self.player).place_locked_item(self.create_item("Victory"))
+        goal_locations = ["", "(A) Keyblade Graveyard Seat of War Map Chest", "(T) Keyblade Graveyard Defeat Terranort"]
+        self.multiworld.get_location(goal_locations[self.options.character], self.player).place_locked_item(self.create_item("Victory"))
 
     def get_filler_item_name(self) -> str:
         fillers = {}
         exclude = []
-        characters = ["T"]
-        fillers.update(get_items_by_category("Attack Command",     exclude, characters))
-        fillers.update(get_items_by_category("Magic Command",      exclude, characters))
-        fillers.update(get_items_by_category("Item Command",       exclude, characters))
-        fillers.update(get_items_by_category("Friendship Command", exclude, characters))
+        characters = ["V","A","T"]
+        fillers.update(get_items_by_category("Attack Command",     exclude, characters[self.options.character]))
+        fillers.update(get_items_by_category("Magic Command",      exclude, characters[self.options.character]))
+        fillers.update(get_items_by_category("Item Command",       exclude, characters[self.options.character]))
+        fillers.update(get_items_by_category("Friendship Command", exclude, characters[self.options.character]))
         weights = [data.weight for data in fillers.values()]
         return self.random.choices([filler for filler in fillers.keys()], weights, k=1)[0]
 
@@ -129,7 +130,7 @@ class KHBBSWorld(World):
         """
         Generates the .zip for OpenKH (The KH Mod Manager)
         """
-        patch_khbbs(self, output_directory)
+        patch_khbbs(self, output_directory, self.options.character)
     
     def get_non_remote_location_ids(self):
         non_remote_location_ids = []

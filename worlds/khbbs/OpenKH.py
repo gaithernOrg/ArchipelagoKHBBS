@@ -26,11 +26,11 @@ class KHBBSContainer(APContainer):
         super().write_contents(opened_zipfile)
 
 
-def patch_khbbs(self, output_directory):
+def patch_khbbs(self, output_directory, character):
     mod_name = f"AP-{self.multiworld.seed_name}-P{self.player}-{self.multiworld.get_file_safe_player_name(self.player)}"
     mod_dir = os.path.join(output_directory, mod_name + "_" + Utils.__version__)
     
-    seed_lua = build_seed_lua(self)
+    seed_lua = build_seed_lua(self, character)
     
     self.mod_yml = {
         "assets": [
@@ -56,10 +56,9 @@ def patch_khbbs(self, output_directory):
             self.multiworld.get_file_safe_player_name(self.player))
     mod.write()
 
-def build_seed_lua(self):
-    character_id = 2
+def build_seed_lua(self, character):
     seed_lua = get_lua_header()
-    seed_lua = seed_lua + get_lua_character_check(character_id)
+    seed_lua = seed_lua + get_lua_character_check(character)
     seed_lua = seed_lua + get_lua_field_item_pointer(self)
     seed_lua = seed_lua + get_sticker_replace(self)
     seed_lua = seed_lua + get_chest_replace(self)
@@ -104,9 +103,8 @@ function _OnFrame()
             if ReadInt(version_choice({0x0, 0x81711F}, game_version)) ~= 0xD0100 then
                 if ReadInt(version_choice({0x0, 0x81711F}, game_version)) ~= 0x20100 or ReadInt(version_choice({0x0, 0x817123}, game_version)) ~= 0x100 or ReadShort(version_choice({0x0, 0x817127}, game_version)) ~= 0x100 then\n"""
 
-def get_lua_character_check(self):
-    character_id = 2
-    return """                    if ReadByte(version_choice({0x0, 0x10F9F800}, game_version)) == 0x0""" + str(character_id) + """ then\n"""
+def get_lua_character_check(character):
+    return """                    if ReadByte(version_choice({0x0, 0x10F9F800}, game_version)) == 0x0""" + str(character) + """ then\n"""
 
 def get_lua_field_item_pointer(self):
     return """                        field_item_address_pointer = GetPointer(version_choice({0x0, 0x10F9F3C0}, game_version))\n"""
@@ -157,7 +155,7 @@ def get_bonus_replace(self):
                             WriteInt(fight_bonus_reward_address + (4 * (i-1)), 0x0, true)
                         end\n"""
 
-def get_world_complete_replace(self):
+def get_world_complete_replace_old(self):
     return """
                         if ReadShort(version_choice({0x0, 0x817120}, game_version)) == 0xF04 and ReadShort(version_choice({0x0, 0x817128}, game_version)) == 0x1 then
                             WriteInt(version_choice({0x0, 0x10F9F498}, game_version), 0x00000000)
@@ -239,6 +237,18 @@ def get_world_complete_replace(self):
                             WriteInt(version_choice({0x0, 0x10F9F468}, game_version), 0x00000000)
                             WriteInt(version_choice({0x0, 0x10F9F480}, game_version), 0x00000000)
                         end
+                    end
+                end
+            end
+        end
+    end
+end"""
+
+def get_world_complete_replace(self):
+    return """
+                        WriteInt(version_choice({0x0, 0x10F9F498}, game_version), 0x00000000)
+                        WriteInt(version_choice({0x0, 0x10F9F468}, game_version), 0x00000000)
+                        WriteInt(version_choice({0x0, 0x10F9F480}, game_version), 0x00000000)
                     end
                 end
             end
