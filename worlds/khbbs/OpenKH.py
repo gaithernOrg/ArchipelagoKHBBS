@@ -258,16 +258,16 @@ end"""
 
 def get_world_offset(world):
     world_offsets = {
-        "Land of Departure":  "1",
-        "Dwarf Woodlands":    "2",
-        "Castle of Dreams":   "3",
-        "Enchanted Dominion": "4",
-        "Mysterious Tower":   "5",
-        "Radiant Garden":     "6",
-        "Realm of Darkness":  "7",
-        "Olympus Coliseum":   "8",
-        "Deep Space":         "9",
-        "Neverland":          "B",
-        "Disney Town":        "C",
-        "Keyblade Graveyard": "D"}
+        "The Land of Departure":  "1",
+        "Dwarf Woodlands":        "2",
+        "Castle of Dreams":       "3",
+        "Enchanted Dominion":     "4",
+        "The Mysterious Tower":   "5",
+        "Radiant Garden":         "6",
+        "Realm of Darkness":      "7",
+        "Olympus Coliseum":       "8",
+        "Deep Space":             "9",
+        "Never Land":             "B",
+        "Disney Town":            "C",
+        "The Keyblade Graveyard": "D"}
     return world_offsets[world]
