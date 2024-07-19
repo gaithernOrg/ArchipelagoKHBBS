@@ -93,7 +93,7 @@ class KHBBSWorld(World):
         self.multiworld.itempool += item_pool
 
     def pre_fill(self) -> None:
-        goal_locations = ["", "(A) Keyblade Graveyard Seat of War Map Chest", "(T) Keyblade Graveyard Defeat Terranort"]
+        goal_locations = ["", "(A) Keyblade Graveyard Ventus-Vanitas Defeated Xehanort's Report 7", "(T) Keyblade Graveyard Defeat Terranort"]
         self.multiworld.get_location(goal_locations[self.options.character], self.player).place_locked_item(self.create_item("Victory"))
 
     def get_filler_item_name(self) -> str:
