@@ -50,14 +50,15 @@ class KHBBSWorld(World):
     location_name_groups = location_name_groups
 
     def create_items(self):
+        character_letters = ["V", "A", "T"]
         prefilled_items = ["Victory"]
         #Handle starting worlds
         starting_worlds = []
         if self.options.starting_worlds > 0:
-            possible_starting_worlds = ["Land of Departure", "Dwarf Woodlands", 
+            possible_starting_worlds = ["The Land of Departure", "Dwarf Woodlands", 
                 "Castle of Dreams", "Enchanted Dominion", "The Mysterious Tower", 
-                "Radiant Garden", "Olympus Coliseum", "Deep Space", "Destiny Islands", 
-                "Neverland", "Disney Town"]
+                "Radiant Garden", "Olympus Coliseum", "Deep Space",
+                "Never Land", "Disney Town"]
             starting_worlds = self.random.sample(possible_starting_worlds, min(self.options.starting_worlds, len(possible_starting_worlds)))
             for starting_world in starting_worlds:
                 self.multiworld.push_precollected(self.create_item(starting_world))
@@ -73,7 +74,7 @@ class KHBBSWorld(World):
                 continue
             if name in starting_worlds:
                 continue
-            if "T" in data.characters and name not in prefilled_items:
+            if character_letters[self.options.character] in data.characters and name not in prefilled_items:
                 item_pool += [self.create_item(name) for _ in range(0, quantity)]
         # Fill any empty locations with filler items.
         item_names = []
@@ -93,7 +94,9 @@ class KHBBSWorld(World):
         self.multiworld.itempool += item_pool
 
     def pre_fill(self) -> None:
-        goal_locations = ["", "(A) The Keyblade Graveyard Ventus-Vanitas Defeated Xehanort's Report 7", "(T) The Keyblade Graveyard Defeat Terranort"]
+        goal_locations = ["(V) The Keyblade Graveyard Defeat Final Vanitas Xehanort's Report 10",
+            "(A) The Keyblade Graveyard Ventus-Vanitas Defeated Xehanort's Report 7",
+            "(T) The Keyblade Graveyard Defeat Terranort"]
         self.multiworld.get_location(goal_locations[self.options.character], self.player).place_locked_item(self.create_item("Victory"))
 
     def get_filler_item_name(self) -> str:
