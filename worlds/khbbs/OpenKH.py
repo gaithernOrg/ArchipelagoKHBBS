@@ -67,9 +67,9 @@ def build_seed_lua(self, character):
     return seed_lua
 
 def get_lua_header():
-    return """LUAGUI_NAME = "bbsAPDummyLocations"
+    return """LUAGUI_NAME = "bbsAPSeed"
 LUAGUI_AUTH = "Gicu"
-LUAGUI_DESC = "BBS FM AP Dummy Locations"
+LUAGUI_DESC = "BBS FM AP Seed"
 
 game_version = 1 --1 for 1.0.0.9 EGS, 2 for Steam
 IsEpicGLVersion = 0x6107D4

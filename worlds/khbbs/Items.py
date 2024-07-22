@@ -347,7 +347,7 @@ item_table: Dict[str, KHBBSItemData] = {
     "Radiant Garden":         KHBBSItemData("World",              code = 227_0050005, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
     "Olympus Coliseum":       KHBBSItemData("World",              code = 227_0050007, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
     "Deep Space":             KHBBSItemData("World",              code = 227_0050008, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
-    "Destiny Islands":        KHBBSItemData("World",              code = 227_0050009, classification = ItemClassification.progression, characters = "  A", max_quantity = 1),
+   #"Destiny Islands":        KHBBSItemData("World",              code = 227_0050009, classification = ItemClassification.progression, characters = "  A", max_quantity = 1),
     "Never Land":             KHBBSItemData("World",              code = 227_0050010, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
     "Disney Town":            KHBBSItemData("World",              code = 227_0050011, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
    #"The Keyblade Graveyard": KHBBSItemData("World",              code = 227_0050012, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),

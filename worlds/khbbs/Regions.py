@@ -224,6 +224,10 @@ def create_regions(multiworld: MultiWorld, player: int, options):
         regions["The Keyblade Graveyard"].locations.append("(T) The Keyblade Graveyard Xehanort Defeated Max HP Increase")
         regions["The Keyblade Graveyard"].locations.append("(T) The Keyblade Graveyard Defeat Terranort")
     if options.character == 1:
+        regions["The Land of Departure"].locations.append("(A) The Land of Departure Mountain Path Shimmering Crystal Chest")
+        regions["The Land of Departure"].locations.append("(A) The Land of Departure Mountain Path Hi-Potion Chest")
+        regions["The Land of Departure"].locations.append("(A) The Land of Departure Mountain Path Bind Chest")
+        regions["The Land of Departure"].locations.append("(A) The Land of Departure Summit Fleeting Crystal Chest")
         regions["Dwarf Woodlands"].locations.append("(A) Dwarf Woodlands Cottage Clearing Payback Surge Chest")
         regions["Dwarf Woodlands"].locations.append("(A) Dwarf Woodlands Cottage Clearing Poison Chest")
         regions["Dwarf Woodlands"].locations.append("(A) Dwarf Woodlands Vault Balloon Letter Chest")
