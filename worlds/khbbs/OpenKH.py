@@ -113,13 +113,13 @@ def get_sticker_replace(self):
     replace_stickers_str = ""
     for location in self.multiworld.get_filled_locations(self.player):
         location_data = location_table[location.name]
-        item_data = item_table[location.item.name]
         if location_data.type == "Sticker":
+            write_value = "00000"
             replace_stickers_str = replace_stickers_str + ("    " * 6) + "WriteInt(field_item_address_pointer + (" + str(location_data.offset) + "), 0x"
-            if item_data.category == "Key Item":
-                write_value = get_world_offset(location_data.category) + item_data.khbbsid
-            else:
-                write_value = "00000"
+            if self.player == location.item.player:
+                item_data = item_table[location.item.name]
+                if item_data.category == "Key Item":
+                    write_value = get_world_offset(location_data.category) + item_data.khbbsid
             replace_stickers_str = replace_stickers_str + write_value + ", true)\n"
     return replace_stickers_str
 
@@ -127,17 +127,17 @@ def get_chest_replace(self):
     replace_chests_str = ""
     for location in self.multiworld.get_filled_locations(self.player):
         location_data = location_table[location.name]
-        item_data = item_table[location.item.name]
         if location_data.type == "Chest":
+            write_value = "0000000"
             replace_chests_str = replace_chests_str + ("    " * 6) + "WriteInt(field_item_address_pointer + (" + str(location_data.offset) + "), 0x"
-            if item_data.category in ["Attack Command", "Magic Command", "Item Command", "Friendship Command", "Movement Command", "Defense Command", "Reprisal Command", "Shotlock Command"] and not location_data.forced_remote:
-                item_prefix = "01"
-                write_value = get_world_offset(location_data.category) + item_prefix + item_data.khbbsid
-            elif item_data.category in ["Key Item"] and not location_data.forced_remote:
-                item_prefix = "00"
-                write_value = get_world_offset(location_data.category) + item_prefix + item_data.khbbsid
-            else:
-                write_value = "0000000"
+            if self.player == location.item.player:
+                item_data = item_table[location.item.name]
+                if item_data.category in ["Attack Command", "Magic Command", "Item Command", "Friendship Command", "Movement Command", "Defense Command", "Reprisal Command", "Shotlock Command"] and not location_data.forced_remote:
+                    item_prefix = "01"
+                    write_value = get_world_offset(location_data.category) + item_prefix + item_data.khbbsid
+                elif item_data.category in ["Key Item"] and not location_data.forced_remote:
+                    item_prefix = "00"
+                    write_value = get_world_offset(location_data.category) + item_prefix + item_data.khbbsid
             replace_chests_str = replace_chests_str + write_value + ", true)\n"
     return replace_chests_str
 

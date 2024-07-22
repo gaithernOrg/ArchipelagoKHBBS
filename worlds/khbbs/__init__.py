@@ -55,7 +55,7 @@ class KHBBSWorld(World):
         #Handle starting worlds
         starting_worlds = []
         if self.options.starting_worlds > 0:
-            possible_starting_worlds = ["The Land of Departure", "Dwarf Woodlands", 
+            possible_starting_worlds = ["Dwarf Woodlands", 
                 "Castle of Dreams", "Enchanted Dominion", "The Mysterious Tower", 
                 "Radiant Garden", "Olympus Coliseum", "Deep Space",
                 "Never Land", "Disney Town"]
@@ -139,11 +139,12 @@ class KHBBSWorld(World):
         non_remote_location_ids = []
         for location in self.multiworld.get_filled_locations(self.player):
             location_data = location_table[location.name]
-            item_data = item_table[location.item.name]
-            if location_data.type == "Chest":
-                if item_data.category in ["Attack Command", "Magic Command", "Item Command", "Friendship Command", "Movement Command", "Defense Command", "Reprisal Command", "Shotlock Command", "Key Item"] and not location_data.forced_remote:
-                    non_remote_location_ids.append(location_data.code)
-            if location_data.type == "Sticker":
-                if item_data.category in ["Key Item"]:
-                    non_remote_location_ids.append(location_data.code)
+            if self.player == location.item.player:
+                item_data = item_table[location.item.name]
+                if location_data.type == "Chest":
+                    if item_data.category in ["Attack Command", "Magic Command", "Item Command", "Friendship Command", "Movement Command", "Defense Command", "Reprisal Command", "Shotlock Command", "Key Item"] and not location_data.forced_remote:
+                        non_remote_location_ids.append(location_data.code)
+                if location_data.type == "Sticker":
+                    if item_data.category in ["Key Item"]:
+                        non_remote_location_ids.append(location_data.code)
         return non_remote_location_ids
