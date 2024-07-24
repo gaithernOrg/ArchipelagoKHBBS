@@ -76,6 +76,7 @@ IsEpicGLVersion = 0x6107D4
 IsSteamGLVersion = 0x6107B4
 IsSteamJPVersion = 0x610534
 can_execute = false
+frame_count = 0
 
 function version_choice(array, choice)
     a = array
@@ -107,7 +108,8 @@ def get_lua_character_check(character):
     return """                    if ReadByte(version_choice({0x0, 0x10F9F800}, game_version)) == 0x0""" + str(character) + """ then\n"""
 
 def get_lua_field_item_pointer(self):
-    return """                        field_item_address_pointer = GetPointer(version_choice({0x0, 0x10F9F3C0}, game_version))\n"""
+    return """                        field_item_address_pointer = GetPointer(version_choice({0x0, 0x10F9F3C0}, game_version))
+                        if field_item_address_pointer > 0 then\n"""
 
 def get_sticker_replace(self):
     replace_stickers_str = ""
@@ -129,7 +131,7 @@ def get_chest_replace(self):
         location_data = location_table[location.name]
         if location_data.type == "Chest":
             write_value = "0000000"
-            replace_chests_str = replace_chests_str + ("    " * 6) + "WriteInt(field_item_address_pointer + (" + str(location_data.offset) + "), 0x"
+            replace_chests_str = replace_chests_str + ("    " * 7) + "WriteInt(field_item_address_pointer + (" + str(location_data.offset) + "), 0x"
             if self.player == location.item.player:
                 item_data = item_table[location.item.name]
                 if item_data.category in ["Attack Command", "Magic Command", "Item Command", "Friendship Command", "Movement Command", "Defense Command", "Reprisal Command", "Shotlock Command"] and not location_data.forced_remote:
@@ -143,16 +145,17 @@ def get_chest_replace(self):
 
 def get_bonus_replace(self):
     return """
-                        fight_bonus_reward_pointer_address = {0x0, 0x10F9F3C8}
-                        fight_bonus_reward_pointer_first_offset = 0x20
-                        fight_bonus_reward_pointer_other_offsets = {0x8, 0xC8, 0x54}
-                        fight_bonus_reward_address = GetPointer(fight_bonus_reward_pointer_address[game_version], fight_bonus_reward_pointer_first_offset)
-                        for offset_num,offset_value in pairs(fight_bonus_reward_pointer_other_offsets) do
-                            fight_bonus_reward_address = GetPointer(fight_bonus_reward_address, offset_value, true)
                         end
-                        fight_bonus_reward_address = fight_bonus_reward_address + 64
-                        for i=1,4 do
-                            WriteInt(fight_bonus_reward_address + (4 * (i-1)), 0x0, true)
+                        fight_bonus_reward_pointer_address = {0x0, 0x10F9F3C8}
+                        if ReadInt(fight_bonus_reward_pointer_address[game_version]) > 0 then
+                            fight_bonus_reward_pointer_first_offset = 0x20
+                            fight_bonus_reward_pointer_other_offsets = {0x8, 0xC8, 0x54}
+                            fight_bonus_reward_address = GetPointer(fight_bonus_reward_pointer_address[game_version], fight_bonus_reward_pointer_first_offset)
+                            for offset_num,offset_value in pairs(fight_bonus_reward_pointer_other_offsets) do
+                                fight_bonus_reward_address = GetPointer(fight_bonus_reward_address, offset_value, true)
+                            end
+                            fight_bonus_reward_address = fight_bonus_reward_address + 72
+                            WriteInt(fight_bonus_reward_address, 0, true)
                         end\n"""
 
 def get_world_complete_replace_old(self):

@@ -163,7 +163,7 @@ def create_regions(multiworld: MultiWorld, player: int, options):
         regions["The Mysterious Tower"].locations.append("(T) The Mysterious Tower Sorcerer's Chamber Balloon Sticker")
         regions["Radiant Garden"].locations.append("(T) Radiant Garden Outer Gardens Airplane Sticker")
         regions["Radiant Garden"].locations.append("(T) Radiant Garden Central Square Flying Balloon Sticker")
-        regions["Radiant Garden"].locations.append("(T) Radiant Fountain Court Dale Sticker")
+        regions["Radiant Garden"].locations.append("(T) Radiant Garden Fountain Court Dale Sticker")
         regions["Olympus Coliseum"].locations.append("(T) Olympus Coliseum Coliseum Gates Balloon Sticker")
         regions["Deep Space"].locations.append("(T) Deep Space Turo Prison Block Flying Balloon Sticker")
         regions["Deep Space"].locations.append("(T) Deep Space Ship Corridor UFO Sticker")
