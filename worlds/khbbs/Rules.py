@@ -6,9 +6,9 @@ def set_rules(khbbsworld):
     options    = khbbsworld.options
     # Location Rules
     if options.character == 2:
-        multiworld.get_location("(T) The Land of Departure Eraqus Defeated Max HP Increase"     , player).access_rule = lambda state: state.has_all({"Wayfinder Ventus", "Wayfinder Aqua", "Wayfinder Terra"}, player)
-        multiworld.get_location("(T) The Land of Departure Eraqus Defeated Chaos Ripper"        , player).access_rule = lambda state: state.has_all({"Wayfinder Ventus", "Wayfinder Aqua", "Wayfinder Terra"}, player)
-        multiworld.get_location("(T) The Land of Departure Eraqus Defeated Xehanort's Report 8" , player).access_rule = lambda state: state.has_all({"Wayfinder Ventus", "Wayfinder Aqua", "Wayfinder Terra"}, player)
+        multiworld.get_location("(T) The Land of Departure Defeat Eraqus Max HP Increase"       , player).access_rule = lambda state: state.has_all({"Wayfinder Ventus", "Wayfinder Aqua", "Wayfinder Terra"}, player)
+        multiworld.get_location("(T) The Land of Departure Defeat Eraqus Chaos Ripper"          , player).access_rule = lambda state: state.has_all({"Wayfinder Ventus", "Wayfinder Aqua", "Wayfinder Terra"}, player)
+        multiworld.get_location("(T) The Land of Departure Defeat Eraqus Xehanort's Report 8"   , player).access_rule = lambda state: state.has_all({"Wayfinder Ventus", "Wayfinder Aqua", "Wayfinder Terra"}, player)
         multiworld.get_location("(T) Dwarf Woodlands Vault Flame Salvo Chest"                   , player).access_rule = lambda state: state.has("Sliding Dash", player) and (state.has("High Jump", player) or state.has("Air Slide", player))
         multiworld.get_location("(T) Dwarf Woodlands Underground Waterway Louie Sticker"        , player).access_rule = lambda state: state.has("Sliding Dash", player)
         multiworld.get_location("(T) Dwarf Woodlands Courtyard Fission Firaga Chest"            , player).access_rule = lambda state: state.has("Sliding Dash", player) or state.has("High Jump", player)
@@ -27,6 +27,19 @@ def set_rules(khbbsworld):
         multiworld.get_location("(T) Never Land Skull Rock: Entrance Chip Sticker"              , player).access_rule = lambda state: state.has("High Jump", player) and (state.has("Sliding Dash", player) or state.has("Air Slide", player))
         multiworld.get_location("(T) Never Land Skull Rock: Cavern Ars Solum Chest"             , player).access_rule = lambda state: state.has("High Jump", player) and (state.has("Sliding Dash", player) or state.has("Air Slide", player))
         multiworld.get_location("(T) Never Land Skull Rock: Cavern Chaos Crystal Chest"         , player).access_rule = lambda state: state.has("High Jump", player) and (state.has("Sliding Dash", player) or state.has("Air Slide", player))
+        multiworld.get_location("(T) Disney Town Gizmo Gallery Absolute Zero Chest"             , player).access_rule = lambda state: state.has("Thunder", player) or state.has("Thundara", player) or state.has("Thundaga", player)
+        multiworld.get_location("(T) Disney Town Gizmo Gallery Mega-Potion Chest"               , player).access_rule = lambda state: state.has("Thunder", player) or state.has("Thundara", player) or state.has("Thundaga", player)
+        multiworld.get_location("(T) Disney Town Gizmo Gallery Chaos Crystal Chest"             , player).access_rule = lambda state: state.has("Thunder", player) or state.has("Thundara", player) or state.has("Thundaga", player)
+        multiworld.get_location("(T) Disney Town Gizmo Gallery Action Recipe Chest"             , player).access_rule = lambda state: state.has("Thunder", player) or state.has("Thundara", player) or state.has("Thundaga", player)
+        multiworld.get_location("(T) Disney Town Gizmo Gallery Panacea Chest"                   , player).access_rule = lambda state: state.has("Thunder", player) or state.has("Thundara", player) or state.has("Thundaga", player)
+        multiworld.get_location("(T) Disney Town Gizmo Gallery Pete Sticker"                    , player).access_rule = lambda state: state.has("Thunder", player) or state.has("Thundara", player) or state.has("Thundaga", player)
+        multiworld.get_location("(T) Disney Town Pete's Rec Room Zero Gravira Chest"            , player).access_rule = lambda state: state.has("Thunder", player) or state.has("Thundara", player) or state.has("Thundaga", player)
+        multiworld.get_location("(T) Disney Town Pete's Rec Room Chaos Crystal Chest"           , player).access_rule = lambda state: state.has("Thunder", player) or state.has("Thundara", player) or state.has("Thundaga", player)
+        multiworld.get_location("(T) Disney Town Pete's Rec Room Aerial Slam Chest"             , player).access_rule = lambda state: (state.has("Thunder", player) or state.has("Thundara", player) or state.has("Thundaga", player)) and state.has("Air Slide", player)
+        multiworld.get_location("(T) Disney Town Pete's Rec Room Break Time Chest"              , player).access_rule = lambda state: (state.has("Thunder", player) or state.has("Thundara", player) or state.has("Thundaga", player)) and state.has("Air Slide", player)
+        multiworld.get_location("(T) Disney Town Raceway Slot Edge Chest"                       , player).access_rule = lambda state: state.has("Thunder", player) or state.has("Thundara", player) or state.has("Thundaga", player)
+        multiworld.get_location("(T) Disney Town Raceway Traffic Cone Sticker"                  , player).access_rule = lambda state: (state.has("Thunder", player) or state.has("Thundara", player) or state.has("Thundaga", player)) and state.has("High Jump", player) and state.has("Air Slide", player) and state.has("Sliding Dash", player)
+        multiworld.get_location("(T) The Keyblade Graveyard Twister Trench Traffic Cone Sticker", player).access_rule = lambda state: state.has("High Jump", player)
     
     # Region rules.
     multiworld.get_entrance("Dwarf Woodlands"                                                   , player).access_rule = lambda state: state.has("Dwarf Woodlands",      player)
@@ -40,7 +53,7 @@ def set_rules(khbbsworld):
     multiworld.get_entrance("Never Land"                                                        , player).access_rule = lambda state: state.has("Never Land",           player)
     multiworld.get_entrance("Disney Town"                                                       , player).access_rule = lambda state: state.has("Disney Town",          player)
     multiworld.get_entrance("The Keyblade Graveyard"                                            , player).access_rule = lambda state: state.has_all({"Wayfinder Ventus", "Wayfinder Aqua", "Wayfinder Terra"}, player)
-    multiworld.get_entrance("Realm of Darkness"                                                 , player).access_rule = lambda state: state.has_all({"Wayfinder Ventus", "Wayfinder Aqua", "Wayfinder Terra"}, player)
+    multiworld.get_entrance("Realm of Darkness"                                                 , player).access_rule = lambda state: state.has_all({"Wayfinder Ventus", "Wayfinder Aqua", "Wayfinder Terra"}, player) and state.has("Realm of Darkness", player)
 
     # Win condition.
     multiworld.completion_condition[player] = lambda state: state.has("Victory", player)

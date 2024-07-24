@@ -99,7 +99,8 @@ function _OnInit()
 end
 
 function _OnFrame()
-    if can_execute then
+    frame_count = (frame_count + 1) % 30
+    if can_execute and frame_count == 0 then
         if ReadInt(version_choice({0x0, 0x81711F}, game_version)) ~= 0xFFFFFF00 then --Not on Title Screen
             if ReadInt(version_choice({0x0, 0x81711F}, game_version)) ~= 0xD0100 then
                 if ReadInt(version_choice({0x0, 0x81711F}, game_version)) ~= 0x20100 or ReadInt(version_choice({0x0, 0x817123}, game_version)) ~= 0x100 or ReadShort(version_choice({0x0, 0x817127}, game_version)) ~= 0x100 then\n"""
@@ -117,7 +118,7 @@ def get_sticker_replace(self):
         location_data = location_table[location.name]
         if location_data.type == "Sticker":
             write_value = "00000"
-            replace_stickers_str = replace_stickers_str + ("    " * 6) + "WriteInt(field_item_address_pointer + (" + str(location_data.offset) + "), 0x"
+            replace_stickers_str = replace_stickers_str + ("    " * 7) + "WriteInt(field_item_address_pointer + (" + str(location_data.offset) + "), 0x"
             if self.player == location.item.player:
                 item_data = item_table[location.item.name]
                 if item_data.category == "Key Item":
