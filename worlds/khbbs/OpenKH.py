@@ -62,7 +62,7 @@ def build_seed_lua(self, character):
     seed_lua = seed_lua + get_lua_field_item_pointer(self)
     seed_lua = seed_lua + get_sticker_replace(self)
     seed_lua = seed_lua + get_chest_replace(self)
-    seed_lua = seed_lua + get_bonus_replace(self)
+    #seed_lua = seed_lua + get_bonus_replace(self)
     seed_lua = seed_lua + get_world_complete_replace(self)
     return seed_lua
 
@@ -249,7 +249,7 @@ def get_world_complete_replace_old(self):
 end"""
 
 def get_world_complete_replace(self):
-    return """
+    return """                        end
                         WriteInt(version_choice({0x0, 0x10F9F498}, game_version), 0x00000000)
                         WriteInt(version_choice({0x0, 0x10F9F468}, game_version), 0x00000000)
                         WriteInt(version_choice({0x0, 0x10F9F480}, game_version), 0x00000000)
