@@ -40,6 +40,9 @@ def set_rules(khbbsworld):
         multiworld.get_location("(T) Disney Town Raceway Slot Edge Chest"                       , player).access_rule = lambda state: state.has("Thunder", player) or state.has("Thundara", player) or state.has("Thundaga", player)
         multiworld.get_location("(T) Disney Town Raceway Traffic Cone Sticker"                  , player).access_rule = lambda state: (state.has("Thunder", player) or state.has("Thundara", player) or state.has("Thundaga", player)) and state.has("High Jump", player) and state.has("Air Slide", player) and state.has("Sliding Dash", player)
         multiworld.get_location("(T) The Keyblade Graveyard Twister Trench Traffic Cone Sticker", player).access_rule = lambda state: state.has("High Jump", player)
+    if options.character == 0:
+        multiworld.get_location("(V) Enchanted Dominion Audience Chamber Dewey Sticker"         , player).access_rule = lambda state: state.has("High Jump", player) and state.has("Glide", player)
+        multiworld.get_location("(V) Enchanted Dominion Dungeon Tornado Strike Chest"           , player).access_rule = lambda state: state.has("High Jump", player) or state.has("Glide", player) or state.has("Sliding Dash", player)
     
     # Region rules.
     multiworld.get_entrance("Dwarf Woodlands"                                                   , player).access_rule = lambda state: state.has("Dwarf Woodlands",      player)
