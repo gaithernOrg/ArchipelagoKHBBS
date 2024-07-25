@@ -62,8 +62,7 @@ def build_seed_lua(self, character):
     seed_lua = seed_lua + get_lua_field_item_pointer(self)
     seed_lua = seed_lua + get_sticker_replace(self)
     seed_lua = seed_lua + get_chest_replace(self)
-    #seed_lua = seed_lua + get_bonus_replace(self)
-    seed_lua = seed_lua + get_world_complete_replace(self)
+    seed_lua = seed_lua + get_end(self)
     return seed_lua
 
 def get_lua_header():
@@ -144,115 +143,8 @@ def get_chest_replace(self):
             replace_chests_str = replace_chests_str + write_value + ", true)\n"
     return replace_chests_str
 
-def get_bonus_replace(self):
-    return """
-                        end
-                        fight_bonus_reward_pointer_address = {0x0, 0x10F9F3C8}
-                        if ReadInt(fight_bonus_reward_pointer_address[game_version]) > 0 then
-                            fight_bonus_reward_pointer_first_offset = 0x20
-                            fight_bonus_reward_pointer_other_offsets = {0x8, 0xC8, 0x54}
-                            fight_bonus_reward_address = GetPointer(fight_bonus_reward_pointer_address[game_version], fight_bonus_reward_pointer_first_offset)
-                            for offset_num,offset_value in pairs(fight_bonus_reward_pointer_other_offsets) do
-                                fight_bonus_reward_address = GetPointer(fight_bonus_reward_address, offset_value, true)
-                            end
-                            fight_bonus_reward_address = fight_bonus_reward_address + 72
-                            WriteInt(fight_bonus_reward_address, 0, true)
-                        end\n"""
-
-def get_world_complete_replace_old(self):
-    return """
-                        if ReadShort(version_choice({0x0, 0x817120}, game_version)) == 0xF04 and ReadShort(version_choice({0x0, 0x817128}, game_version)) == 0x1 then
-                            WriteInt(version_choice({0x0, 0x10F9F498}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F480}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F468}, game_version), 0x00000000)
-                        end
-                        if ReadShort(version_choice({0x0, 0x817120}, game_version)) == 0x904 and ReadShort(version_choice({0x0, 0x817128}, game_version)) == 0x2 then
-                            WriteInt(version_choice({0x0, 0x10F9F498}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F480}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F468}, game_version), 0x00000000)
-                        end
-                        if ReadShort(version_choice({0x0, 0x817120}, game_version)) == 0x606 and ReadShort(version_choice({0x0, 0x817128}, game_version)) == 0x36 then
-                            WriteInt(version_choice({0x0, 0x10F9F498}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F480}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F468}, game_version), 0x00000000)
-                        end
-                        if ReadShort(version_choice({0x0, 0x817120}, game_version)) == 0xD0B and ReadShort(version_choice({0x0, 0x817128}, game_version)) == 0x36 then
-                            WriteInt(version_choice({0x0, 0x10F9F498}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F480}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F468}, game_version), 0x00000000)
-                        end
-                        if ReadShort(version_choice({0x0, 0x817120}, game_version)) == 0xD0B and ReadShort(version_choice({0x0, 0x817128}, game_version)) == 0x4 then
-                            WriteInt(version_choice({0x0, 0x10F9F498}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F480}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F468}, game_version), 0x00000000)
-                        end
-                        if ReadShort(version_choice({0x0, 0x817120}, game_version)) == 0x20A and ReadShort(version_choice({0x0, 0x817128}, game_version)) == 0x33 then
-                            WriteInt(version_choice({0x0, 0x10F9F498}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F480}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F468}, game_version), 0x00000000)
-                        end
-                        if ReadShort(version_choice({0x0, 0x817120}, game_version)) == 0x10D and ReadShort(version_choice({0x0, 0x817128}, game_version)) == 0x37 then
-                            WriteInt(version_choice({0x0, 0x10F9F498}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F480}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F468}, game_version), 0x00000000)
-                        end
-                        if ReadShort(version_choice({0x0, 0x817120}, game_version)) == 0x402 and ReadShort(version_choice({0x0, 0x817128}, game_version)) == 0x3 then
-                            WriteInt(version_choice({0x0, 0x10F9F498}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F480}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F468}, game_version), 0x00000000)
-                        end
-                        if ReadShort(version_choice({0x0, 0x817120}, game_version)) == 0x602 and ReadShort(version_choice({0x0, 0x817128}, game_version)) == 0x1 then
-                            WriteInt(version_choice({0x0, 0x10F9F498}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F480}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F468}, game_version), 0x00000000)
-                        end
-                        if ReadShort(version_choice({0x0, 0x817120}, game_version)) == 0x101 and ReadShort(version_choice({0x0, 0x817128}, game_version)) == 0x40 then
-                            WriteInt(version_choice({0x0, 0x10F9F498}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F468}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F480}, game_version), 0x00000000)
-                        end
-                        if ReadShort(version_choice({0x0, 0x817120}, game_version)) == 0xB06 and ReadShort(version_choice({0x0, 0x817128}, game_version)) == 0x37 then
-                            WriteInt(version_choice({0x0, 0x10F9F498}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F468}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F480}, game_version), 0x00000000)
-                        end
-                        if ReadShort(version_choice({0x0, 0x817120}, game_version)) == 0x408 and ReadShort(version_choice({0x0, 0x817128}, game_version)) == 0x3E then
-                            WriteInt(version_choice({0x0, 0x10F9F498}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F468}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F480}, game_version), 0x00000000)
-                        end
-                        if ReadShort(version_choice({0x0, 0x817120}, game_version)) == 0x609 and ReadShort(version_choice({0x0, 0x817128}, game_version)) == 0x2 then
-                            WriteInt(version_choice({0x0, 0x10F9F498}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F468}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F480}, game_version), 0x00000000)
-                        end
-                        if ReadShort(version_choice({0x0, 0x817120}, game_version)) == 0x801 and ReadShort(version_choice({0x0, 0x817128}, game_version)) == 0x1 then
-                            WriteInt(version_choice({0x0, 0x10F9F498}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F468}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F480}, game_version), 0x00000000)
-                        end
-                        if ReadShort(version_choice({0x0, 0x817120}, game_version)) == 0xA03 and ReadShort(version_choice({0x0, 0x817128}, game_version)) == 0x1 then
-                            WriteInt(version_choice({0x0, 0x10F9F498}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F468}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F480}, game_version), 0x00000000)
-                        end
-                        if ReadShort(version_choice({0x0, 0x817120}, game_version)) == 0xA03 and ReadShort(version_choice({0x0, 0x817128}, game_version)) == 0x2 then
-                            WriteInt(version_choice({0x0, 0x10F9F498}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F468}, game_version), 0x00000000)
-                            WriteInt(version_choice({0x0, 0x10F9F480}, game_version), 0x00000000)
-                        end
-                    end
-                end
-            end
-        end
-    end
-end"""
-
-def get_world_complete_replace(self):
+def get_end(self):
     return """                        end
-                        WriteInt(version_choice({0x0, 0x10F9F498}, game_version), 0x00000000)
-                        WriteInt(version_choice({0x0, 0x10F9F468}, game_version), 0x00000000)
-                        WriteInt(version_choice({0x0, 0x10F9F480}, game_version), 0x00000000)
                     end
                 end
             end

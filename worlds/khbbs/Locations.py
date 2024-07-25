@@ -415,7 +415,7 @@ location_table: Dict[str, KHBBSLocationData] = {
     "(A) Olympus Coliseum World Cleared Zack D-Link":                                 KHBBSLocationData("Olympus Coliseum",       "Event",   227_1120703),
     "(A) Olympus Coliseum World Cleared Mark of a Hero":                              KHBBSLocationData("Olympus Coliseum",       "Event",   227_1120704),
     "(A) Deep Space Glider Battle Complete Air Slide":                                KHBBSLocationData("Deep Space",             "Event",   227_1120800),
-    "(A) Deep Space Defeat Turo Prison Block Unversed Max HP Increase":               KHBBSLocationData("Deep Space",             "Event",   227_1120801),
+    "(A) Deep Space Defeat Unversed Max HP Increase":                                 KHBBSLocationData("Deep Space",             "Event",   227_1120801),
     "(A) Deep Space Defeat Gantu Deck Capacity Increase":                             KHBBSLocationData("Deep Space",             "Event",   227_1120802),
     "(A) Deep Space World Cleared Experiment 626 D-Link":                             KHBBSLocationData("Deep Space",             "Event",   227_1120803),
     "(A) Deep Space World Cleared Hyperdrive":                                        KHBBSLocationData("Deep Space",             "Event",   227_1120804),

@@ -411,7 +411,7 @@ def create_regions(multiworld: MultiWorld, player: int, options):
         regions["Olympus Coliseum"].locations.append("(A) Olympus Coliseum World Cleared Zack D-Link")
         regions["Olympus Coliseum"].locations.append("(A) Olympus Coliseum World Cleared Mark of a Hero")
         regions["Deep Space"].locations.append("(A) Deep Space Glider Battle Complete Air Slide")
-        regions["Deep Space"].locations.append("(A) Deep Space Defeat Turo Prison Block Unversed Max HP Increase")
+        regions["Deep Space"].locations.append("(A) Deep Space Defeat Unversed Max HP Increase")
         regions["Deep Space"].locations.append("(A) Deep Space Defeat Gantu Deck Capacity Increase")
         regions["Deep Space"].locations.append("(A) Deep Space World Cleared Experiment 626 D-Link")
         regions["Deep Space"].locations.append("(A) Deep Space World Cleared Hyperdrive")
