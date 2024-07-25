@@ -212,7 +212,7 @@ item_table: Dict[str, KHBBSItemData] = {
     "Focus Block":            KHBBSItemData("Defense Command",    code = 227_0010176, classification = ItemClassification.useful,      characters = "TV ", max_quantity = 1, khbbsid = "010B"),
     "Stun Block":             KHBBSItemData("Defense Command",    code = 227_0010177, classification = ItemClassification.useful,      characters = "TV ", max_quantity = 1, khbbsid = "010C"),
     "Poison Block":           KHBBSItemData("Defense Command",    code = 227_0010178, classification = ItemClassification.useful,      characters = "TV ", max_quantity = 1, khbbsid = "010D"),
-    "Barrier":                KHBBSItemData("Defense Command",    code = 227_0010179, classification = ItemClassification.useful,      characters = "  A", max_quantity = 1, khbbsid = "010E"),
+   #"Barrier":                KHBBSItemData("Defense Command",    code = 227_0010179, classification = ItemClassification.useful,      characters = "  A", max_quantity = 1, khbbsid = "010E"),
     "Renewal Barrier":        KHBBSItemData("Defense Command",    code = 227_0010180, classification = ItemClassification.useful,      characters = "  A", max_quantity = 1, khbbsid = "010F"),
     "Focus Barrier":          KHBBSItemData("Defense Command",    code = 227_0010181, classification = ItemClassification.useful,      characters = "  A", max_quantity = 1, khbbsid = "0110"),
     "Confuse Barrier":        KHBBSItemData("Defense Command",    code = 227_0010182, classification = ItemClassification.useful,      characters = "  A", max_quantity = 1, khbbsid = "0111"),
