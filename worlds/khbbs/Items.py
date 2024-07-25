@@ -252,7 +252,7 @@ item_table: Dict[str, KHBBSItemData] = {
     "Cyclone":                KHBBSItemData("Command Style",      code = 227_0020006, classification = ItemClassification.useful,      characters = " V ", max_quantity = 1, khbbsid = "0158"),
     "Blade Charge":           KHBBSItemData("Command Style",      code = 227_0020007, classification = ItemClassification.useful,      characters = " VA", max_quantity = 1, khbbsid = "0159"),
     "Sky Climber":            KHBBSItemData("Command Style",      code = 227_0020008, classification = ItemClassification.useful,      characters = " VA", max_quantity = 1, khbbsid = "015A"),
-    "Rock Breaker":           KHBBSItemData("Command Style",      code = 227_0020009, classification = ItemClassification.useful,      characters = "T  ", max_quantity = 1, khbbsid = "015B"),
+    "Rockbreaker":            KHBBSItemData("Command Style",      code = 227_0020009, classification = ItemClassification.useful,      characters = "T  ", max_quantity = 1, khbbsid = "015B"),
     "Ghost Drive":            KHBBSItemData("Command Style",      code = 227_0020010, classification = ItemClassification.useful,      characters = "  A", max_quantity = 1, khbbsid = "015C"),
     "Rhythm Mixer":           KHBBSItemData("Command Style",      code = 227_0020011, classification = ItemClassification.useful,      characters = "TVA", max_quantity = 1, khbbsid = "015D"),
     "Dark Impulse":           KHBBSItemData("Command Style",      code = 227_0020012, classification = ItemClassification.useful,      characters = "T  ", max_quantity = 1, khbbsid = "015E"),

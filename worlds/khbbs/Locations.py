@@ -433,7 +433,7 @@ location_table: Dict[str, KHBBSLocationData] = {
     "(A) The Keyblade Graveyard Defeat Ventus-Vanitas":                               KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1121201),
     
     # Ventus Chests
-    "(V) The Land of Departure Mountain Path Sliding Dash Chest":                     KHBBSLocationData("The Land of Departure",  "Chest",   227_1000001, offset = "0x22E"),
+   #"(V) The Land of Departure Mountain Path Sliding Dash Chest":                     KHBBSLocationData("The Land of Departure",  "Chest",   227_1000001, offset = "0x22E"),
     "(V) Dwarf Woodlands Cottage Clearing Fire Chest":                                KHBBSLocationData("Dwarf Woodlands",        "Chest",   227_1000025, offset = "0x236"),
     "(V) Dwarf Woodlands Cottage Clearing Poison Chest":                              KHBBSLocationData("Dwarf Woodlands",        "Chest",   227_1000026, offset = "0x23E"),
     "(V) Dwarf Woodlands Cottage Clearing Map Chest":                                 KHBBSLocationData("Dwarf Woodlands",        "Chest",   227_1000027, offset = "0x246"),#, forced_remote = True),
@@ -570,8 +570,8 @@ location_table: Dict[str, KHBBSLocationData] = {
     "(V) Dwarf Woodlands Cottage Clearing Ice Cream Sticker":                         KHBBSLocationData("Dwarf Woodlands",        "Sticker", 227_1010003, offset = "0x6BE"),
     "(V) Castle of Dreams Cinderella's Room Fireworks Sticker":                       KHBBSLocationData("Castle of Dreams",       "Sticker", 227_1010004, offset = "0x6AE"),
     "(V) Castle of Dreams Mousehole Louie Sticker":                                   KHBBSLocationData("Castle of Dreams",       "Sticker", 227_1010005, offset = "0x68E"),
-    "(V) Enchanted Dominion Hall Confetti Sticker":                                   KHBBSLocationData("Enchanted Dominion",     "Sticker", 227_1010006, offset = "0x6FE"),
-    "(V) Enchanted Dominion Audience Chamber Dewey Sticker":                          KHBBSLocationData("Enchanted Dominion",     "Sticker", 227_1010007, offset = "0x6F6"),
+    "(V) Enchanted Dominion Hall Confetti Sticker":                                   KHBBSLocationData("Enchanted Dominion",     "Sticker", 227_1010006, offset = "0x67E"),
+    "(V) Enchanted Dominion Audience Chamber Dewey Sticker":                          KHBBSLocationData("Enchanted Dominion",     "Sticker", 227_1010007, offset = "0x676"),
     "(V) The Mysterious Tower Mysterious Tower Ice Cream Sticker":                    KHBBSLocationData("The Mysterious Tower",   "Sticker", 227_1010008, offset = "0x6E6"),
     "(V) Radiant Garden Fountain Court Huey Sticker":                                 KHBBSLocationData("Radiant Garden",         "Sticker", 227_1010011, offset = "0x67E"),
     "(V) Radiant Garden Gardens Ice Cream Sticker":                                   KHBBSLocationData("Radiant Garden",         "Sticker", 227_1010012, offset = "0x6CE"),

@@ -430,7 +430,7 @@ def create_regions(multiworld: MultiWorld, player: int, options):
         
     if options.character == 0:
         # Ventus Chests
-        regions["The Land of Departure"].locations.append("(V) The Land of Departure Mountain Path Sliding Dash Chest")
+       #regions["The Land of Departure"].locations.append("(V) The Land of Departure Mountain Path Sliding Dash Chest")
         regions["Dwarf Woodlands"].locations.append("(V) Dwarf Woodlands Cottage Clearing Fire Chest")
         regions["Dwarf Woodlands"].locations.append("(V) Dwarf Woodlands Cottage Clearing Poison Chest")
         regions["Dwarf Woodlands"].locations.append("(V) Dwarf Woodlands Cottage Clearing Map Chest")
