@@ -76,6 +76,7 @@ IsSteamGLVersion = 0x6107B4
 IsSteamJPVersion = 0x610534
 can_execute = false
 frame_count = 0
+patched = false
 
 function version_choice(array, choice)
     a = array
@@ -109,7 +110,7 @@ def get_lua_character_check(character):
 
 def get_lua_field_item_pointer(self):
     return """                        field_item_address_pointer = GetPointer(version_choice({0x0, 0x10F9F3C0}, game_version))
-                        if field_item_address_pointer > 0 then\n"""
+                        if field_item_address_pointer > 0 and not patched then\n"""
 
 def get_sticker_replace(self):
     replace_stickers_str = ""
@@ -144,7 +145,8 @@ def get_chest_replace(self):
     return replace_chests_str
 
 def get_end(self):
-    return """                        end
+    return """                            patched = true
+                        end
                     end
                 end
             end
