@@ -1,7 +1,7 @@
 from BaseClasses import CollectionState, MultiWorld
 
 def can_glide(state, player):
-    return state.has("Glide", player) or state.has("Superglide") or state.has("Fire Glide")
+    return state.has("Glide", player) or state.has("Superglide", player) or state.has("Fire Glide", player)
 
 def can_airslide(state, player):
     return state.has("Air Slide", player) or state.has("Ice Slide", player)
