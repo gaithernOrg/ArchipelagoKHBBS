@@ -101,15 +101,15 @@ end
 function _OnFrame()
     frame_count = (frame_count + 1) % 30
     if can_execute and frame_count == 0 then
-        if ReadInt(version_choice({0x0, 0x81711F}, game_version)) ~= 0xFFFFFF00 then --Not on Title Screen
-            if ReadInt(version_choice({0x0, 0x81711F}, game_version)) ~= 0xD0100 then
-                if ReadInt(version_choice({0x0, 0x81711F}, game_version)) ~= 0x20100 or ReadInt(version_choice({0x0, 0x817123}, game_version)) ~= 0x100 or ReadShort(version_choice({0x0, 0x817127}, game_version)) ~= 0x100 then\n"""
+        if ReadInt(version_choice({0x81911F, 0x81711F}, game_version)) ~= 0xFFFFFF00 then --Not on Title Screen
+            if ReadInt(version_choice({0x81911F, 0x81711F}, game_version)) ~= 0xD0100 then
+                if ReadInt(version_choice({0x81911F, 0x81711F}, game_version)) ~= 0x20100 or ReadInt(version_choice({0x819123, 0x817123}, game_version)) ~= 0x100 or ReadShort(version_choice({0x819127, 0x817127}, game_version)) ~= 0x100 then\n"""
 
 def get_lua_character_check(character):
-    return """                    if ReadByte(version_choice({0x0, 0x10F9F800}, game_version)) == 0x0""" + str(character) + """ then\n"""
+    return """                    if ReadByte(version_choice({0x10FA0F80, 0x10F9F800}, game_version)) == 0x0""" + str(character) + """ then\n"""
 
 def get_lua_field_item_pointer(self):
-    return """                        field_item_address_pointer = GetPointer(version_choice({0x0, 0x10F9F3C0}, game_version))
+    return """                        field_item_address_pointer = GetPointer(version_choice({0x10FA0B40, 0x10F9F3C0}, game_version))
                         if field_item_address_pointer > 0 and not patched then\n"""
 
 def get_sticker_replace(self):
