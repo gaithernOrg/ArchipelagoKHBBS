@@ -637,8 +637,8 @@ location_table: Dict[str, KHBBSLocationData] = {
     "(V) The Keyblade Graveyard Defeat Vanitas 1 Deck Capacity Increase":             KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1021201),
     "(V) The Keyblade Graveyard Defeat Vanitas 1 High Jump":                          KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1021202),
     "(V) The Keyblade Graveyard Defeat Vanitas 1 Mickey D-Link":                      KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1021203),
-    "(V) The Keyblade Graveyard Defeat Vanitas 2 Max HP Increase":                    KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1021205),
-    "(V) The Keyblade Graveyard Defeat Final Vanitas":                                KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1021206),
+    "(V) The Keyblade Graveyard Defeat Vanitas 2 Max HP Increase":                    KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1021204),
+    "(V) The Keyblade Graveyard Defeat Final Vanitas":                                KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1021205),
 }
 
 event_location_table: Dict[str, KHBBSLocationData] = {}
