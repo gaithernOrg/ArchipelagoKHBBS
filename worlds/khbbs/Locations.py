@@ -181,6 +181,7 @@ location_table: Dict[str, KHBBSLocationData] = {
     "(T) The Land of Departure Defeat Eraqus Max HP Increase":                        KHBBSLocationData("The Land of Departure",  "Event",   227_1220005),
     "(T) The Land of Departure Defeat Eraqus Chaos Ripper":                           KHBBSLocationData("The Land of Departure",  "Event",   227_1220006),
     "(T) The Land of Departure Defeat Eraqus Xehanort's Report 8":                    KHBBSLocationData("The Land of Departure",  "Event",   227_1220007),
+   #"(T) The Land of Departure Defeat Unknown No Name":                               KHBBSLocationData("The Land of Departure",  "Event",   227_1220008),
     "(T) Dwarf Woodlands Defeat Flower Glade Unversed Air Slide":                     KHBBSLocationData("Dwarf Woodlands",        "Event",   227_1220100),
     "(T) Dwarf Woodlands Defeat Spirit of the Magic Mirror Max HP Increase":          KHBBSLocationData("Dwarf Woodlands",        "Event",   227_1220101),
     "(T) Dwarf Woodlands Defeat Spirit of the Magic Mirror Firestorm":                KHBBSLocationData("Dwarf Woodlands",        "Event",   227_1220102),
@@ -223,6 +224,7 @@ location_table: Dict[str, KHBBSLocationData] = {
    #"(T) The Keyblade Graveyard Meet With Xehanort Dark Impulse":                     KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1221200),
     "(T) The Keyblade Graveyard Defeat Xehanort Max HP Increase":                     KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1221201),
     "(T) The Keyblade Graveyard Defeat Terra-Xehanort":                               KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1221202),
+   #"(T) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear":                    KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1221203),
     
     # Aqua Chests
     "(A) The Land of Departure Mountain Path Shimmering Crystal Chest":               KHBBSLocationData("The Land of Departure",  "Chest",   227_1100002, offset = "-0x1E2 + 0x710"),
@@ -384,6 +386,8 @@ location_table: Dict[str, KHBBSLocationData] = {
     "(A) The Land of Departure World Cleared Ventus D-Link":                          KHBBSLocationData("The Land of Departure",  "Event",   227_1120002),
     "(A) The Land of Departure World Cleared Terra D-Link":                           KHBBSLocationData("The Land of Departure",  "Event",   227_1120003),
     "(A) The Land of Departure World Cleared Keyblade Board":                         KHBBSLocationData("The Land of Departure",  "Event",   227_1120004),
+   #"(A) The Land of Departure World Sealed Brightcrest":                             KHBBSLocationData("The Land of Departure",  "Event",   227_1120005),
+   #"(A) The Land of Departure Defeat Unknown No Name":                               KHBBSLocationData("The Land of Departure",  "Event",   227_1120006),
     "(A) Dwarf Woodlands Defeat Spirit of the Magic Mirror Deck Capacity Increase":   KHBBSLocationData("Dwarf Woodlands",        "Event",   227_1120100),
     "(A) Dwarf Woodlands World Cleared Snow White D-Link":                            KHBBSLocationData("Dwarf Woodlands",        "Event",   227_1120101),
     "(A) Dwarf Woodlands World Cleared Treasure Trove":                               KHBBSLocationData("Dwarf Woodlands",        "Event",   227_1120102),
@@ -392,7 +396,7 @@ location_table: Dict[str, KHBBSLocationData] = {
     "(A) Castle of Dreams Defeat Cursed Coach Max HP Increase":                       KHBBSLocationData("Castle of Dreams",       "Event",   227_1120202),
     "(A) Castle of Dreams Defeat Cursed Coach Deck Capacity Increase":                KHBBSLocationData("Castle of Dreams",       "Event",   227_1120203),
     "(A) Castle of Dreams World Cleared Cinderella D-Link":                           KHBBSLocationData("Castle of Dreams",       "Event",   227_1120204),
-    "(A) Castle of Dreams World Cleared Castle Board":                                KHBBSLocationData("Castle of Dreams",       "Event",   227_1120205),
+    "(A) Castle of Dreams World Cleared Royal Board":                                 KHBBSLocationData("Castle of Dreams",       "Event",   227_1120205),
     "(A) Enchanted Dominion Escape Castle High Jump":                                 KHBBSLocationData("Enchanted Dominion",     "Event",   227_1120300),
     "(A) Enchanted Dominion Defeat Dragon Maleficent Max HP Increase":                KHBBSLocationData("Enchanted Dominion",     "Event",   227_1120301),
     "(A) Enchanted Dominion Defeat Dragon Maleficent Firestorm":                      KHBBSLocationData("Enchanted Dominion",     "Event",   227_1120302),
@@ -408,7 +412,9 @@ location_table: Dict[str, KHBBSLocationData] = {
     "(A) Radiant Garden Defeat Trinity Armor Disney Town Pass":                       KHBBSLocationData("Radiant Garden",         "Event",   227_1120504),
     "(A) Radiant Garden Examine Pooh's Story Book Hunny Pot Board":                   KHBBSLocationData("Radiant Garden",         "Event",   227_1120505),
     "(A) Radiant Garden Defeat Vanitas Deck Capacity Increase":                       KHBBSLocationData("Radiant Garden",         "Event",   227_1120506),
+   #"(A) Radiant Garden Defeat Final Terra-Xehanort II":                              KHBBSLocationData("Radiant Garden",         "Event",   227_1120507),
     "(A) Realm of Darkness Enter World Map":                                          KHBBSLocationData("Realm of Darkness",      "Event",   227_1120600),
+    "(A) Realm of Darkness Defeat Dark Hide":                                         KHBBSLocationData("Realm of Darkness",      "Event",   227_1120601),
     "(A) Olympus Coliseum Tournament Complete Max HP Increase":                       KHBBSLocationData("Olympus Coliseum",       "Event",   227_1120700),
     "(A) Olympus Coliseum Defeat Zack Deck Capacity Increase":                        KHBBSLocationData("Olympus Coliseum",       "Event",   227_1120701),
     "(A) Olympus Coliseum Defeat Ice Colossus & Hades Diamond Dust":                  KHBBSLocationData("Olympus Coliseum",       "Event",   227_1120702),
@@ -431,6 +437,7 @@ location_table: Dict[str, KHBBSLocationData] = {
     "(A) Disney Town World Cleared Toon Board":                                       KHBBSLocationData("Disney Town",            "Event",   227_1121101),
     "(A) The Keyblade Graveyard Defeat Braig Max HP Increase":                        KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1121200),
     "(A) The Keyblade Graveyard Defeat Ventus-Vanitas":                               KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1121201),
+   #"(A) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear":                    KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1121202),
     
     # Ventus Chests
    #"(V) The Land of Departure Mountain Path Sliding Dash Chest":                     KHBBSLocationData("The Land of Departure",  "Chest",   227_1000001, offset = "0x22E"),
@@ -594,6 +601,7 @@ location_table: Dict[str, KHBBSLocationData] = {
     "(V) The Land of Departure World Cleared Terra D-Link":                           KHBBSLocationData("The Land of Departure",  "Event",   227_1020003),
     "(V) The Land of Departure World Cleared Xehanort's Letter":                      KHBBSLocationData("The Land of Departure",  "Event",   227_1020004),
     "(V) The Land of Departure World Cleared Keyblade Board":                         KHBBSLocationData("The Land of Departure",  "Event",   227_1020005),
+   #"(V) The Land of Departure Defeat Unknown No Name":                               KHBBSLocationData("The Land of Departure",  "Event",   227_1020006),
     "(V) Dwarf Woodlands Escort Snow White Max HP Increase":                          KHBBSLocationData("Dwarf Woodlands",        "Event",   227_1020100),
     "(V) Dwarf Woodlands Defeat Mad Treant Deck Capacity Increase":                   KHBBSLocationData("Dwarf Woodlands",        "Event",   227_1020101),
     "(V) Dwarf Woodlands Defeat Mad Treant Firestorm":                                KHBBSLocationData("Dwarf Woodlands",        "Event",   227_1020102),
@@ -639,6 +647,7 @@ location_table: Dict[str, KHBBSLocationData] = {
     "(V) The Keyblade Graveyard Defeat Vanitas 1 Mickey D-Link":                      KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1021203),
     "(V) The Keyblade Graveyard Defeat Vanitas 2 Max HP Increase":                    KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1021204),
     "(V) The Keyblade Graveyard Defeat Final Vanitas":                                KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1021205),
+   #"(V) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear":                    KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1021206),
 }
 
 event_location_table: Dict[str, KHBBSLocationData] = {}

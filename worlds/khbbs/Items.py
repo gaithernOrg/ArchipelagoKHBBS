@@ -244,7 +244,7 @@ item_table: Dict[str, KHBBSItemData] = {
     "Lightbloom":             KHBBSItemData("Shotlock Command",   code = 227_0010209, classification = ItemClassification.useful,      characters = "  A", max_quantity = 1, khbbsid = "012C"),
     "Multivortex":            KHBBSItemData("Shotlock Command",   code = 227_0010210, classification = ItemClassification.useful,      characters = " V ", max_quantity = 1, khbbsid = "012D"),
     "Critical Impact":        KHBBSItemData("Command Style",      code = 227_0020000, classification = ItemClassification.useful,      characters = "T  ", max_quantity = 1, khbbsid = "0152"),
-    "Spell Weaver":           KHBBSItemData("Command Style",      code = 227_0020001, classification = ItemClassification.useful,      characters = "  A", max_quantity = 1, khbbsid = "0153"),
+    "Spellweaver":            KHBBSItemData("Command Style",      code = 227_0020001, classification = ItemClassification.useful,      characters = "  A", max_quantity = 1, khbbsid = "0153"),
     "Fever Pitch":            KHBBSItemData("Command Style",      code = 227_0020002, classification = ItemClassification.useful,      characters = " V ", max_quantity = 1, khbbsid = "0154"),
     "Firestorm":              KHBBSItemData("Command Style",      code = 227_0020003, classification = ItemClassification.useful,      characters = "TVA", max_quantity = 1, khbbsid = "0155"),
     "Diamond Dust":           KHBBSItemData("Command Style",      code = 227_0020004, classification = ItemClassification.useful,      characters = "TVA", max_quantity = 1, khbbsid = "0156"),

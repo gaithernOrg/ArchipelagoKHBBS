@@ -182,6 +182,7 @@ def create_regions(multiworld: MultiWorld, player: int, options):
         regions["The Land of Departure"].locations.append("(T) The Land of Departure Defeat Eraqus Max HP Increase")
         regions["The Land of Departure"].locations.append("(T) The Land of Departure Defeat Eraqus Chaos Ripper")
         regions["The Land of Departure"].locations.append("(T) The Land of Departure Defeat Eraqus Xehanort's Report 8")
+       #regions["The Land of Departure"].locations.append("(T) The Land of Departure Defeat Unknown No Name")
         regions["Dwarf Woodlands"].locations.append("(T) Dwarf Woodlands Defeat Flower Glade Unversed Air Slide")
         regions["Dwarf Woodlands"].locations.append("(T) Dwarf Woodlands Defeat Spirit of the Magic Mirror Max HP Increase")
         regions["Dwarf Woodlands"].locations.append("(T) Dwarf Woodlands Defeat Spirit of the Magic Mirror Firestorm")
@@ -224,6 +225,8 @@ def create_regions(multiworld: MultiWorld, player: int, options):
        #regions["The Keyblade Graveyard"].locations.append("(T) The Keyblade Graveyard Meet With Xehanort Dark Impulse")
         regions["The Keyblade Graveyard"].locations.append("(T) The Keyblade Graveyard Defeat Xehanort Max HP Increase")
         regions["The Keyblade Graveyard"].locations.append("(T) The Keyblade Graveyard Defeat Terra-Xehanort")
+       #regions["The Keyblade Graveyard"].locations.append("(T) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear")
+    
     if options.character == 1:
         regions["The Land of Departure"].locations.append("(A) The Land of Departure Mountain Path Shimmering Crystal Chest")
         regions["The Land of Departure"].locations.append("(A) The Land of Departure Mountain Path Hi-Potion Chest")
@@ -380,6 +383,8 @@ def create_regions(multiworld: MultiWorld, player: int, options):
         regions["The Land of Departure"].locations.append("(A) The Land of Departure World Cleared Ventus D-Link")
         regions["The Land of Departure"].locations.append("(A) The Land of Departure World Cleared Terra D-Link")
         regions["The Land of Departure"].locations.append("(A) The Land of Departure World Cleared Keyblade Board")
+       #regions["The Land of Departure"].locations.append("(A) The Land of Departure World Sealed Brightcrest")
+       #regions["The Land of Departure"].locations.append("(A) The Land of Departure Defeat Unknown No Name")
         regions["Dwarf Woodlands"].locations.append("(A) Dwarf Woodlands Defeat Spirit of the Magic Mirror Deck Capacity Increase")
         regions["Dwarf Woodlands"].locations.append("(A) Dwarf Woodlands World Cleared Snow White D-Link")
         regions["Dwarf Woodlands"].locations.append("(A) Dwarf Woodlands World Cleared Treasure Trove")
@@ -388,7 +393,7 @@ def create_regions(multiworld: MultiWorld, player: int, options):
         regions["Castle of Dreams"].locations.append("(A) Castle of Dreams Defeat Cursed Coach Max HP Increase")
         regions["Castle of Dreams"].locations.append("(A) Castle of Dreams Defeat Cursed Coach Deck Capacity Increase")
         regions["Castle of Dreams"].locations.append("(A) Castle of Dreams World Cleared Cinderella D-Link")
-        regions["Castle of Dreams"].locations.append("(A) Castle of Dreams World Cleared Castle Board")
+        regions["Castle of Dreams"].locations.append("(A) Castle of Dreams World Cleared Royal Board")
         regions["Enchanted Dominion"].locations.append("(A) Enchanted Dominion Escape Castle High Jump")
         regions["Enchanted Dominion"].locations.append("(A) Enchanted Dominion Defeat Dragon Maleficent Max HP Increase")
         regions["Enchanted Dominion"].locations.append("(A) Enchanted Dominion Defeat Dragon Maleficent Firestorm")
@@ -404,7 +409,9 @@ def create_regions(multiworld: MultiWorld, player: int, options):
         regions["Radiant Garden"].locations.append("(A) Radiant Garden Defeat Trinity Armor Disney Town Pass")
         regions["Radiant Garden"].locations.append("(A) Radiant Garden Examine Pooh's Story Book Hunny Pot Board")
         regions["Radiant Garden"].locations.append("(A) Radiant Garden Defeat Vanitas Deck Capacity Increase")
+       #regions["Radiant Garden"].locations.append("(A) Radiant Garden Defeat Final Terra-Xehanort II")
         regions["Realm of Darkness"].locations.append("(A) Realm of Darkness Enter World Map")
+        regions["Realm of Darkness"].locations.append("(A) Realm of Darkness Defeat Dark Hide")
         regions["Olympus Coliseum"].locations.append("(A) Olympus Coliseum Tournament Complete Max HP Increase")
         regions["Olympus Coliseum"].locations.append("(A) Olympus Coliseum Defeat Zack Deck Capacity Increase")
         regions["Olympus Coliseum"].locations.append("(A) Olympus Coliseum Defeat Ice Colossus & Hades Diamond Dust")
@@ -427,6 +434,7 @@ def create_regions(multiworld: MultiWorld, player: int, options):
         regions["Disney Town"].locations.append("(A) Disney Town World Cleared Toon Board")
         regions["The Keyblade Graveyard"].locations.append("(A) The Keyblade Graveyard Defeat Braig Max HP Increase")
         regions["The Keyblade Graveyard"].locations.append("(A) The Keyblade Graveyard Defeat Ventus-Vanitas")
+       #regions["The Keyblade Graveyard"].locations.append("(A) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear")
         
     if options.character == 0:
         # Ventus Chests
@@ -587,6 +595,7 @@ def create_regions(multiworld: MultiWorld, player: int, options):
         regions["The Land of Departure"].locations.append("(V) The Land of Departure World Cleared Terra D-Link")
         regions["The Land of Departure"].locations.append("(V) The Land of Departure World Cleared Xehanort's Letter")
         regions["The Land of Departure"].locations.append("(V) The Land of Departure World Cleared Keyblade Board")
+       #regions["The Land of Departure"].locations.append("(V) The Land of Departure Defeat Unknown No Name")
         regions["Dwarf Woodlands"].locations.append("(V) Dwarf Woodlands Escort Snow White Max HP Increase")
         regions["Dwarf Woodlands"].locations.append("(V) Dwarf Woodlands Defeat Mad Treant Deck Capacity Increase")
         regions["Dwarf Woodlands"].locations.append("(V) Dwarf Woodlands Defeat Mad Treant Firestorm")
@@ -632,6 +641,7 @@ def create_regions(multiworld: MultiWorld, player: int, options):
         regions["The Keyblade Graveyard"].locations.append("(V) The Keyblade Graveyard Defeat Vanitas 1 Mickey D-Link")
         regions["The Keyblade Graveyard"].locations.append("(V) The Keyblade Graveyard Defeat Vanitas 2 Max HP Increase")
         regions["The Keyblade Graveyard"].locations.append("(V) The Keyblade Graveyard Defeat Final Vanitas")
+       #regions["The Keyblade Graveyard"].locations.append("(V) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear")
 
     # Set up the regions correctly.
     for name, data in regions.items():
