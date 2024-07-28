@@ -67,7 +67,7 @@ item_table: Dict[str, KHBBSItemData] = {
     "Brutal Blast":           KHBBSItemData("Attack Command",     code = 227_0010031, classification = ItemClassification.filler,      characters = "T  ",                   khbbsid = "007A"),
     "Magnet Spiral":          KHBBSItemData("Attack Command",     code = 227_0010032, classification = ItemClassification.filler,      characters = "TVA",                   khbbsid = "007B"),
     "Salvation":              KHBBSItemData("Attack Command",     code = 227_0010033, classification = ItemClassification.filler,      characters = " V ",                   khbbsid = "007C"),
-    "Wind Cutter":            KHBBSItemData("Attack Command",     code = 227_0010034, classification = ItemClassification.filler,      characters = "T  ",                   khbbsid = "007D"),
+    "Windcutter":             KHBBSItemData("Attack Command",     code = 227_0010034, classification = ItemClassification.filler,      characters = "T  ",                   khbbsid = "007D"),
     "Limit Storm":            KHBBSItemData("Attack Command",     code = 227_0010035, classification = ItemClassification.filler,      characters = "T  ",                   khbbsid = "007E"),
     "Collision Magnet":       KHBBSItemData("Attack Command",     code = 227_0010036, classification = ItemClassification.filler,      characters = "TVA",                   khbbsid = "007F"),
     "Geo Impact":             KHBBSItemData("Attack Command",     code = 227_0010037, classification = ItemClassification.filler,      characters = "T  ",                   khbbsid = "0080"),
