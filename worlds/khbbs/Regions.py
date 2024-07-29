@@ -225,7 +225,7 @@ def create_regions(multiworld: MultiWorld, player: int, options):
        #regions["The Keyblade Graveyard"].locations.append("(T) The Keyblade Graveyard Meet With Xehanort Dark Impulse")
         regions["The Keyblade Graveyard"].locations.append("(T) The Keyblade Graveyard Defeat Xehanort Max HP Increase")
         regions["The Keyblade Graveyard"].locations.append("(T) The Keyblade Graveyard Defeat Terra-Xehanort")
-       #regions["The Keyblade Graveyard"].locations.append("(T) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear")
+        regions["The Keyblade Graveyard"].locations.append("(T) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear")
     
     if options.character == 1:
         regions["The Land of Departure"].locations.append("(A) The Land of Departure Mountain Path Shimmering Crystal Chest")
@@ -417,7 +417,7 @@ def create_regions(multiworld: MultiWorld, player: int, options):
         regions["Olympus Coliseum"].locations.append("(A) Olympus Coliseum Defeat Ice Colossus & Hades Diamond Dust")
         regions["Olympus Coliseum"].locations.append("(A) Olympus Coliseum World Cleared Zack D-Link")
         regions["Olympus Coliseum"].locations.append("(A) Olympus Coliseum World Cleared Mark of a Hero")
-        regions["Deep Space"].locations.append("(A) Deep Space Glider Battle Complete Air Slide")
+        regions["Deep Space"].locations.append("(A) Deep Space Defeat Glidewinders Air Slide")
         regions["Deep Space"].locations.append("(A) Deep Space Defeat Unversed Max HP Increase")
         regions["Deep Space"].locations.append("(A) Deep Space Defeat Gantu Deck Capacity Increase")
         regions["Deep Space"].locations.append("(A) Deep Space World Cleared Experiment 626 D-Link")
@@ -434,7 +434,7 @@ def create_regions(multiworld: MultiWorld, player: int, options):
         regions["Disney Town"].locations.append("(A) Disney Town World Cleared Toon Board")
         regions["The Keyblade Graveyard"].locations.append("(A) The Keyblade Graveyard Defeat Braig Max HP Increase")
         regions["The Keyblade Graveyard"].locations.append("(A) The Keyblade Graveyard Defeat Ventus-Vanitas")
-       #regions["The Keyblade Graveyard"].locations.append("(A) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear")
+        regions["The Keyblade Graveyard"].locations.append("(A) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear")
         
     if options.character == 0:
         # Ventus Chests
@@ -641,7 +641,7 @@ def create_regions(multiworld: MultiWorld, player: int, options):
         regions["The Keyblade Graveyard"].locations.append("(V) The Keyblade Graveyard Defeat Vanitas 1 Mickey D-Link")
         regions["The Keyblade Graveyard"].locations.append("(V) The Keyblade Graveyard Defeat Vanitas 2 Max HP Increase")
         regions["The Keyblade Graveyard"].locations.append("(V) The Keyblade Graveyard Defeat Final Vanitas")
-       #regions["The Keyblade Graveyard"].locations.append("(V) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear")
+        regions["The Keyblade Graveyard"].locations.append("(V) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear")
 
     # Set up the regions correctly.
     for name, data in regions.items():

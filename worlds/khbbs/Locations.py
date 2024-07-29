@@ -224,7 +224,7 @@ location_table: Dict[str, KHBBSLocationData] = {
    #"(T) The Keyblade Graveyard Meet With Xehanort Dark Impulse":                     KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1221200),
     "(T) The Keyblade Graveyard Defeat Xehanort Max HP Increase":                     KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1221201),
     "(T) The Keyblade Graveyard Defeat Terra-Xehanort":                               KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1221202),
-   #"(T) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear":                    KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1221203),
+    "(T) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear":                    KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1221203),
     
     # Aqua Chests
     "(A) The Land of Departure Mountain Path Shimmering Crystal Chest":               KHBBSLocationData("The Land of Departure",  "Chest",   227_1100002, offset = "-0x1E2 + 0x710"),
@@ -420,7 +420,7 @@ location_table: Dict[str, KHBBSLocationData] = {
     "(A) Olympus Coliseum Defeat Ice Colossus & Hades Diamond Dust":                  KHBBSLocationData("Olympus Coliseum",       "Event",   227_1120702),
     "(A) Olympus Coliseum World Cleared Zack D-Link":                                 KHBBSLocationData("Olympus Coliseum",       "Event",   227_1120703),
     "(A) Olympus Coliseum World Cleared Mark of a Hero":                              KHBBSLocationData("Olympus Coliseum",       "Event",   227_1120704),
-    "(A) Deep Space Glider Battle Complete Air Slide":                                KHBBSLocationData("Deep Space",             "Event",   227_1120800),
+    "(A) Deep Space Defeat Glidewinders Air Slide":                                   KHBBSLocationData("Deep Space",             "Event",   227_1120800),
     "(A) Deep Space Defeat Unversed Max HP Increase":                                 KHBBSLocationData("Deep Space",             "Event",   227_1120801),
     "(A) Deep Space Defeat Gantu Deck Capacity Increase":                             KHBBSLocationData("Deep Space",             "Event",   227_1120802),
     "(A) Deep Space World Cleared Experiment 626 D-Link":                             KHBBSLocationData("Deep Space",             "Event",   227_1120803),
@@ -432,12 +432,12 @@ location_table: Dict[str, KHBBSLocationData] = {
     "(A) Never Land Defeat Vanitas Ghost Drive":                                      KHBBSLocationData("Never Land",             "Event",   227_1121002),
     "(A) Never Land World Cleared Peter Pan D-Link":                                  KHBBSLocationData("Never Land",             "Event",   227_1121003),
     "(A) Never Land World Cleared Pixie Petal":                                       KHBBSLocationData("Never Land",             "Event",   227_1121004),
-    "(A) Never Land World Cleared Skull Board":                                       KHBBSLocationData("Never Land",             "Event",   227_1121006),
+    "(A) Never Land World Cleared Skull Board":                                       KHBBSLocationData("Never Land",             "Event",   227_1121005),
     "(A) Disney Town Complete Fruit Ball Balloon Letter":                             KHBBSLocationData("Disney Town",            "Event",   227_1121100),
     "(A) Disney Town World Cleared Toon Board":                                       KHBBSLocationData("Disney Town",            "Event",   227_1121101),
     "(A) The Keyblade Graveyard Defeat Braig Max HP Increase":                        KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1121200),
     "(A) The Keyblade Graveyard Defeat Ventus-Vanitas":                               KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1121201),
-   #"(A) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear":                    KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1121202),
+    "(A) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear":                    KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1121202),
     
     # Ventus Chests
    #"(V) The Land of Departure Mountain Path Sliding Dash Chest":                     KHBBSLocationData("The Land of Departure",  "Chest",   227_1000001, offset = "0x22E"),
@@ -647,7 +647,7 @@ location_table: Dict[str, KHBBSLocationData] = {
     "(V) The Keyblade Graveyard Defeat Vanitas 1 Mickey D-Link":                      KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1021203),
     "(V) The Keyblade Graveyard Defeat Vanitas 2 Max HP Increase":                    KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1021204),
     "(V) The Keyblade Graveyard Defeat Final Vanitas":                                KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1021205),
-   #"(V) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear":                    KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1021206),
+    "(V) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear":                    KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1021206),
 }
 
 event_location_table: Dict[str, KHBBSLocationData] = {}
