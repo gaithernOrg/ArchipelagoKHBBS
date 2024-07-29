@@ -239,7 +239,7 @@ item_table: Dict[str, KHBBSItemData] = {
     "Absolute Zero":          KHBBSItemData("Shotlock Command",   code = 227_0010204, classification = ItemClassification.useful,      characters = "TVA", max_quantity = 1, khbbsid = "0127"),
     "Lightning Ray":          KHBBSItemData("Shotlock Command",   code = 227_0010205, classification = ItemClassification.useful,      characters = "TVA", max_quantity = 1, khbbsid = "0128"),
    #"Sonic Shadow":           KHBBSItemData("Shotlock Command",   code = 227_0010206, classification = ItemClassification.useful,      characters = "T  ", max_quantity = 1, khbbsid = "0129"),
-    "Dark Link":              KHBBSItemData("Shotlock Command",   code = 227_0010207, classification = ItemClassification.useful,      characters = " V ", max_quantity = 1, khbbsid = "012A"),
+   #"Dark Link":              KHBBSItemData("Shotlock Command",   code = 227_0010207, classification = ItemClassification.useful,      characters = " V ", max_quantity = 1, khbbsid = "012A"),
     "Ultima Cannon":          KHBBSItemData("Shotlock Command",   code = 227_0010208, classification = ItemClassification.useful,      characters = "T  ", max_quantity = 1, khbbsid = "012B"),
     "Lightbloom":             KHBBSItemData("Shotlock Command",   code = 227_0010209, classification = ItemClassification.useful,      characters = "  A", max_quantity = 1, khbbsid = "012C"),
     "Multivortex":            KHBBSItemData("Shotlock Command",   code = 227_0010210, classification = ItemClassification.useful,      characters = " V ", max_quantity = 1, khbbsid = "012D"),
