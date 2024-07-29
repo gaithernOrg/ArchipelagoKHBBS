@@ -117,7 +117,7 @@ def get_sticker_replace(self):
     for location in self.multiworld.get_filled_locations(self.player):
         location_data = location_table[location.name]
         if location_data.type == "Sticker":
-            write_value = "00000"
+            write_value = get_world_offset(location_data.category) + "1F1B"
             replace_stickers_str = replace_stickers_str + ("    " * 7) + "WriteInt(field_item_address_pointer + (" + str(location_data.offset) + "), 0x"
             if self.player == location.item.player:
                 item_data = item_table[location.item.name]
@@ -131,7 +131,7 @@ def get_chest_replace(self):
     for location in self.multiworld.get_filled_locations(self.player):
         location_data = location_table[location.name]
         if location_data.type == "Chest":
-            write_value = "0000000"
+            write_value = get_world_offset(location_data.category) + "001F1B"
             replace_chests_str = replace_chests_str + ("    " * 7) + "WriteInt(field_item_address_pointer + (" + str(location_data.offset) + "), 0x"
             if self.player == location.item.player:
                 item_data = item_table[location.item.name]
