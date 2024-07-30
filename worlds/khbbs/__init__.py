@@ -97,7 +97,10 @@ class KHBBSWorld(World):
         goal_locations = ["(V) The Keyblade Graveyard Defeat Final Vanitas",
             "(A) The Keyblade Graveyard Defeat Ventus-Vanitas",
             "(T) The Keyblade Graveyard Defeat Terra-Xehanort"]
-        self.multiworld.get_location(goal_locations[self.options.character], self.player).place_locked_item(self.create_item("Victory"))
+        if self.options.character == 1 and self.options.final_terra_xehanort_ii:
+             self.multiworld.get_location("(A) Radiant Garden Defeat Final Terra-Xehanort II", self.player).place_locked_item(self.create_item("Victory"))
+        else:
+            self.multiworld.get_location(goal_locations[self.options.character], self.player).place_locked_item(self.create_item("Victory"))
 
     def get_filler_item_name(self) -> str:
         fillers = {}

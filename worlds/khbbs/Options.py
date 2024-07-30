@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from Options import Range, NamedRange, PerGameCommonOptions
+from Options import Toggle, Range, NamedRange, PerGameCommonOptions
 
 class StartingWorlds(Range):
     """
@@ -46,10 +46,17 @@ class Character(NamedRange):
         "aqua":   1,
         "terra":  2,
     }
-    
+
+class FinalTerraXehanortII(Toggle):
+    """
+    Determines if Aqua will need to defeat Final Terra Xehanort II to complete her seed.
+    Does nothing if the player chooses a character other than Aqua
+    """
+    display_name = "Final Terra Xehanort II"
 
 @dataclass
 class KHBBSOptions(PerGameCommonOptions):
     character:       Character
     starting_worlds: StartingWorlds
     exp_multiplier:  EXPMultiplier
+    final_terra_xehanort_ii:  FinalTerraXehanortII
