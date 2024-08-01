@@ -355,8 +355,8 @@ location_table: Dict[str, KHBBSLocationData] = {
     "(A) Realm of Darkness: Lower Zone Blackout Chest":                               KHBBSLocationData("Realm of Darkness",      "Chest",   227_1100263, offset = "0x206  + 0x710"),
     "(A) Realm of Darkness: Lower Zone Secret Gem Chest":                             KHBBSLocationData("Realm of Darkness",      "Chest",   227_1100264, offset = "0x20E  + 0x710"),
     "(A) Realm of Darkness: Lower Zone Transcendence Chest":                          KHBBSLocationData("Realm of Darkness",      "Chest",   227_1100265, offset = "0x216  + 0x710"),
-    "(A) Realm of Darkness: Lower Zone Triple Firaga Chest":                          KHBBSLocationData("Realm of Darkness",      "Chest",   227_1100266, offset = "0x21E  + 0x710"),
-    "(A) Realm of Darkness: Lower Zone Megalixir Chest":                              KHBBSLocationData("Realm of Darkness",      "Chest",   227_1100267, offset = "0x226  + 0x710"),
+    "(A) Realm of Darkness: Upper Zone Triple Firaga Chest":                          KHBBSLocationData("Realm of Darkness",      "Chest",   227_1100266, offset = "0x21E  + 0x710"),
+    "(A) Realm of Darkness: Upper Zone Megalixir Chest":                              KHBBSLocationData("Realm of Darkness",      "Chest",   227_1100267, offset = "0x226  + 0x710"),
     
     # Aqua Stickers
     "(A) Castle of Dreams Palace Courtyard Bubble Sticker":                           KHBBSLocationData("Castle of Dreams",       "Sticker", 227_1110002, offset = "0x5E6 - 0xF0"),
