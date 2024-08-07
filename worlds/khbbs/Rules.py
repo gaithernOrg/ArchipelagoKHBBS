@@ -66,6 +66,7 @@ def set_rules(khbbsworld):
    #multiworld.get_entrance("Destiny Islands"                                                   , player).access_rule = lambda state: state.has("Destiny Islands",      player)
     multiworld.get_entrance("Never Land"                                                        , player).access_rule = lambda state: state.has("Never Land",           player)
     multiworld.get_entrance("Disney Town"                                                       , player).access_rule = lambda state: state.has("Disney Town",          player)
+    multiworld.get_entrance("Mirage Arena"                                                      , player).access_rule = lambda state: state.has("Mirage Arena",         player)
     multiworld.get_entrance("The Keyblade Graveyard"                                            , player).access_rule = lambda state: state.has_all({"Wayfinder Ventus", "Wayfinder Aqua", "Wayfinder Terra"}, player)
     multiworld.get_entrance("Realm of Darkness"                                                 , player).access_rule = lambda state: state.has_all({"Wayfinder Ventus", "Wayfinder Aqua", "Wayfinder Terra"}, player) and state.has("Realm of Darkness", player)
 

@@ -24,10 +24,11 @@ def create_regions(multiworld: MultiWorld, player: int, options):
         "Never Land":             KHBBSRegionData([],   []),
         "Disney Town":            KHBBSRegionData([],   []),
         "The Keyblade Graveyard": KHBBSRegionData([],   []),
+        "Mirage Arena":           KHBBSRegionData([],   []),
         "Realm of Darkness":      KHBBSRegionData([],   []),
         "World Map":              KHBBSRegionData([],   ["Dwarf Woodlands", "Castle of Dreams", "Enchanted Dominion", "The Mysterious Tower",
                                                     "Radiant Garden", "Olympus Coliseum", "Deep Space", #"Destiny Islands",
-                                                    "Never Land", "Disney Town", "The Keyblade Graveyard", "Realm of Darkness"]),
+                                                    "Never Land", "Disney Town", "The Keyblade Graveyard", "Realm of Darkness", "Mirage Arena"]),
     }
 
     # Set up locations
@@ -661,6 +662,7 @@ def create_regions(multiworld: MultiWorld, player: int, options):
     multiworld.get_entrance("Disney Town",            player).connect(multiworld.get_region("Disney Town",            player))
     multiworld.get_entrance("The Keyblade Graveyard", player).connect(multiworld.get_region("The Keyblade Graveyard", player))
     multiworld.get_entrance("Realm of Darkness",      player).connect(multiworld.get_region("Realm of Darkness",      player))
+    multiworld.get_entrance("Mirage Arena",           player).connect(multiworld.get_region("Mirage Arena",           player))
     multiworld.get_entrance("World Map",              player).connect(multiworld.get_region("World Map",              player))
 
 def create_region(multiworld: MultiWorld, player: int, name: str, data: KHBBSRegionData):
