@@ -437,6 +437,13 @@ def create_regions(multiworld: MultiWorld, player: int, options):
         regions["The Keyblade Graveyard"].locations.append("(A) The Keyblade Graveyard Defeat Braig Max HP Increase")
         regions["The Keyblade Graveyard"].locations.append("(A) The Keyblade Graveyard Defeat Ventus-Vanitas")
         regions["The Keyblade Graveyard"].locations.append("(A) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear")
+        regions["Mirage Arena"].locations.append("(A) Mirage Arena Collect 300 Medals")
+        regions["Mirage Arena"].locations.append("(A) Mirage Arena Collect 1,000 Medals")
+        regions["Mirage Arena"].locations.append("(A) Mirage Arena Collect 3,333 Medals")
+        regions["Mirage Arena"].locations.append("(A) Mirage Arena Collect 5,555 Medals")
+        regions["Mirage Arena"].locations.append("(A) Mirage Arena Collect 7,777 Medals")
+        regions["Mirage Arena"].locations.append("(A) Mirage Arena Collect 9,999 Medals")
+        regions["Mirage Arena"].locations.append("(A) Mirage Arena Complete Day of Reckoning")
         
     if options.character == 0:
         # Ventus Chests

@@ -439,6 +439,13 @@ location_table: Dict[str, KHBBSLocationData] = {
     "(A) The Keyblade Graveyard Defeat Braig Max HP Increase":                        KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1121200),
     "(A) The Keyblade Graveyard Defeat Ventus-Vanitas":                               KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1121201),
     "(A) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear":                    KHBBSLocationData("The Keyblade Graveyard", "Event",   227_1121202),
+    "(A) Mirage Arena Collect 300 Medals":                                            KHBBSLocationData("Mirage Arena",           "Event",   227_1130000),
+    "(A) Mirage Arena Collect 1,000 Medals":                                          KHBBSLocationData("Mirage Arena",           "Event",   227_1130001),
+    "(A) Mirage Arena Collect 3,333 Medals":                                          KHBBSLocationData("Mirage Arena",           "Event",   227_1130002),
+    "(A) Mirage Arena Collect 5,555 Medals":                                          KHBBSLocationData("Mirage Arena",           "Event",   227_1130003),
+    "(A) Mirage Arena Collect 7,777 Medals":                                          KHBBSLocationData("Mirage Arena",           "Event",   227_1130004),
+    "(A) Mirage Arena Collect 9,999 Medals":                                          KHBBSLocationData("Mirage Arena",           "Event",   227_1130005),
+    "(A) Mirage Arena Complete Day of Reckoning":                                     KHBBSLocationData("Mirage Arena",           "Event",   227_1130006),
     
     # Ventus Chests
    #"(V) The Land of Departure Mountain Path Sliding Dash Chest":                     KHBBSLocationData("The Land of Departure",  "Chest",   227_1000001, offset = "0x22E"),
