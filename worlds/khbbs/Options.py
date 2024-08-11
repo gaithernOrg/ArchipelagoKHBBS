@@ -54,9 +54,16 @@ class FinalTerraXehanortII(Toggle):
     """
     display_name = "Final Terra Xehanort II"
 
+class MirageArena(Toggle):
+    """
+    Determines if Mirage Arena locations should be included.
+    """
+    display_name = "Mirage Arena"
+
 @dataclass
 class KHBBSOptions(PerGameCommonOptions):
     character:       Character
     starting_worlds: StartingWorlds
     exp_multiplier:  EXPMultiplier
     final_terra_xehanort_ii:  FinalTerraXehanortII
+    mirage_arena: MirageArena

@@ -74,6 +74,8 @@ class KHBBSWorld(World):
                 continue
             if name in starting_worlds:
                 continue
+            if name == "Mirage Arena" and not self.options.mirage_arena:
+                continue
             if character_letters[self.options.character] in data.characters and name not in prefilled_items:
                 item_pool += [self.create_item(name) for _ in range(0, quantity)]
         # Fill any empty locations with filler items.
