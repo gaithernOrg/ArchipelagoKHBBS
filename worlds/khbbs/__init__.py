@@ -66,7 +66,7 @@ class KHBBSWorld(World):
         
         total_locations = len(self.multiworld.get_unfilled_locations(self.player)) - 1
         
-        non_filler_item_categories = ["Movement Command", "Defense Command", "Reprisal Command", 
+        non_filler_item_categories = ["Movement Command", "Defense Command", "Reprisal Command", "Command Board",
             "Shotlock Command", "Command Style", "Ability", "Key Item", "World", "Stat Up", "D-Link"]
         for name, data in item_table.items():
             quantity = data.max_quantity
