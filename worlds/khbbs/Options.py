@@ -60,6 +60,18 @@ class MirageArena(Toggle):
     """
     display_name = "Mirage Arena"
 
+class CommandBoard(Toggle):
+    """
+    Determines if Command Board locations should be included.
+    """
+    display_name = "Command Board"
+
+class SuperBosses(Toggle):
+    """
+    Determines if Super Boss locations should be included.
+    """
+    display_name = "Super Bosses"
+
 @dataclass
 class KHBBSOptions(PerGameCommonOptions):
     character:       Character
@@ -67,3 +79,5 @@ class KHBBSOptions(PerGameCommonOptions):
     exp_multiplier:  EXPMultiplier
     final_terra_xehanort_ii:  FinalTerraXehanortII
     mirage_arena: MirageArena
+    command_board: CommandBoard
+    super_bosses: SuperBosses
