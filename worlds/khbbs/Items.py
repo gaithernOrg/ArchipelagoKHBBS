@@ -10,29 +10,24 @@ class KHBBSItem(Item):
 class KHBBSItemData(NamedTuple):
     category: str
     sub: str = "None"
-    code: Optional[int] = None
+    code: int = 0
     classification: ItemClassification = ItemClassification.filler
     max_quantity: int = 1
-    weight: int = 1
     characters: str = "TVA"
     khbbsid: str = None
 
 
-def get_items_by_category(category: str, exclude: list, characters: list) -> Dict[str, KHBBSItemData]:
+def get_items_by_category(category: str, character: str) -> Dict[str, KHBBSItemData]:
     
     item_dict: Dict[str, KHBBSItemData] = {}
     for name, data in item_table.items():
-        add = False
-        if data.category == category and all(x not in name for x in exclude):
-            for character in characters:
-                if character in data.characters:
-                    add = True
-            if add:
+        if data.category == category:
+            if character in data.characters:
                 item_dict.setdefault(name, data)
     return item_dict
 
 item_table: Dict[str, KHBBSItemData] = {
-    "Victory":                KHBBSItemData("Victory",            code = 227_0000000, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
+    "Victory":                KHBBSItemData("VIC",                code = 227_0000000, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
     "Quick Blitz":            KHBBSItemData("Attack Command",     code = 227_0010000, classification = ItemClassification.filler,      characters = "TVA",                   khbbsid = "005B"),
     "Blitz":                  KHBBSItemData("Attack Command",     code = 227_0010001, classification = ItemClassification.filler,      characters = "TVA",                   khbbsid = "005C"),
     "Magic Hour":             KHBBSItemData("Attack Command",     code = 227_0010002, classification = ItemClassification.filler,      characters = "  A",                   khbbsid = "005D"),
@@ -130,15 +125,15 @@ item_table: Dict[str, KHBBSItemData] = {
     "Stopra":                 KHBBSItemData("Magic Command",      code = 227_0010094, classification = ItemClassification.filler,      characters = "TVA",                   khbbsid = "00B9"),
     "Stopga":                 KHBBSItemData("Magic Command",      code = 227_0010095, classification = ItemClassification.filler,      characters = "TVA",                   khbbsid = "00BA"),
     "Sleep":                  KHBBSItemData("Magic Command",      code = 227_0010096, classification = ItemClassification.filler,      characters = "TVA",                   khbbsid = "00BB"),
-    "Potion":                 KHBBSItemData("Item Command",       code = 227_0010097, classification = ItemClassification.filler,      characters = "TVA",                   khbbsid = "00BC"),
-    "Hi-Potion":              KHBBSItemData("Item Command",       code = 227_0010098, classification = ItemClassification.filler,      characters = "TVA",                   khbbsid = "00BD"),
+   #"Potion":                 KHBBSItemData("Item Command",       code = 227_0010097, classification = ItemClassification.filler,      characters = "TVA",                   khbbsid = "00BC"),
+   #"Hi-Potion":              KHBBSItemData("Item Command",       code = 227_0010098, classification = ItemClassification.filler,      characters = "TVA",                   khbbsid = "00BD"),
     "Mega-Potion":            KHBBSItemData("Item Command",       code = 227_0010099, classification = ItemClassification.filler,      characters = "TVA",                   khbbsid = "00BE"),
-    "Ether":                  KHBBSItemData("Item Command",       code = 227_0010100, classification = ItemClassification.filler,      characters = "TVA",                   khbbsid = "00BF"),
+   #"Ether":                  KHBBSItemData("Item Command",       code = 227_0010100, classification = ItemClassification.filler,      characters = "TVA",                   khbbsid = "00BF"),
     "Mega-Ether":             KHBBSItemData("Item Command",       code = 227_0010101, classification = ItemClassification.filler,      characters = "TVA",                   khbbsid = "00C0"),
-    "Panacea":                KHBBSItemData("Item Command",       code = 227_0010102, classification = ItemClassification.filler,      characters = "TVA",                   khbbsid = "00C1"),
+   #"Panacea":                KHBBSItemData("Item Command",       code = 227_0010102, classification = ItemClassification.filler,      characters = "TVA",                   khbbsid = "00C1"),
     "Elixir":                 KHBBSItemData("Item Command",       code = 227_0010103, classification = ItemClassification.filler,      characters = "TVA",                   khbbsid = "00C2"),
     "Megalixir":              KHBBSItemData("Item Command",       code = 227_0010104, classification = ItemClassification.filler,      characters = "TVA",                   khbbsid = "00C3"),
-    "Balloon Letter":         KHBBSItemData("Item Command",       code = 227_0010105, classification = ItemClassification.filler,      characters = "TVA",                   khbbsid = "00C4"),
+   #"Balloon Letter":         KHBBSItemData("Item Command",       code = 227_0010105, classification = ItemClassification.filler,      characters = "TVA",                   khbbsid = "00C4"),
    #"Vanilla Glitz":          KHBBSItemData("Item Command",       code = 227_0010106, classification = ItemClassification.filler,      characters = "T  ",                   khbbsid = "00C5"),
    #"Fabracadabra":           KHBBSItemData("Item Command",       code = 227_0010107, classification = ItemClassification.filler,      characters = "  A",                   khbbsid = "00C6"),
    #"Honeybunny":             KHBBSItemData("Item Command",       code = 227_0010108, classification = ItemClassification.filler,      characters = " V ",                   khbbsid = "00C7"),
@@ -352,7 +347,7 @@ item_table: Dict[str, KHBBSItemData] = {
     "Never Land":             KHBBSItemData("World",              code = 227_0050010, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
     "Disney Town":            KHBBSItemData("World",              code = 227_0050011, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
    #"The Keyblade Graveyard": KHBBSItemData("World",              code = 227_0050012, classification = ItemClassification.progression, characters = "TVA", max_quantity = 1),
-    "HP Increase":            KHBBSItemData("Stat Up",            code = 227_0060000, classification = ItemClassification.useful,      characters = "TVA", max_quantity = 8),
+    "HP Increase":            KHBBSItemData("Stat Up",            code = 227_0060000, classification = ItemClassification.useful,      characters = "TVA"),
     "Deck Capacity Increase": KHBBSItemData("Stat Up",            code = 227_0060001, classification = ItemClassification.useful,      characters = "TVA", max_quantity = 5),
     "Mickey D-Link":          KHBBSItemData("D-Link",             code = 227_0070000, classification = ItemClassification.useful,      characters = " VA", max_quantity = 1),
     "Donald D-Link":          KHBBSItemData("D-Link",             code = 227_0070001, classification = ItemClassification.useful,      characters = " VA", max_quantity = 1),

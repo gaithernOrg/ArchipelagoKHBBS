@@ -135,10 +135,10 @@ def get_chest_replace(self):
             replace_chests_str = replace_chests_str + ("    " * 7) + "WriteInt(field_item_address_pointer + (" + str(location_data.offset) + "), 0x"
             if self.player == location.item.player:
                 item_data = item_table[location.item.name]
-                if item_data.category in ["Attack Command", "Magic Command", "Item Command", "Friendship Command", "Movement Command", "Defense Command", "Reprisal Command", "Shotlock Command"] and not location_data.forced_remote:
+                if item_data.category in ["Attack Command", "Magic Command", "Item Command", "Friendship Command", "Movement Command", "Defense Command", "Reprisal Command", "Shotlock Command"] and not location_data.forced_remote and "Wayfinder" not in location.item.name:
                     item_prefix = "01"
                     write_value = get_world_offset(location_data.category) + item_prefix + item_data.khbbsid
-                elif item_data.category in ["Key Item"] and not location_data.forced_remote:
+                elif item_data.category in ["Key Item"] and not location_data.forced_remote and "Wayfinder" not in location.item.name:
                     item_prefix = "00"
                     write_value = get_world_offset(location_data.category) + item_prefix + item_data.khbbsid
             replace_chests_str = replace_chests_str + write_value + ", true)\n"

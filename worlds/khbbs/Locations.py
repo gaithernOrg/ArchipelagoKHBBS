@@ -12,7 +12,7 @@ class KHBBSLocation(Location):
 class KHBBSLocationData(NamedTuple):
     category: str
     type: str
-    code: Optional[int] = None
+    code: int
     offset: str = None
     forced_remote: bool = False
 

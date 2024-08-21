@@ -17,11 +17,11 @@ class EXPMultiplier(NamedRange):
     """
     display_name = "EXP Multiplier"
     default = 16
-    range_start = default / 4
+    range_start = default // 4
     range_end = 160
     special_range_names = {
-        "0.25x": default / 4,
-        "0.5x":  default / 2,
+        "0.25x": default // 4,
+        "0.5x":  default // 2,
         "1x":    default,
         "2x":    default * 2,
         "3x":    default * 3,
@@ -72,6 +72,15 @@ class SuperBosses(Toggle):
     """
     display_name = "Super Bosses"
 
+class MaxHPIncreases(Range):
+    """
+    Number of Max HP Increases are in the item pool.
+    """
+    display_name = "Max HP Increases"
+    default = 8
+    range_start = 0
+    range_end = 9
+
 @dataclass
 class KHBBSOptions(PerGameCommonOptions):
     character:       Character
@@ -81,3 +90,4 @@ class KHBBSOptions(PerGameCommonOptions):
     mirage_arena: MirageArena
     command_board: CommandBoard
     super_bosses: SuperBosses
+    max_hp_increases: MaxHPIncreases
