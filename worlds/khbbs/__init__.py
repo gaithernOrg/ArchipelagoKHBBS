@@ -110,6 +110,21 @@ class KHBBSWorld(World):
     def fill_slot_data(self) -> dict:
         slot_data = {"xpmult":                  int(self.options.exp_multiplier)/16,
                      "non_remote_location_ids": self.get_non_remote_location_ids()}
+        if self.options.randomize_keyblade_stats:
+            min_str_bonus = min(self.options.keyblade_min_str.value, self.options.keyblade_max_str.value)
+            max_str_bonus = max(self.options.keyblade_min_str.value, self.options.keyblade_max_str.value)
+            self.options.keyblade_min_str.value = min_str_bonus
+            self.options.keyblade_max_str.value = max_str_bonus
+            min_mgc_bonus = min(self.options.keyblade_min_mgc.value, self.options.keyblade_max_mgc.value)
+            max_mgc_bonus = max(self.options.keyblade_min_mgc.value, self.options.keyblade_max_mgc.value)
+            self.options.keyblade_min_mgc.value = min_mgc_bonus
+            self.options.keyblade_max_mgc.value = max_mgc_bonus
+            slot_data["keyblade_stats"] = ""
+            for i in range(49):
+                str_bonus = int(self.random.randint(min_str_bonus, max_str_bonus))
+                mgc_bonus = int(self.random.randint(min_mgc_bonus, max_mgc_bonus))
+                slot_data["keyblade_stats"] = slot_data["keyblade_stats"] + str(str_bonus) + "," + str(mgc_bonus) + ","
+            slot_data["keyblade_stats"] = slot_data["keyblade_stats"][:-1]
         return slot_data
     
     def create_item(self, name: str) -> KHBBSItem:

@@ -81,6 +81,48 @@ class MaxHPIncreases(Range):
     range_start = 0
     range_end = 9
 
+class RandomizeKeybladeStats(Toggle):
+    """
+    Determines if Keyblade stats should be randomized
+    """
+    display_name = "Randomize Keyblade Stats"
+
+class KeybladeMinStrength(Range):
+    """
+    Determines the minimum Strength bonus a keyblade can have.
+    """
+    display_name = "Keyblade Minimum STR Bonus"
+    default = 2
+    range_start = 2
+    range_end = 10
+
+class KeybladeMaxStrength(Range):
+    """
+    Determines the maximum Strength bonus a keyblade can have.
+    """
+    display_name = "Keyblade Maximum STR Bonus"
+    default = 10
+    range_start = 10
+    range_end = 10
+
+class KeybladeMinMagic(Range):
+    """
+    Determines the minimum Magic bonus a keyblade can have.
+    """
+    display_name = "Keyblade Minimum MP Bonus"
+    default = -2
+    range_start = -2
+    range_end = 10
+
+class KeybladeMaxMagic(Range):
+    """
+    Determines the maximum Magic bonus a keyblade can have.
+    """
+    display_name = "Keyblade Maximum MP Bonus"
+    default = 7
+    range_start = -2
+    range_end = 10
+
 @dataclass
 class KHBBSOptions(PerGameCommonOptions):
     character:       Character
@@ -91,3 +133,8 @@ class KHBBSOptions(PerGameCommonOptions):
     command_board: CommandBoard
     super_bosses: SuperBosses
     max_hp_increases: MaxHPIncreases
+    randomize_keyblade_stats: RandomizeKeybladeStats
+    keyblade_min_str: KeybladeMinStrength
+    keyblade_max_str: KeybladeMaxStrength
+    keyblade_min_mgc: KeybladeMinMagic
+    keyblade_max_mgc: KeybladeMaxMagic

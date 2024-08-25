@@ -121,7 +121,7 @@ def get_sticker_replace(self):
             replace_stickers_str = replace_stickers_str + ("    " * 7) + "WriteInt(field_item_address_pointer + (" + str(location_data.offset) + "), 0x"
             if self.player == location.item.player:
                 item_data = item_table[location.item.name]
-                if item_data.category == "Key Item":
+                if item_data.category == "Key Item" and "Wayfinder" not in location.item.name:
                     write_value = get_world_offset(location_data.category) + item_data.khbbsid
             replace_stickers_str = replace_stickers_str + write_value + ", true)\n"
     return replace_stickers_str
