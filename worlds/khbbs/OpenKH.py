@@ -29,9 +29,20 @@ class KHBBSContainer(APContainer):
 def patch_khbbs(self, output_directory, character):
     mod_name = f"AP-{self.multiworld.seed_name}-P{self.player}-{self.multiworld.get_file_safe_player_name(self.player)}"
     mod_dir = os.path.join(output_directory, mod_name + "_" + Utils.__version__)
+    character_name = ""
     
     seed_lua = build_seed_lua(self, character)
-    
+
+    match character:
+        case 0:
+            character_name = "Ventus"
+        case 1:
+            character_name = "Aqua"
+        case 2:
+            character_name = "Terra"
+        case _:  # Used if somehow the character is not in range 0-2
+            character_name = "Invalid character"
+
     self.mod_yml = {
         "assets": [
             {
@@ -44,7 +55,7 @@ def patch_khbbs(self, output_directory, character):
                 ]
             }
         ],
-        'title':  'BBSFMAP Randomizer Seed'
+        'title':  f'BBSFMAP Randomizer Seed for {character_name}'
     }
     
     openkhmod = {
