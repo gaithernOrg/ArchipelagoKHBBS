@@ -2,16 +2,29 @@ import logging
 
 import yaml
 import os
+import io
+from typing import TYPE_CHECKING, Dict, List, Optional, cast
 import Utils
 import zipfile
 
 from .Locations import KHBBSLocation, location_table
 from .Items import KHBBSItem, item_table
-from worlds.Files import APContainer
+from worlds.Files import APPlayerContainer, AutoPatchRegister
 
 
-class KHBBSContainer(APContainer):
+class KHBBSContainer(APPlayerContainer, metaclass=AutoPatchRegister):
     game: str = 'Kingdom Hearts Birth by Sleep'
+    patch_file_ending = ".zip"
+
+    def __init__(self, patch_data: Dict[str, str] | io.BytesIO, base_path: str = "", output_directory: str = "",
+        player: Optional[int] = None, player_name: str = "", server: str = ""):
+        if isinstance(patch_data, io.BytesIO):
+            super().__init__(patch_data, player, player_name, server)
+        else:
+            self.patch_data = patch_data
+            self.file_path = base_path
+            container_path = os.path.join(output_directory, base_path + ".zip")
+            super().__init__(container_path, player, player_name, server)
 
     def __init__(self, patch_data: dict, base_path: str, output_directory: str,
         player=None, player_name: str = "", server: str = ""):
