@@ -4,7 +4,7 @@ from BaseClasses import Tutorial
 from worlds.AutoWorld import WebWorld, World
 from .Items import KHBBSItem, KHBBSItemData, event_item_table, get_items_by_category, item_table, item_name_groups
 from .Locations import KHBBSLocation, location_table, get_locations_by_category, location_name_groups
-from .Options import KHBBSOptions
+from .Options import KHBBSOptions, khbbs_option_groups
 from .Regions import create_regions
 from .Rules import set_rules
 from .OpenKH import patch_khbbs
@@ -30,6 +30,7 @@ class KHBBSWeb(WebWorld):
             "kh1/en",
             ["Gicu"]
     )]
+    option_groups = khbbs_option_groups
 
 
 class KHBBSWorld(World):
@@ -60,6 +61,10 @@ class KHBBSWorld(World):
                 "Castle of Dreams", "Enchanted Dominion", "The Mysterious Tower", 
                 "Radiant Garden", "Olympus Coliseum", "Deep Space",
                 "Never Land", "Disney Town"]
+            if self.options.mirage_arena:
+                possible_starting_worlds.append("Mirage Arena")
+            if self.options.character == 1  and self.options.realm_of_darkness_early:
+                possible_starting_worlds.append("Realm of Darkness")
             starting_worlds = self.random.sample(possible_starting_worlds, min(self.options.starting_worlds, len(possible_starting_worlds)))
             for starting_world in starting_worlds:
                 self.multiworld.push_precollected(self.create_item(starting_world))
@@ -82,6 +87,11 @@ class KHBBSWorld(World):
             elif character_letters[self.options.character] in data.characters:
                 item_pool += [self.create_item(name) for _ in range(0, quantity)]
         
+        # These are magic commands (normally filler) but a few locations require them so guaranteeing some in the pool
+        item_pool += [self.create_item("Fire")]
+        if self.options.character != 1: #Aqua starts with Thunder
+            item_pool += [self.create_item("Thunder")]
+
         # Fill any empty locations with filler items.
         while len(item_pool) < total_locations:
             item_pool.append(self.create_item(self.get_filler_item_name()))

@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from Options import Toggle, Range, NamedRange, PerGameCommonOptions
+from Options import Toggle, Range, NamedRange, PerGameCommonOptions, StartInventoryPool, OptionGroup
 
 class StartingWorlds(Range):
     """
@@ -16,18 +16,18 @@ class EXPMultiplier(NamedRange):
     Determines the multiplier to apply to EXP gained
     """
     display_name = "EXP Multiplier"
-    default = 16
-    range_start = default // 4
+    default = 48
+    range_start = 16 // 4
     range_end = 160
     special_range_names = {
-        "0.25x": default // 4,
-        "0.5x":  default // 2,
-        "1x":    default,
-        "2x":    default * 2,
-        "3x":    default * 3,
-        "4x":    default * 4,
-        "8x":    default * 8,
-        "10x":   default * 10,
+        "0.25x": 16 // 4,
+        "0.5x":  16 // 2,
+        "1x":    16,
+        "2x":    16 * 2,
+        "3x":    16 * 3,
+        "4x":    16 * 4,
+        "8x":    16 * 8,
+        "10x":   16 * 10,
     }
 
 class Character(NamedRange):
@@ -129,6 +129,32 @@ class RealmOfDarknessEarly(Toggle):
     """
     display_name = "Realm of Darkness Early"
 
+class AdvancedLogic(Toggle):
+    """
+    If enabled, using commands for tricky movement will be required to reach many locations
+    """
+    display_name = "Advanced Logic"
+
+class Minigames(Toggle):
+    """
+    Determines whether to include locations for the Disney Town minigames and the racing minigames in Mirage Arena
+    """
+    display_name = "Minigames"
+
+class ArenaMedals(Toggle):
+    """
+    Determines if there should be locations for Mirage Arena medal collecting. Currently these have no logic or shortcuts beyond having Mirage Arena, so enable at your own risk
+    """
+    display_name = "Mirage Arena Medals"
+
+class ArenaGlobalLocations(Toggle):
+    """
+    Determines if there should be locations for the Mirage Arena missions that require beating the game with each character
+    Also enables Combined Threat and Monster of the Deep without their respective worlds
+    If playing on a fresh save leave this off or you'll have unreachable locations!
+    """
+    display_name = "Mirage Arena Cleared Game Locations"
+
 @dataclass
 class KHBBSOptions(PerGameCommonOptions):
     character:       Character
@@ -145,3 +171,37 @@ class KHBBSOptions(PerGameCommonOptions):
     keyblade_min_mgc: KeybladeMinMagic
     keyblade_max_mgc: KeybladeMaxMagic
     realm_of_darkness_early: RealmOfDarknessEarly
+    advanced_logic: AdvancedLogic
+    minigames: Minigames
+    arena_medals: ArenaMedals
+    arena_global_locations: ArenaGlobalLocations
+    start_inventory_from_pool: StartInventoryPool
+
+khbbs_option_groups = [
+    OptionGroup("Locations",[
+        Character,
+        FinalTerraXehanortII,
+        MirageArena,
+        ArenaGlobalLocations,
+        CommandBoard,
+        ArenaMedals,
+        Minigames,
+        SuperBosses,
+    ]),
+    OptionGroup("Stats",[
+        EXPMultiplier,
+        MaxHPIncreases,
+    ]),
+    OptionGroup("Keyblades",[
+        RandomizeKeybladeStats,
+        KeybladeMinStrength,
+        KeybladeMaxStrength,
+        KeybladeMinMagic,
+        KeybladeMaxMagic,
+    ]),
+    OptionGroup("Misc",[
+        StartingWorlds,
+        RealmOfDarknessEarly,
+        AdvancedLogic,
+    ]),
+]
