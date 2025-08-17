@@ -62,7 +62,7 @@ class MirageArena(Toggle):
 
 class CommandBoard(Toggle):
     """
-    Determines if Command Board locations should be included.
+    Determines if Mirage Arena Command Board locations should be included.
     """
     display_name = "Command Board"
 
@@ -123,15 +123,15 @@ class KeybladeMaxMagic(Range):
     range_start = -2
     range_end = 10
 
-class RealmOfDarknessEarly(Toggle):
+class RealmOfDarkness(Toggle):
     """
-    If your character is Aqua, determines if Realm of Darkness is not logically locked behind having 3 Wayfinders.
+    If your character is Aqua, determines if Realm of Darkness is included as a world.
     """
-    display_name = "Realm of Darkness Early"
+    display_name = "Realm of Darkness"
 
 class AdvancedLogic(Toggle):
     """
-    If enabled, using commands for tricky movement will be required to reach many locations
+    If enabled, using commands for tricky movement and precise jumps will be required to reach many locations
     """
     display_name = "Advanced Logic"
 
@@ -143,7 +143,7 @@ class Minigames(Toggle):
 
 class ArenaMedals(Toggle):
     """
-    Determines if there should be locations for Mirage Arena medal collecting. Currently these have no logic or shortcuts beyond having Mirage Arena, so enable at your own risk
+    Determines if there should be locations for Mirage Arena medal collecting. Currently these have no logic or shortcuts beyond having Mirage Arena.
     """
     display_name = "Mirage Arena Medals"
 
@@ -153,7 +153,7 @@ class ArenaGlobalLocations(Toggle):
     Also enables Combined Threat and Monster of the Deep without their respective worlds
     If playing on a fresh save leave this off or you'll have unreachable locations!
     """
-    display_name = "Mirage Arena Cleared Game Locations"
+    display_name = "Mirage Arena Global Locations"
 
 @dataclass
 class KHBBSOptions(PerGameCommonOptions):
@@ -170,7 +170,7 @@ class KHBBSOptions(PerGameCommonOptions):
     keyblade_max_str: KeybladeMaxStrength
     keyblade_min_mgc: KeybladeMinMagic
     keyblade_max_mgc: KeybladeMaxMagic
-    realm_of_darkness_early: RealmOfDarknessEarly
+    realm_of_darkness: RealmOfDarkness
     advanced_logic: AdvancedLogic
     minigames: Minigames
     arena_medals: ArenaMedals
@@ -181,6 +181,7 @@ khbbs_option_groups = [
     OptionGroup("Locations",[
         Character,
         FinalTerraXehanortII,
+        RealmOfDarkness,
         MirageArena,
         ArenaGlobalLocations,
         CommandBoard,
@@ -201,7 +202,6 @@ khbbs_option_groups = [
     ]),
     OptionGroup("Misc",[
         StartingWorlds,
-        RealmOfDarknessEarly,
         AdvancedLogic,
     ]),
 ]

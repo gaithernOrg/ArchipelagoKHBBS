@@ -382,11 +382,7 @@ def set_rules(khbbsworld):
                 ))
             add_rule(khbbsworld.get_location("(T) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear"),
                 lambda state: (
-                    state.has_all({
-                    "Wayfinder Ventus",
-                    "Wayfinder Aqua",
-                    "Wayfinder Terra"}, player)
-                    and has_x_worlds(state, player, 10) 
+                    has_x_worlds(state, player, 10) 
                     and has_defensive_tools(state, player)
                 ))
     if options.character == 1:
@@ -555,24 +551,25 @@ def set_rules(khbbsworld):
                     "Doubleflight"}, player)
                 or (state.has("Doubleflight", player) and options.advanced_logic)
             ))
-        add_rule(khbbsworld.get_location("(A) Realm of Darkness: Upper Zone Megalixir Chest"),
-            lambda state: (
-                state.has_any({"High Jump", "Doubleflight"}, player) 
-                or can_airslide(state, player)
-                or options.advanced_logic
-            ))
-        add_rule(khbbsworld.get_location("(A) Realm of Darkness: Upper Zone Triple Firaga Chest"),
-            lambda state: (
-                state.has_any({"High Jump", "Doubleflight"}, player) 
-                or can_airslide(state, player)
-                or options.advanced_logic
-            ))
-        add_rule(khbbsworld.get_location("(A) Realm of Darkness Defeat Dark Hide"),
-            lambda state: (
-                state.has_any({"High Jump", "Doubleflight"}, player) 
-                or can_airslide(state, player)
-                or options.advanced_logic
-            ))
+        if options.realm_of_darkness:
+            add_rule(khbbsworld.get_location("(A) Realm of Darkness: Upper Zone Megalixir Chest"),
+                lambda state: (
+                    state.has_any({"High Jump", "Doubleflight"}, player) 
+                    or can_airslide(state, player)
+                    or options.advanced_logic
+                ))
+            add_rule(khbbsworld.get_location("(A) Realm of Darkness: Upper Zone Triple Firaga Chest"),
+                lambda state: (
+                    state.has_any({"High Jump", "Doubleflight"}, player) 
+                    or can_airslide(state, player)
+                    or options.advanced_logic
+                ))
+            add_rule(khbbsworld.get_location("(A) Realm of Darkness Defeat Dark Hide"),
+                lambda state: (
+                    state.has_any({"High Jump", "Doubleflight"}, player) 
+                    or can_airslide(state, player)
+                    or options.advanced_logic
+                ))
         add_rule(khbbsworld.get_location("(A) The Keyblade Graveyard Seat of War Flower Sticker"),
             lambda state: state.has("Doubleflight", player))
         add_rule(khbbsworld.get_location("(A) The Keyblade Graveyard Fissure Bubble Sticker"),
@@ -732,11 +729,7 @@ def set_rules(khbbsworld):
                 ))
             add_rule(khbbsworld.get_location("(A) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear"),
                 lambda state: (
-                    state.has_all({
-                    "Wayfinder Ventus",
-                    "Wayfinder Aqua",
-                    "Wayfinder Terra"}, player)
-                    and has_x_worlds(state, player, 10)
+                    has_x_worlds(state, player, 10)
                     and has_defensive_tools(state, player)
                 ))
     if options.character == 0:
@@ -1051,11 +1044,7 @@ def set_rules(khbbsworld):
                 ))
             add_rule(khbbsworld.get_location("(V) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear"),
                 lambda state: (
-                    state.has_all({
-                    "Wayfinder Ventus",
-                    "Wayfinder Aqua",
-                    "Wayfinder Terra"}, player)
-                    and has_x_worlds(state, player, 10) 
+                    has_x_worlds(state, player, 10) 
                     and has_defensive_tools(state,player)
                 ))
         
@@ -1091,19 +1080,9 @@ def set_rules(khbbsworld):
                 "Wayfinder Terra"}, player)
             and has_x_worlds(state, player, 8)
         ))
-    add_rule(khbbsworld.get_entrance("Realm of Darkness"),
-        lambda state: (
-            state.has_all({
-                "Wayfinder Ventus",
-                "Wayfinder Aqua",
-                "Wayfinder Terra",
-                "Realm of Darkness"}, player)
-            or
-            (
-                state.has("Realm of Darkness", player)
-                and options.realm_of_darkness_early
-            )
-        ))
+    if options.realm_of_darkness:
+        add_rule(khbbsworld.get_entrance("Realm of Darkness"),
+            lambda state: state.has("Realm of Darkness", player))
 
     # Win condition.
     multiworld.completion_condition[player] = lambda state: state.has("Victory", player)

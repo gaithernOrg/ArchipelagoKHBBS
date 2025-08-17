@@ -63,7 +63,7 @@ class KHBBSWorld(World):
                 "Never Land", "Disney Town"]
             if self.options.mirage_arena:
                 possible_starting_worlds.append("Mirage Arena")
-            if self.options.character == 1  and self.options.realm_of_darkness_early:
+            if self.options.character == 1 and self.options.realm_of_darkness:
                 possible_starting_worlds.append("Realm of Darkness")
             starting_worlds = self.random.sample(possible_starting_worlds, min(self.options.starting_worlds, len(possible_starting_worlds)))
             for starting_world in starting_worlds:
@@ -81,6 +81,8 @@ class KHBBSWorld(World):
             if name in starting_worlds:
                 continue
             if name == "Mirage Arena" and not self.options.mirage_arena:
+                continue
+            if name == "Realm of Darkness" and not self.options.realm_of_darkness:
                 continue
             if name == "HP Increase":
                 item_pool += [self.create_item(name) for _ in range(0, self.options.max_hp_increases.value)]
