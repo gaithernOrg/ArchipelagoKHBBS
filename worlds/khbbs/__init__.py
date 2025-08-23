@@ -121,7 +121,15 @@ class KHBBSWorld(World):
 
     def fill_slot_data(self) -> dict:
         slot_data = {"xpmult":                  int(self.options.exp_multiplier)/16,
-                     "non_remote_location_ids": self.get_non_remote_location_ids()}
+                     "non_remote_location_ids": self.get_non_remote_location_ids(),
+                     "character":               int(self.options.character),
+                     "mirage_arena":            bool(self.options.mirage_arena),
+                     "minigames":               bool(self.options.minigames),
+                     "arena_medals":            bool(self.options.arena_medals),
+                     "superbosses":             bool(self.options.super_bosses),
+                     "arena_global":            bool(self.options.arena_global_locations),
+                     "advanced_logic":          bool(self.options.advanced_logic),
+                     "realm":                   bool(self.options.realm_of_darkness)}
         if self.options.randomize_keyblade_stats:
             min_str_bonus = min(self.options.keyblade_min_str.value, self.options.keyblade_max_str.value)
             max_str_bonus = max(self.options.keyblade_min_str.value, self.options.keyblade_max_str.value)

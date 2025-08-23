@@ -256,32 +256,32 @@ def set_rules(khbbsworld):
             if options.super_bosses:
                 add_rule(khbbsworld.get_location("(T) Mirage Arena Villains' Vendetta Ultima Weapon"),
                     lambda state: (
-                        has_x_worlds(state, player, 10) 
+                        has_x_worlds(state, player, 9) 
                         and has_defensive_tools(state, player)
                     ))
                 add_rule(khbbsworld.get_location("(T) Mirage Arena Complete Villains' Vendetta"),
                     lambda state: (
-                        has_x_worlds(state, player, 10) 
+                        has_x_worlds(state, player, 9) 
                         and has_defensive_tools(state, player)
                     ))
                 add_rule(khbbsworld.get_location("(T) Mirage Arena Light's Lessons Max HP Increase"),
                     lambda state: (
-                        has_x_worlds(state, player, 10) 
+                        has_x_worlds(state, player, 9) 
                         and has_defensive_tools(state, player)
                     ))
                 add_rule(khbbsworld.get_location("(T) Mirage Arena Complete Light's Lessons"),
                     lambda state: (
-                        has_x_worlds(state, player, 10) 
+                        has_x_worlds(state, player, 9) 
                         and has_defensive_tools(state, player)
                     ))
                 add_rule(khbbsworld.get_location("(T) Mirage Arena Peering into Darkness Royal Radiance"),
                     lambda state: (
-                        has_x_worlds(state, player, 10) 
+                        has_x_worlds(state, player, 9) 
                         and has_defensive_tools(state, player)
                     ))
                 add_rule(khbbsworld.get_location("(T) Mirage Arena Complete Peering into Darkness"),
                     lambda state: (
-                        has_x_worlds(state, player, 10) 
+                        has_x_worlds(state, player, 9) 
                         and has_defensive_tools(state, player)
                     ))
             if options.arena_global_locations:
@@ -377,12 +377,12 @@ def set_rules(khbbsworld):
         if options.super_bosses:
             add_rule(khbbsworld.get_location("(T) The Land of Departure Defeat Unknown No Name"),
                 lambda state: (
-                    has_x_worlds(state, player, 10) 
+                    has_x_worlds(state, player, 9) 
                     and has_defensive_tools(state, player)
                 ))
             add_rule(khbbsworld.get_location("(T) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear"),
                 lambda state: (
-                    has_x_worlds(state, player, 10) 
+                    has_x_worlds(state, player, 9) 
                     and has_defensive_tools(state, player)
                 ))
     if options.character == 1:
@@ -595,32 +595,32 @@ def set_rules(khbbsworld):
             if options.super_bosses:
                 add_rule(khbbsworld.get_location("(A) Mirage Arena Villains' Vendetta Ultima Weapon"),
                     lambda state: (
-                        has_x_worlds(state, player, 10) 
+                        has_x_worlds(state, player, 9) 
                         and has_defensive_tools(state, player)
                     ))
                 add_rule(khbbsworld.get_location("(A) Mirage Arena Complete Villains' Vendetta"),
                     lambda state: (
-                        has_x_worlds(state, player, 10) 
+                        has_x_worlds(state, player, 9) 
                         and has_defensive_tools(state, player)
                     ))
                 add_rule(khbbsworld.get_location("(A) Mirage Arena Light's Lessons Max HP Increase"),
                     lambda state: (
-                        has_x_worlds(state, player, 10) 
+                        has_x_worlds(state, player, 9) 
                         and has_defensive_tools(state, player)
                     ))
                 add_rule(khbbsworld.get_location("(A) Mirage Arena Complete Light's Lessons"),
                     lambda state: (
-                        has_x_worlds(state, player, 10) 
+                        has_x_worlds(state, player, 9) 
                         and has_defensive_tools(state, player)
                     ))
                 add_rule(khbbsworld.get_location("(A) Mirage Arena Peering into Darkness Royal Radiance"),
                     lambda state: (
-                        has_x_worlds(state, player, 10) 
+                        has_x_worlds(state, player, 9) 
                         and has_defensive_tools(state, player)
                     ))
                 add_rule(khbbsworld.get_location("(A) Mirage Arena Complete Peering into Darkness"),
                     lambda state: (
-                        has_x_worlds(state, player, 10) 
+                        has_x_worlds(state, player, 9) 
                         and has_defensive_tools(state, player)
                     ))
             if options.arena_global_locations:
@@ -724,12 +724,12 @@ def set_rules(khbbsworld):
         if options.super_bosses:
             add_rule(khbbsworld.get_location("(A) The Land of Departure Defeat Unknown No Name"),
                 lambda state: (
-                    has_x_worlds(state, player, 10) 
+                    has_x_worlds(state, player, 9) 
                     and has_defensive_tools(state,player)
                 ))
             add_rule(khbbsworld.get_location("(A) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear"),
                 lambda state: (
-                    has_x_worlds(state, player, 10)
+                    has_x_worlds(state, player, 9)
                     and has_defensive_tools(state, player)
                 ))
     if options.character == 0:
@@ -923,32 +923,32 @@ def set_rules(khbbsworld):
             if options.super_bosses:
                 add_rule(khbbsworld.get_location("(V) Mirage Arena Villains' Vendetta Ultima Weapon"),
                     lambda state: (
-                        has_x_worlds(state, player, 10) 
+                        has_x_worlds(state, player, 9) 
                         and has_defensive_tools(state, player)
                     ))
                 add_rule(khbbsworld.get_location("(V) Mirage Arena Complete Villains' Vendetta"),
                     lambda state: (
-                        has_x_worlds(state, player, 10) 
+                        has_x_worlds(state, player, 9) 
                         and has_defensive_tools(state, player)
                     ))
                 add_rule(khbbsworld.get_location("(V) Mirage Arena Light's Lessons Max HP Increase"),
                     lambda state: (
-                        has_x_worlds(state, player, 10) 
+                        has_x_worlds(state, player, 9) 
                         and has_defensive_tools(state, player)
                     ))
                 add_rule(khbbsworld.get_location("(V) Mirage Arena Complete Light's Lessons"),
                     lambda state: (
-                        has_x_worlds(state, player, 10) 
+                        has_x_worlds(state, player, 9) 
                         and has_defensive_tools(state, player)
                     ))
                 add_rule(khbbsworld.get_location("(V) Mirage Arena Peering into Darkness Royal Radiance"),
                     lambda state: (
-                        has_x_worlds(state, player, 10) 
+                        has_x_worlds(state, player, 9) 
                         and has_defensive_tools(state, player)
                     ))
                 add_rule(khbbsworld.get_location("(V) Mirage Arena Complete Peering into Darkness"),
                     lambda state: (
-                        has_x_worlds(state, player, 10) 
+                        has_x_worlds(state, player, 9) 
                         and has_defensive_tools(state, player)
                     ))
             if options.arena_global_locations:
@@ -1039,12 +1039,12 @@ def set_rules(khbbsworld):
         if options.super_bosses:
             add_rule(khbbsworld.get_location("(V) The Land of Departure Defeat Unknown No Name"),
                 lambda state: (
-                    has_x_worlds(state, player, 10) 
+                    has_x_worlds(state, player, 9) 
                     and has_defensive_tools(state,player)
                 ))
             add_rule(khbbsworld.get_location("(V) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear"),
                 lambda state: (
-                    has_x_worlds(state, player, 10) 
+                    has_x_worlds(state, player, 9) 
                     and has_defensive_tools(state,player)
                 ))
         
