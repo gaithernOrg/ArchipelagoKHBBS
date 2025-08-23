@@ -124,6 +124,7 @@ class KHBBSWorld(World):
                      "non_remote_location_ids": self.get_non_remote_location_ids(),
                      "character":               int(self.options.character),
                      "mirage_arena":            bool(self.options.mirage_arena),
+                     "command_board":           bool(self.options.command_board),
                      "minigames":               bool(self.options.minigames),
                      "arena_medals":            bool(self.options.arena_medals),
                      "superbosses":             bool(self.options.super_bosses),
