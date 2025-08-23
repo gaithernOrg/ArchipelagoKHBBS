@@ -129,7 +129,8 @@ class KHBBSWorld(World):
                      "superbosses":             bool(self.options.super_bosses),
                      "arena_global":            bool(self.options.arena_global_locations),
                      "advanced_logic":          bool(self.options.advanced_logic),
-                     "realm":                   bool(self.options.realm_of_darkness)}
+                     "realm":                   bool(self.options.realm_of_darkness),
+                     "final_terranort":         bool(self.options.final_terra_xehanort_ii)}
         if self.options.randomize_keyblade_stats:
             min_str_bonus = min(self.options.keyblade_min_str.value, self.options.keyblade_max_str.value)
             max_str_bonus = max(self.options.keyblade_min_str.value, self.options.keyblade_max_str.value)
