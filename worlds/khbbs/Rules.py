@@ -288,7 +288,10 @@ def set_rules(khbbsworld):
                 add_rule(khbbsworld.get_location("(T) Mirage Arena Complete Wheels of Misfortune"),
                     lambda state: has_x_worlds(state, player, 2))
                 add_rule(khbbsworld.get_location("(T) Mirage Arena Complete A Time to Chill"),
-                    lambda state: has_x_worlds(state, player, 8))
+                    lambda state: (
+                        has_x_worlds(state, player, 8)
+                        and has_defensive_tools(state, player)
+                    ))
                 add_rule(khbbsworld.get_location("(T) Mirage Arena Complete Combined Threat"),
                     lambda state: has_x_worlds(state, player, 6))
                 add_rule(khbbsworld.get_location("(T) Mirage Arena Monster of the Sea Mini"),
