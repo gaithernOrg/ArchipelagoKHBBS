@@ -75,26 +75,11 @@ def set_rules(khbbsworld):
     # Location Rules
     if options.character == 2:
         add_rule(khbbsworld.get_location("(T) The Land of Departure Defeat Eraqus Max HP Increase"),
-            lambda state: (
-                state.has_all({
-                "Wayfinder Ventus",
-                "Wayfinder Aqua",
-                "Wayfinder Terra"}, player)
-            ))
+            lambda state: has_x_worlds(state, player, 6))
         add_rule(khbbsworld.get_location("(T) The Land of Departure Defeat Eraqus Chaos Ripper"),
-            lambda state: (
-                state.has_all({
-                "Wayfinder Ventus",
-                "Wayfinder Aqua",
-                "Wayfinder Terra"}, player)
-            ))
+            lambda state: has_x_worlds(state, player, 6))
         add_rule(khbbsworld.get_location("(T) The Land of Departure Defeat Eraqus Xehanort's Report 8"),
-            lambda state: (
-                state.has_all({
-                "Wayfinder Ventus",
-                "Wayfinder Aqua",
-                "Wayfinder Terra"}, player)
-            ))
+            lambda state: has_x_worlds(state, player, 6))
         add_rule(khbbsworld.get_location("(T) Dwarf Woodlands Vault Flame Salvo Chest"),
             lambda state: (
                 has_fire(state, player, minigames)
