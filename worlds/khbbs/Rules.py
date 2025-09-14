@@ -295,18 +295,19 @@ def set_rules(khbbsworld):
                         has_x_worlds(state, player, 6)
                         and state.has("Radiant Garden", player)
                     ))
-                add_rule(khbbsworld.get_location("(T) Mirage Arena Monster of the Sea Mini"),
-                    lambda state: (
-                        has_x_worlds(state, player, 8)
-                        and state.has("Disney Town", player)
-                        and has_defensive_tools(state, player)
-                    ))
-                add_rule(khbbsworld.get_location("(T) Mirage Arena Complete Monster of the Sea"),
-                    lambda state: (
-                        has_x_worlds(state, player, 8)
-                        and state.has("Disney Town", player)
-                        and has_defensive_tools(state, player)
-                    ))
+                if options.minigames:
+                    add_rule(khbbsworld.get_location("(T) Mirage Arena Monster of the Sea Mini"),
+                        lambda state: (
+                            has_x_worlds(state, player, 8)
+                            and state.has("Disney Town", player)
+                            and has_defensive_tools(state, player)
+                        ))
+                    add_rule(khbbsworld.get_location("(T) Mirage Arena Complete Monster of the Sea"),
+                        lambda state: (
+                            has_x_worlds(state, player, 8)
+                            and state.has("Disney Town", player)
+                            and has_defensive_tools(state, player)
+                        ))
             add_rule(khbbsworld.get_location("(T) Mirage Arena Complete Day of Reckoning"),
                 lambda state: has_x_worlds(state, player, 2))
             add_rule(khbbsworld.get_location("(T) Mirage Arena Complete Risky Riches"),
@@ -639,18 +640,19 @@ def set_rules(khbbsworld):
                         has_x_worlds(state, player, 6)
                         and state.has("Radiant Garden", player)
                     ))
-                add_rule(khbbsworld.get_location("(A) Mirage Arena Monster of the Sea Mini"),
-                    lambda state: (
-                        has_x_worlds(state, player, 8)
-                        and state.has("Disney Town", player)
-                        and has_defensive_tools(state, player)
-                    ))
-                add_rule(khbbsworld.get_location("(A) Mirage Arena Complete Monster of the Sea"),
-                    lambda state: (
-                        has_x_worlds(state, player, 8)
-                        and state.has("Disney Town", player)
-                        and has_defensive_tools(state, player)
-                    ))
+                if options.minigames:
+                    add_rule(khbbsworld.get_location("(A) Mirage Arena Monster of the Sea Mini"),
+                        lambda state: (
+                            has_x_worlds(state, player, 8)
+                            and state.has("Disney Town", player)
+                            and has_defensive_tools(state, player)
+                        ))
+                    add_rule(khbbsworld.get_location("(A) Mirage Arena Complete Monster of the Sea"),
+                        lambda state: (
+                            has_x_worlds(state, player, 8)
+                            and state.has("Disney Town", player)
+                            and has_defensive_tools(state, player)
+                        ))
             add_rule(khbbsworld.get_location("(A) Mirage Arena Complete Day of Reckoning"),
                 lambda state: has_x_worlds(state, player, 2))
             add_rule(khbbsworld.get_location("(A) Mirage Arena Wheels of Misfortune Max HP Increase"),
@@ -972,18 +974,19 @@ def set_rules(khbbsworld):
                         has_x_worlds(state, player, 6)
                         and state.has("Radiant Garden", player)
                     ))
-                add_rule(khbbsworld.get_location("(V) Mirage Arena Monster of the Sea Mini"),
-                    lambda state: (
-                        has_x_worlds(state, player, 8)
-                        and state.has("Disney Town", player)
-                        and has_defensive_tools(state, player)
-                    ))
-                add_rule(khbbsworld.get_location("(V) Mirage Arena Complete Monster of the Sea"),
-                    lambda state: (
-                        has_x_worlds(state, player, 8)
-                        and state.has("Disney Town", player)
-                        and has_defensive_tools(state, player)
-                    ))
+                if options.minigames:
+                    add_rule(khbbsworld.get_location("(V) Mirage Arena Monster of the Sea Mini"),
+                        lambda state: (
+                            has_x_worlds(state, player, 8)
+                            and state.has("Disney Town", player)
+                            and has_defensive_tools(state, player)
+                        ))
+                    add_rule(khbbsworld.get_location("(V) Mirage Arena Complete Monster of the Sea"),
+                        lambda state: (
+                            has_x_worlds(state, player, 8)
+                            and state.has("Disney Town", player)
+                            and has_defensive_tools(state, player)
+                        ))
             add_rule(khbbsworld.get_location("(V) Mirage Arena Complete Day of Reckoning"),
                 lambda state: has_x_worlds(state, player, 2))            
             add_rule(khbbsworld.get_location("(V) Mirage Arena Complete Risky Riches"),

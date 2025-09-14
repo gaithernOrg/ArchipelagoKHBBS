@@ -269,8 +269,9 @@ def create_regions(multiworld: MultiWorld, player: int, options):
                 regions["Mirage Arena"].locations.append("(T) Mirage Arena Disney Drive: Finish 5 laps in 5 minutes")
                 regions["Mirage Arena"].locations.append("(T) Mirage Arena Grand Spree: Finish 5 laps in 5 minutes")
                 regions["Mirage Arena"].locations.append("(T) Mirage Arena Castle Circuit: Finish 5 laps in 5:30")
-            regions["Mirage Arena"].locations.append("(T) Mirage Arena Monster of the Sea Mini")
-            regions["Mirage Arena"].locations.append("(T) Mirage Arena Complete Monster of the Sea")
+            if options.arena_global_locations or options.minigames:
+                regions["Mirage Arena"].locations.append("(T) Mirage Arena Monster of the Sea Mini")
+                regions["Mirage Arena"].locations.append("(T) Mirage Arena Complete Monster of the Sea")
         if options.super_bosses:
             regions["The Land of Departure"].locations.append("(T) The Land of Departure Defeat Unknown No Name")
             regions["The Keyblade Graveyard"].locations.append("(T) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear")
@@ -528,8 +529,9 @@ def create_regions(multiworld: MultiWorld, player: int, options):
                 regions["Mirage Arena"].locations.append("(A) Mirage Arena Disney Drive: Finish 5 laps in 5 minutes")
                 regions["Mirage Arena"].locations.append("(A) Mirage Arena Grand Spree: Finish 5 laps in 5 minutes")
                 regions["Mirage Arena"].locations.append("(A) Mirage Arena Castle Circuit: Finish 5 laps in 5:30")
-            regions["Mirage Arena"].locations.append("(A) Mirage Arena Monster of the Sea Mini")
-            regions["Mirage Arena"].locations.append("(A) Mirage Arena Complete Monster of the Sea")
+            if options.arena_global_locations or options.minigames:
+                regions["Mirage Arena"].locations.append("(A) Mirage Arena Monster of the Sea Mini")
+                regions["Mirage Arena"].locations.append("(A) Mirage Arena Complete Monster of the Sea")
         if options.super_bosses:
             regions["The Keyblade Graveyard"].locations.append("(A) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear")
             regions["The Land of Departure"].locations.append("(A) The Land of Departure Defeat Unknown No Name")
@@ -781,8 +783,9 @@ def create_regions(multiworld: MultiWorld, player: int, options):
                 regions["Mirage Arena"].locations.append("(V) Mirage Arena Disney Drive: Finish 5 laps in 5 minutes")
                 regions["Mirage Arena"].locations.append("(V) Mirage Arena Grand Spree: Finish 5 laps in 5 minutes")
                 regions["Mirage Arena"].locations.append("(V) Mirage Arena Castle Circuit: Finish 5 laps in 5:30")
-            regions["Mirage Arena"].locations.append("(V) Mirage Arena Monster of the Sea Mini")
-            regions["Mirage Arena"].locations.append("(V) Mirage Arena Complete Monster of the Sea")
+            if options.arena_global_locations or options.minigames:
+                regions["Mirage Arena"].locations.append("(V) Mirage Arena Monster of the Sea Mini")
+                regions["Mirage Arena"].locations.append("(V) Mirage Arena Complete Monster of the Sea")
         if options.super_bosses:
             regions["The Keyblade Graveyard"].locations.append("(V) The Keyblade Graveyard Defeat Vanitas Remnant Void Gear")
             regions["The Land of Departure"].locations.append("(V) The Land of Departure Defeat Unknown No Name")
