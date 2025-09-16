@@ -102,7 +102,7 @@ class KeybladeMaxStrength(Range):
     """
     display_name = "Keyblade Maximum STR Bonus"
     default = 10
-    range_start = 10
+    range_start = 2
     range_end = 10
 
 class KeybladeMinMagic(Range):
