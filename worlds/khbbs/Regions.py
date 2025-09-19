@@ -414,7 +414,7 @@ def create_regions(multiworld: MultiWorld, player: int, options):
         regions["Dwarf Woodlands"].locations.append("(A) Dwarf Woodlands Courtyard Picnic Basket Sticker")
         regions["Enchanted Dominion"].locations.append("(A) Enchanted Dominion Dungeon Horace Sticker")
         regions["Enchanted Dominion"].locations.append("(A) Enchanted Dominion Forest Clearing Flower Sticker")
-        regions["The Mysterious Tower"].locations.append("(A) The Mysterious Tower Mysterious Tower Donald Sticker")
+        regions["The Mysterious Tower"].locations.append("(A) The Mysterious Tower Tower Entrance Donald Sticker")
         regions["Radiant Garden"].locations.append("(A) Radiant Garden Aqueduct Donut Sticker")
         regions["Radiant Garden"].locations.append("(A) Radiant Garden Castle Town Flower Sticker")
         regions["Radiant Garden"].locations.append("(A) Radiant Garden Front Doors Juice Sticker")

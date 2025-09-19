@@ -425,7 +425,7 @@ def set_rules(khbbsworld):
                 or can_airslide(state, player)
                 or options.advanced_logic
             ))
-        add_rule(khbbsworld.get_location("(A) The Mysterious Tower Mysterious Tower Donald Sticker"),
+        add_rule(khbbsworld.get_location("(A) The Mysterious Tower Tower Entrance Donald Sticker"),
             lambda state: (
                 state.has("Doubleflight", player)
                 or (state.has("High Jump", player) and can_airslide(state, player))
