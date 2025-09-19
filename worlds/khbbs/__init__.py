@@ -61,7 +61,7 @@ class KHBBSWorld(World):
                 "Castle of Dreams", "Enchanted Dominion", "The Mysterious Tower", 
                 "Radiant Garden", "Olympus Coliseum", "Deep Space",
                 "Never Land", "Disney Town"]
-            if self.options.mirage_arena:
+            if self.options.mirage_arena or self.options.command_board or self.options.minigames:
                 possible_starting_worlds.append("Mirage Arena")
             if self.options.character == 1 and self.options.realm_of_darkness:
                 possible_starting_worlds.append("Realm of Darkness")
@@ -80,7 +80,7 @@ class KHBBSWorld(World):
                 continue
             if name in starting_worlds:
                 continue
-            if name == "Mirage Arena" and not self.options.mirage_arena:
+            if name == "Mirage Arena" and not (self.options.mirage_arena or self.options.command_board or self.options.minigames):
                 continue
             if name == "Realm of Darkness" and not self.options.realm_of_darkness:
                 continue
