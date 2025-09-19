@@ -90,7 +90,8 @@ class KHBBSWorld(World):
                 item_pool += [self.create_item(name) for _ in range(0, quantity)]
         
         # These are magic commands (normally filler) but a few locations require them so guaranteeing some in the pool
-        item_pool += [self.create_item("Fire")]
+        if self.options.character != 0: #Ventus doesn't need Fire
+            item_pool += [self.create_item("Fire")]
         if self.options.character != 1: #Aqua starts with Thunder
             item_pool += [self.create_item("Thunder")]
 
