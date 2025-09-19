@@ -382,6 +382,7 @@ def set_rules(khbbsworld):
                     "Wayfinder Aqua",
                     "Wayfinder Terra"}, player)
                 and has_defensive_tools(state, player)
+                and has_x_worlds(state, player, 8)
             ))
         add_rule(khbbsworld.get_location("(A) Dwarf Woodlands Vault Magnet Chest"),
             lambda state: (
