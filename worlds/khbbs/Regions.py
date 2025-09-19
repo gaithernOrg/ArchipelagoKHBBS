@@ -226,12 +226,24 @@ def create_regions(multiworld: MultiWorld, player: int, options):
        #regions["The Keyblade Graveyard"].locations.append("(T) The Keyblade Graveyard Meet With Xehanort Dark Impulse")
         regions["The Keyblade Graveyard"].locations.append("(T) The Keyblade Graveyard Defeat Xehanort Max HP Increase")
         regions["The Keyblade Graveyard"].locations.append("(T) The Keyblade Graveyard Defeat Terra-Xehanort")
+        if options.command_board:
+            regions["Mirage Arena"].locations.append("(T) Mirage Arena Win a Command Board game")
+            regions["Mirage Arena"].locations.append("(T) Mirage Arena Win 3 Command Board games")
+            regions["Mirage Arena"].locations.append("(T) Mirage Arena Win 5 Command Board games")
+            regions["Mirage Arena"].locations.append("(T) Mirage Arena Win 7 Command Board games")
+        if options.minigames:
+            regions["Mirage Arena"].locations.append("(T) Mirage Arena Country Chase: Finish 5 laps in 2:30")
+            regions["Mirage Arena"].locations.append("(T) Mirage Arena Disney Drive: Finish 5 laps in 5 minutes")
+            regions["Mirage Arena"].locations.append("(T) Mirage Arena Grand Spree: Finish 5 laps in 5 minutes")
+            regions["Mirage Arena"].locations.append("(T) Mirage Arena Castle Circuit: Finish 5 laps in 5:30")
+        if (options.mirage_arena or options.command_board or options.minigames) and options.arena_medals:
+            regions["Mirage Arena"].locations.append("(T) Mirage Arena Collect 300 Medals")
+            regions["Mirage Arena"].locations.append("(T) Mirage Arena Collect 1,000 Medals")
+            regions["Mirage Arena"].locations.append("(T) Mirage Arena Collect 3,333 Medals")
+            regions["Mirage Arena"].locations.append("(T) Mirage Arena Collect 5,555 Medals")
+            regions["Mirage Arena"].locations.append("(T) Mirage Arena Collect 7,777 Medals")
+            regions["Mirage Arena"].locations.append("(T) Mirage Arena Collect 9,999 Medals")
         if options.mirage_arena:
-            if options.command_board:
-                regions["Mirage Arena"].locations.append("(T) Mirage Arena Win a Command Board game")
-                regions["Mirage Arena"].locations.append("(T) Mirage Arena Win 3 Command Board games")
-                regions["Mirage Arena"].locations.append("(T) Mirage Arena Win 5 Command Board games")
-                regions["Mirage Arena"].locations.append("(T) Mirage Arena Win 7 Command Board games")
             if options.super_bosses:
                 regions["Mirage Arena"].locations.append("(T) Mirage Arena Villains' Vendetta Ultima Weapon")
                 regions["Mirage Arena"].locations.append("(T) Mirage Arena Complete Villains' Vendetta")
@@ -239,13 +251,6 @@ def create_regions(multiworld: MultiWorld, player: int, options):
                 regions["Mirage Arena"].locations.append("(T) Mirage Arena Complete Light's Lessons")
                 regions["Mirage Arena"].locations.append("(T) Mirage Arena Peering into Darkness Royal Radiance")
                 regions["Mirage Arena"].locations.append("(T) Mirage Arena Complete Peering into Darkness")
-            if options.arena_medals:
-                regions["Mirage Arena"].locations.append("(T) Mirage Arena Collect 300 Medals")
-                regions["Mirage Arena"].locations.append("(T) Mirage Arena Collect 1,000 Medals")
-                regions["Mirage Arena"].locations.append("(T) Mirage Arena Collect 3,333 Medals")
-                regions["Mirage Arena"].locations.append("(T) Mirage Arena Collect 5,555 Medals")
-                regions["Mirage Arena"].locations.append("(T) Mirage Arena Collect 7,777 Medals")
-                regions["Mirage Arena"].locations.append("(T) Mirage Arena Collect 9,999 Medals")
             regions["Mirage Arena"].locations.append("(T) Mirage Arena Complete Day of Reckoning")
             if options.arena_global_locations:
                 regions["Mirage Arena"].locations.append("(T) Mirage Arena Complete Wheels of Misfortune")
@@ -264,11 +269,6 @@ def create_regions(multiworld: MultiWorld, player: int, options):
             regions["Mirage Arena"].locations.append("(T) Mirage Arena Complete Copycat Crisis")
             regions["Mirage Arena"].locations.append("(T) Mirage Arena Keepers of the Arena Ultima Cannon")
             regions["Mirage Arena"].locations.append("(T) Mirage Arena Complete Keepers of the Arena")
-            if options.minigames:
-                regions["Mirage Arena"].locations.append("(T) Mirage Arena Country Chase: Finish 5 laps in 2:30")
-                regions["Mirage Arena"].locations.append("(T) Mirage Arena Disney Drive: Finish 5 laps in 5 minutes")
-                regions["Mirage Arena"].locations.append("(T) Mirage Arena Grand Spree: Finish 5 laps in 5 minutes")
-                regions["Mirage Arena"].locations.append("(T) Mirage Arena Castle Circuit: Finish 5 laps in 5:30")
             if options.arena_global_locations or options.minigames:
                 regions["Mirage Arena"].locations.append("(T) Mirage Arena Monster of the Sea Mini")
                 regions["Mirage Arena"].locations.append("(T) Mirage Arena Complete Monster of the Sea")
@@ -414,7 +414,7 @@ def create_regions(multiworld: MultiWorld, player: int, options):
         regions["Dwarf Woodlands"].locations.append("(A) Dwarf Woodlands Courtyard Picnic Basket Sticker")
         regions["Enchanted Dominion"].locations.append("(A) Enchanted Dominion Dungeon Horace Sticker")
         regions["Enchanted Dominion"].locations.append("(A) Enchanted Dominion Forest Clearing Flower Sticker")
-        regions["The Mysterious Tower"].locations.append("(A) The Mysterious Tower Mysterious Tower Donald Sticker")
+        regions["The Mysterious Tower"].locations.append("(A) The Mysterious Tower Tower Entrance Donald Sticker")
         regions["Radiant Garden"].locations.append("(A) Radiant Garden Aqueduct Donut Sticker")
         regions["Radiant Garden"].locations.append("(A) Radiant Garden Castle Town Flower Sticker")
         regions["Radiant Garden"].locations.append("(A) Radiant Garden Front Doors Juice Sticker")
@@ -487,12 +487,24 @@ def create_regions(multiworld: MultiWorld, player: int, options):
             regions["Disney Town"].locations.append("(A) Disney Town World Cleared Toon Board")
         regions["The Keyblade Graveyard"].locations.append("(A) The Keyblade Graveyard Defeat Braig Max HP Increase")
         regions["The Keyblade Graveyard"].locations.append("(A) The Keyblade Graveyard Defeat Ventus-Vanitas")
+        if options.command_board:
+            regions["Mirage Arena"].locations.append("(A) Mirage Arena Win a Command Board game")
+            regions["Mirage Arena"].locations.append("(A) Mirage Arena Win 3 Command Board games")
+            regions["Mirage Arena"].locations.append("(A) Mirage Arena Win 5 Command Board games")
+            regions["Mirage Arena"].locations.append("(A) Mirage Arena Win 7 Command Board games")
+        if options.minigames:
+            regions["Mirage Arena"].locations.append("(A) Mirage Arena Country Chase: Finish 5 laps in 2:30")
+            regions["Mirage Arena"].locations.append("(A) Mirage Arena Disney Drive: Finish 5 laps in 5 minutes")
+            regions["Mirage Arena"].locations.append("(A) Mirage Arena Grand Spree: Finish 5 laps in 5 minutes")
+            regions["Mirage Arena"].locations.append("(A) Mirage Arena Castle Circuit: Finish 5 laps in 5:30")
+        if (options.mirage_arena or options.command_board or options.minigames) and options.arena_medals:
+            regions["Mirage Arena"].locations.append("(A) Mirage Arena Collect 300 Medals")
+            regions["Mirage Arena"].locations.append("(A) Mirage Arena Collect 1,000 Medals")
+            regions["Mirage Arena"].locations.append("(A) Mirage Arena Collect 3,333 Medals")
+            regions["Mirage Arena"].locations.append("(A) Mirage Arena Collect 5,555 Medals")
+            regions["Mirage Arena"].locations.append("(A) Mirage Arena Collect 7,777 Medals")
+            regions["Mirage Arena"].locations.append("(A) Mirage Arena Collect 9,999 Medals")
         if options.mirage_arena:
-            if options.command_board:
-                regions["Mirage Arena"].locations.append("(A) Mirage Arena Win a Command Board game")
-                regions["Mirage Arena"].locations.append("(A) Mirage Arena Win 3 Command Board games")
-                regions["Mirage Arena"].locations.append("(A) Mirage Arena Win 5 Command Board games")
-                regions["Mirage Arena"].locations.append("(A) Mirage Arena Win 7 Command Board games")
             if options.super_bosses:
                 regions["Mirage Arena"].locations.append("(A) Mirage Arena Peering into Darkness Royal Radiance")
                 regions["Mirage Arena"].locations.append("(A) Mirage Arena Complete Peering into Darkness")
@@ -500,13 +512,6 @@ def create_regions(multiworld: MultiWorld, player: int, options):
                 regions["Mirage Arena"].locations.append("(A) Mirage Arena Complete Villains' Vendetta")
                 regions["Mirage Arena"].locations.append("(A) Mirage Arena Light's Lessons Max HP Increase")
                 regions["Mirage Arena"].locations.append("(A) Mirage Arena Complete Light's Lessons")
-            if options.arena_medals:
-                regions["Mirage Arena"].locations.append("(A) Mirage Arena Collect 300 Medals")
-                regions["Mirage Arena"].locations.append("(A) Mirage Arena Collect 1,000 Medals")
-                regions["Mirage Arena"].locations.append("(A) Mirage Arena Collect 3,333 Medals")
-                regions["Mirage Arena"].locations.append("(A) Mirage Arena Collect 5,555 Medals")
-                regions["Mirage Arena"].locations.append("(A) Mirage Arena Collect 7,777 Medals")
-                regions["Mirage Arena"].locations.append("(A) Mirage Arena Collect 9,999 Medals")
             regions["Mirage Arena"].locations.append("(A) Mirage Arena Complete Day of Reckoning")
             regions["Mirage Arena"].locations.append("(A) Mirage Arena Wheels of Misfortune Max HP Increase")
             regions["Mirage Arena"].locations.append("(A) Mirage Arena Complete Wheels of Misfortune")
@@ -524,11 +529,6 @@ def create_regions(multiworld: MultiWorld, player: int, options):
             regions["Mirage Arena"].locations.append("(A) Mirage Arena Complete Copycat Crisis")
             regions["Mirage Arena"].locations.append("(A) Mirage Arena Keepers of the Arena Lightbloom")
             regions["Mirage Arena"].locations.append("(A) Mirage Arena Complete Keepers of the Arena")
-            if options.minigames:
-                regions["Mirage Arena"].locations.append("(A) Mirage Arena Country Chase: Finish 5 laps in 2:30")
-                regions["Mirage Arena"].locations.append("(A) Mirage Arena Disney Drive: Finish 5 laps in 5 minutes")
-                regions["Mirage Arena"].locations.append("(A) Mirage Arena Grand Spree: Finish 5 laps in 5 minutes")
-                regions["Mirage Arena"].locations.append("(A) Mirage Arena Castle Circuit: Finish 5 laps in 5:30")
             if options.arena_global_locations or options.minigames:
                 regions["Mirage Arena"].locations.append("(A) Mirage Arena Monster of the Sea Mini")
                 regions["Mirage Arena"].locations.append("(A) Mirage Arena Complete Monster of the Sea")
@@ -741,12 +741,24 @@ def create_regions(multiworld: MultiWorld, player: int, options):
         regions["The Keyblade Graveyard"].locations.append("(V) The Keyblade Graveyard Defeat Vanitas 1 Mickey D-Link")
         regions["The Keyblade Graveyard"].locations.append("(V) The Keyblade Graveyard Defeat Vanitas 2 Max HP Increase")
         regions["The Keyblade Graveyard"].locations.append("(V) The Keyblade Graveyard Defeat Final Vanitas")
+        if options.command_board:
+            regions["Mirage Arena"].locations.append("(V) Mirage Arena Win a Command Board game")
+            regions["Mirage Arena"].locations.append("(V) Mirage Arena Win 3 Command Board games")
+            regions["Mirage Arena"].locations.append("(V) Mirage Arena Win 5 Command Board games")
+            regions["Mirage Arena"].locations.append("(V) Mirage Arena Win 7 Command Board games")
+        if options.minigames:
+            regions["Mirage Arena"].locations.append("(V) Mirage Arena Country Chase: Finish 5 laps in 2:30")
+            regions["Mirage Arena"].locations.append("(V) Mirage Arena Disney Drive: Finish 5 laps in 5 minutes")
+            regions["Mirage Arena"].locations.append("(V) Mirage Arena Grand Spree: Finish 5 laps in 5 minutes")
+            regions["Mirage Arena"].locations.append("(V) Mirage Arena Castle Circuit: Finish 5 laps in 5:30")
+        if (options.mirage_arena or options.command_board or options.minigames) and options.arena_medals:
+            regions["Mirage Arena"].locations.append("(V) Mirage Arena Collect 300 Medals")
+            regions["Mirage Arena"].locations.append("(V) Mirage Arena Collect 1,000 Medals")
+            regions["Mirage Arena"].locations.append("(V) Mirage Arena Collect 3,333 Medals")
+            regions["Mirage Arena"].locations.append("(V) Mirage Arena Collect 5,555 Medals")
+            regions["Mirage Arena"].locations.append("(V) Mirage Arena Collect 7,777 Medals")
+            regions["Mirage Arena"].locations.append("(V) Mirage Arena Collect 9,999 Medals")
         if options.mirage_arena:
-            if options.command_board:
-                regions["Mirage Arena"].locations.append("(V) Mirage Arena Win a Command Board game")
-                regions["Mirage Arena"].locations.append("(V) Mirage Arena Win 3 Command Board games")
-                regions["Mirage Arena"].locations.append("(V) Mirage Arena Win 5 Command Board games")
-                regions["Mirage Arena"].locations.append("(V) Mirage Arena Win 7 Command Board games")
             if options.super_bosses:
                 regions["Mirage Arena"].locations.append("(V) Mirage Arena Villains' Vendetta Ultima Weapon")
                 regions["Mirage Arena"].locations.append("(V) Mirage Arena Complete Villains' Vendetta")
@@ -754,13 +766,6 @@ def create_regions(multiworld: MultiWorld, player: int, options):
                 regions["Mirage Arena"].locations.append("(V) Mirage Arena Complete Light's Lessons")
                 regions["Mirage Arena"].locations.append("(V) Mirage Arena Peering into Darkness Royal Radiance")
                 regions["Mirage Arena"].locations.append("(V) Mirage Arena Complete Peering into Darkness")
-            if options.arena_medals:
-                regions["Mirage Arena"].locations.append("(V) Mirage Arena Collect 300 Medals")
-                regions["Mirage Arena"].locations.append("(V) Mirage Arena Collect 1,000 Medals")
-                regions["Mirage Arena"].locations.append("(V) Mirage Arena Collect 3,333 Medals")
-                regions["Mirage Arena"].locations.append("(V) Mirage Arena Collect 5,555 Medals")
-                regions["Mirage Arena"].locations.append("(V) Mirage Arena Collect 7,777 Medals")
-                regions["Mirage Arena"].locations.append("(V) Mirage Arena Collect 9,999 Medals")
             regions["Mirage Arena"].locations.append("(V) Mirage Arena Complete Day of Reckoning")
             if options.arena_global_locations:
                 regions["Mirage Arena"].locations.append("(V) Mirage Arena Complete Wheels of Misfortune")
@@ -778,11 +783,6 @@ def create_regions(multiworld: MultiWorld, player: int, options):
             regions["Mirage Arena"].locations.append("(V) Mirage Arena Complete Copycat Crisis")
             regions["Mirage Arena"].locations.append("(V) Mirage Arena Keepers of the Arena Multivortex")
             regions["Mirage Arena"].locations.append("(V) Mirage Arena Complete Keepers of the Arena")
-            if options.minigames:
-                regions["Mirage Arena"].locations.append("(V) Mirage Arena Country Chase: Finish 5 laps in 2:30")
-                regions["Mirage Arena"].locations.append("(V) Mirage Arena Disney Drive: Finish 5 laps in 5 minutes")
-                regions["Mirage Arena"].locations.append("(V) Mirage Arena Grand Spree: Finish 5 laps in 5 minutes")
-                regions["Mirage Arena"].locations.append("(V) Mirage Arena Castle Circuit: Finish 5 laps in 5:30")
             if options.arena_global_locations or options.minigames:
                 regions["Mirage Arena"].locations.append("(V) Mirage Arena Monster of the Sea Mini")
                 regions["Mirage Arena"].locations.append("(V) Mirage Arena Complete Monster of the Sea")
