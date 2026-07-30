@@ -446,14 +446,14 @@ def set_rules(khbbsworld):
                     and has_x_worlds(state, player, 8)
                 ))
             add_rule(khbbsworld.get_location("(A) The Land of Departure World Sealed Brightcrest"),
-            lambda state: (
-                state.has_all({
-                    "Wayfinder Ventus",
-                    "Wayfinder Aqua",
-                    "Wayfinder Terra"}, player)
-                and has_defensive_tools(state, player)
-                and has_x_worlds(state, player, 8)
-            ))
+                lambda state: (
+                    state.has_all({
+                        "Wayfinder Ventus",
+                        "Wayfinder Aqua",
+                        "Wayfinder Terra"}, player)
+                    and has_defensive_tools(state, player)
+                    and has_x_worlds(state, player, 8)
+                ))
         add_rule(khbbsworld.get_location("(A) Olympus Coliseum Coliseum Gates Fireworks Sticker"),
             lambda state: (
                 state.has_any({
