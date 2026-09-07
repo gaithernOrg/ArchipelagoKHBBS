@@ -68,7 +68,8 @@ def patch_khbbs(self, output_directory, character):
                 ]
             }
         ],
-        'title':  f'BBSFMAP Randomizer Seed for {character_name}'
+        'title':  f'BBSFMAP Randomizer Seed - {character_name} - {self.multiworld.get_file_safe_player_name(self.player)}',
+        'description': f'Seed - {self.multiworld.seed_name}'
     }
     
     openkhmod = {
